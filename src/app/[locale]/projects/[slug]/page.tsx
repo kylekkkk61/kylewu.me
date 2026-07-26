@@ -25,7 +25,7 @@ import { getProfile } from "@/data/profile"
 import { getProjects, projects } from "@/data/projects"
 import { getWritingEntry, getWritingPath } from "@/data/writing"
 import { Link, routing } from "@/i18n/routing"
-import { siteConfig } from "@/lib/seo"
+import { getOgImagePath, siteConfig } from "@/lib/seo"
 import { getProjectSchema, getVideoSchema } from "@/lib/structured-data"
 import { cn } from "@/lib/utils"
 
@@ -74,6 +74,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const canonicalPath =
     locale === "en" ? `/projects/${slug}` : `/${locale}/projects/${slug}`
+  const socialDescription = project.ogSubtitle ?? project.subtitle
 
   return {
     title: project.title,
@@ -88,7 +89,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     openGraph: {
       title: project.title,
-      description: project.shortDescription || project.description,
+      description: socialDescription,
       url: `${siteConfig.url}${canonicalPath}`,
       locale: locale === "zh-TW" ? "zh_TW" : "en_US",
       type: "article",
@@ -96,7 +97,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: project.title,
-      description: project.shortDescription || project.description,
+      description: socialDescription,
+      images: [
+        {
+          url: getOgImagePath(locale, `/projects/${slug}`),
+          alt: `${project.title} project by Kyle Wu`,
+        },
+      ],
     },
   }
 }

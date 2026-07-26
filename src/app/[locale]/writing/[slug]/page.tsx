@@ -14,7 +14,7 @@ import {
   writingEntries,
 } from "@/data/writing"
 import { Link } from "@/i18n/routing"
-import { siteConfig } from "@/lib/seo"
+import { getOgImagePath, siteConfig } from "@/lib/seo"
 import { getArticleSchema } from "@/lib/structured-data"
 
 type Props = {
@@ -60,7 +60,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     },
     openGraph: {
       title: entry.title,
-      description: entry.description,
+      description: entry.ogSubtitle,
       url: `${siteConfig.url}${canonicalPath}`,
       locale: locale === "zh-TW" ? "zh_TW" : "en_US",
       type: "article",
@@ -71,7 +71,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: entry.title,
-      description: entry.description,
+      description: entry.ogSubtitle,
+      images: [
+        {
+          url: getOgImagePath(locale, `/writing/${slug}`),
+          alt: `${entry.title} by Kyle Wu`,
+        },
+      ],
     },
   }
 }

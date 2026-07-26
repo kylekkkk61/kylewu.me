@@ -1,10 +1,13 @@
 import { createOgImage, ogImageSize } from "@/components/seo/og-card"
-import { getWritingEntry } from "@/data/writing"
+import { getWritingEntry, writingEntries } from "@/data/writing"
 
 export const alt = "Kyle Wu article"
 export const size = ogImageSize
 export const contentType = "image/png"
-export const runtime = "nodejs"
+
+export function generateStaticParams() {
+  return writingEntries.map(({ locale, slug }) => ({ locale, slug }))
+}
 
 export default async function OpenGraphImage({
   params,
@@ -27,5 +30,6 @@ export default async function OpenGraphImage({
     title: entry.title,
     subtitle: entry.ogSubtitle,
     footer: `Kyle Wu · ${entry.publishedAt.slice(0, 4)}`,
+    accent: "#9fb396",
   })
 }

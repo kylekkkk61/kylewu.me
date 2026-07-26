@@ -14,6 +14,7 @@ type OgCardProps = {
   subtitle: string
   description?: string
   footer?: string
+  accent?: string
 }
 
 const fontData = readFile(
@@ -29,7 +30,8 @@ export async function createOgImage({
   title,
   subtitle,
   description,
-  footer = "Kyle Wu · kylewu.me",
+  footer = "Kyle Wu",
+  accent = "#c4a56c",
 }: OgCardProps) {
   const [font, background] = await Promise.all([fontData, backgroundData])
 
@@ -79,7 +81,7 @@ export async function createOgImage({
             display: "flex",
             alignItems: "center",
             gap: 20,
-            color: "#c4a56c",
+            color: accent,
           }}
         >
           <LogoIcon
@@ -134,7 +136,7 @@ export async function createOgImage({
                 display: "flex",
                 fontSize: 21,
                 lineHeight: 1.4,
-                color: "#9fb396",
+                color: accent,
               }}
             >
               {description}

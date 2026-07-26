@@ -1,10 +1,16 @@
 import { createOgImage, ogImageSize } from "@/components/seo/og-card"
-import { getProjects } from "@/data/projects"
+import { getProjects, projects } from "@/data/projects"
+import { routing } from "@/i18n/routing"
 
 export const alt = "Kyle Wu selected project"
 export const size = ogImageSize
 export const contentType = "image/png"
-export const runtime = "nodejs"
+
+export function generateStaticParams() {
+  return routing.locales.flatMap((locale) =>
+    projects.map(({ slug }) => ({ locale, slug })),
+  )
+}
 
 export default async function OpenGraphImage({
   params,
@@ -29,5 +35,6 @@ export default async function OpenGraphImage({
     title: project.title,
     subtitle: project.ogSubtitle ?? project.subtitle,
     footer: `Kyle Wu · ${project.year ?? "2026"}`,
+    accent: project.slug === "kaiyn-trading-bot" ? "#7ec7d8" : "#8da2ff",
   })
 }
