@@ -21,6 +21,7 @@ export function getPersonSchema() {
     name: siteConfig.name,
     alternateName: ["Ping-Ju Wu", "吳秉儒"],
     url: siteConfig.url,
+    email: links.email,
     sameAs: sameAs,
     jobTitle: "FinTech Builder",
     affiliation: {
