@@ -19,6 +19,7 @@ export default async function OpenGraphImage({
   const profile = getProfile(locale)
 
   return createOgImage({
+    locale,
     eyebrow: locale === "zh-TW" ? "個人作品集" : "Personal Portfolio",
     title: profile.name,
     subtitle: profile.positioning.replaceAll(" / ", " · "),

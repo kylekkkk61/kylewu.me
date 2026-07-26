@@ -9,6 +9,7 @@ export const ogImageSize = {
 }
 
 type OgCardProps = {
+  locale: string
   eyebrow: string
   title: string
   subtitle: string
@@ -17,8 +18,14 @@ type OgCardProps = {
   accent?: string
 }
 
-const fontData = readFile(
+const notoSansData = readFile(
   join(process.cwd(), "src/assets/fonts/NotoSansTC-Medium.otf"),
+)
+const geistData = readFile(
+  join(process.cwd(), "src/assets/fonts/Geist-Latin.ttf"),
+)
+const newsreaderData = readFile(
+  join(process.cwd(), "src/assets/fonts/Newsreader-Latin.ttf"),
 )
 const backgroundData = readFile(
   join(process.cwd(), "public/og/og-background.png"),
@@ -26,6 +33,7 @@ const backgroundData = readFile(
 ).then((data) => `data:image/png;base64,${data}`)
 
 export async function createOgImage({
+  locale,
   eyebrow,
   title,
   subtitle,
@@ -33,7 +41,14 @@ export async function createOgImage({
   footer = "Kyle Wu",
   accent = "#c4a56c",
 }: OgCardProps) {
-  const [font, background] = await Promise.all([fontData, backgroundData])
+  const isEnglish = locale === "en"
+  const [bodyFont, titleFont, background] = await Promise.all([
+    isEnglish ? geistData : notoSansData,
+    isEnglish ? newsreaderData : notoSansData,
+    backgroundData,
+  ])
+  const bodyFontFamily = isEnglish ? "Geist" : "Noto Sans TC"
+  const titleFontFamily = isEnglish ? "Newsreader" : "Noto Sans TC"
 
   return new ImageResponse(
     <div
@@ -45,7 +60,7 @@ export async function createOgImage({
         overflow: "hidden",
         backgroundColor: "#0d0d0d",
         color: "#f0eadd",
-        fontFamily: "Noto Sans TC",
+        fontFamily: bodyFontFamily,
       }}
     >
       {/* biome-ignore lint/performance/noImgElement: ImageResponse renders local data URLs directly. */}
@@ -116,6 +131,7 @@ export async function createOgImage({
               lineHeight: 1.08,
               letterSpacing: "-0.035em",
               color: "#f3f2ee",
+              fontFamily: titleFontFamily,
             }}
           >
             {title}
@@ -162,14 +178,29 @@ export async function createOgImage({
     </div>,
     {
       ...ogImageSize,
-      fonts: [
-        {
-          name: "Noto Sans TC",
-          data: font,
-          style: "normal",
-          weight: 500,
-        },
-      ],
+      fonts: isEnglish
+        ? [
+            {
+              name: "Geist",
+              data: bodyFont,
+              style: "normal",
+              weight: 500,
+            },
+            {
+              name: "Newsreader",
+              data: titleFont,
+              style: "normal",
+              weight: 500,
+            },
+          ]
+        : [
+            {
+              name: "Noto Sans TC",
+              data: bodyFont,
+              style: "normal",
+              weight: 500,
+            },
+          ],
     },
   )
 }

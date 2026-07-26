@@ -19,6 +19,7 @@ export default async function OpenGraphImage({
   const profile = getProfile(locale)
 
   return createOgImage({
+    locale,
     eyebrow: locale === "zh-TW" ? "個人履歷" : "Resume",
     title: profile.name,
     subtitle: profile.alternateName,

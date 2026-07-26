@@ -17,6 +17,7 @@ export default async function OpenGraphImage({
   const { locale } = await params
 
   return createOgImage({
+    locale,
     eyebrow: locale === "zh-TW" ? "文章與研究" : "Writing",
     title: locale === "zh-TW" ? "產品決策與金融科技實作" : "Writing",
     subtitle:

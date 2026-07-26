@@ -19,6 +19,7 @@ export default async function OpenGraphImage({
 
   if (!entry) {
     return createOgImage({
+      locale,
       eyebrow: locale === "zh-TW" ? "文章與研究" : "Writing",
       title: "Kyle Wu",
       subtitle: locale === "zh-TW" ? "找不到文章" : "Article not found",
@@ -26,6 +27,7 @@ export default async function OpenGraphImage({
   }
 
   return createOgImage({
+    locale,
     eyebrow: `${locale === "zh-TW" ? "文章與研究" : "Writing"} · ${entry.category}`,
     title: entry.title,
     subtitle: entry.ogSubtitle,

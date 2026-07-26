@@ -22,6 +22,7 @@ export default async function OpenGraphImage({
 
   if (!project) {
     return createOgImage({
+      locale,
       eyebrow: locale === "zh-TW" ? "精選專案" : "Selected Project",
       title: "Kyle Wu",
       subtitle: locale === "zh-TW" ? "專案不存在" : "Project not found",
@@ -31,6 +32,7 @@ export default async function OpenGraphImage({
   const label = locale === "zh-TW" ? "精選專案" : "Selected Project"
 
   return createOgImage({
+    locale,
     eyebrow: `${label} · ${project.category}`,
     title: project.title,
     subtitle: project.ogSubtitle ?? project.subtitle,
