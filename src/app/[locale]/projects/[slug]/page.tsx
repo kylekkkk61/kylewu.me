@@ -1,6 +1,7 @@
 import { IconBrandGithub } from "@tabler/icons-react"
-import { ArrowLeft, ExternalLink, Play } from "lucide-react"
+import { ArrowLeft, ArrowUpRight, ExternalLink, Play } from "lucide-react"
 import type { Metadata } from "next"
+import NextLink from "next/link"
 import { notFound } from "next/navigation"
 import { getTranslations, setRequestLocale } from "next-intl/server"
 import { SectionContainer } from "@/components/layout/section-container"
@@ -22,6 +23,7 @@ import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { getProfile } from "@/data/profile"
 import { getProjects, projects } from "@/data/projects"
+import { getWritingEntry, getWritingPath } from "@/data/writing"
 import { Link, routing } from "@/i18n/routing"
 import { siteConfig } from "@/lib/seo"
 import { getProjectSchema, getVideoSchema } from "@/lib/structured-data"
@@ -114,6 +116,10 @@ export default async function ProjectPage({ params }: Props) {
 
   const projectSchema = getProjectSchema(project, locale)
   const videoSchema = getVideoSchema(project, locale)
+  const relatedWriting = project.relatedWritingSlug
+    ? (getWritingEntry(project.relatedWritingSlug, locale) ??
+      getWritingEntry(project.relatedWritingSlug, "en"))
+    : undefined
 
   return (
     <>
@@ -444,6 +450,24 @@ export default async function ProjectPage({ params }: Props) {
                   ))}
                 </div>
               </section>
+
+              {relatedWriting && (
+                <section className="border-border bg-muted/30 rounded-xl border p-6 md:p-8">
+                  <p className="text-muted-foreground mb-2 font-mono text-xs uppercase tracking-wide">
+                    {t("RelatedWriting")}
+                  </p>
+                  <NextLink
+                    href={getWritingPath(relatedWriting)}
+                    className="group inline-flex items-center gap-2 text-lg font-semibold"
+                  >
+                    {t("ReadRelatedArticle")}
+                    <ArrowUpRight
+                      aria-hidden="true"
+                      className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    />
+                  </NextLink>
+                </section>
+              )}
 
               {/* Disclaimer */}
               {project.detail.disclaimer && (

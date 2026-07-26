@@ -2,6 +2,7 @@
   "Navigation": {
     "Work": "精選專案",
     "Capabilities": "專業能力",
+    "Writing": "文章與研究",
     "About": "關於我",
     "Contact": "聯絡我",
     "SwitchToLight": "切換至淺色模式",
@@ -57,7 +58,23 @@
     "Focus": "核心重點",
     "BuiltWith": "使用技術",
     "Artifact": "公開成果",
-    "Disclaimer": "免責聲明"
+    "Disclaimer": "免責聲明",
+    "RelatedWriting": "延伸閱讀",
+    "ReadRelatedArticle": "閱讀確認優先工作流程案例文章"
+  },
+  "Writing": {
+    "Eyebrow": "文章與研究",
+    "Title": "產品決策與金融科技實作文章",
+    "Description": "從產品策略、市場系統與工程決策出發，記錄公開專案背後的思考與實作經驗。",
+    "ReadArticle": "閱讀文章",
+    "BackToWriting": "返回文章與研究",
+    "Published": "發布日期",
+    "Updated": "更新日期",
+    "EnglishArticle": "英文文章",
+    "ChineseArticle": "中文文章",
+    "SourceMaterial": "參考資料",
+    "RelatedProject": "相關專案",
+    "ViewProject": "查看 Kaiyn Trading Bot 專案介紹"
   },
   "Footer": {
     "AllRightsReserved": "版權所有"
@@ -92,6 +109,8 @@
     "titleShort": "Kyle Wu",
     "description": "Kyle Wu（吳秉儒）來自台灣，是即將就讀華威商學院金融科技碩士的 FinTech Builder，專注於產品策略、市場分析、數位金融與 AI 原生軟體開發。",
     "resumeTitle": "個人履歷",
-    "resumeDescription": "Kyle Wu（吳秉儒）的履歷，涵蓋金融科技產品策略、市場分析、創業經驗、精選專案、工作經歷與教育背景。"
+    "resumeDescription": "Kyle Wu（吳秉儒）的履歷，涵蓋金融科技產品策略、市場分析、創業經驗、精選專案、工作經歷與教育背景。",
+    "writingTitle": "文章與研究",
+    "writingDescription": "Kyle Wu（吳秉儒）撰寫的產品策略、金融科技系統、市場工作流程與公開專案工程決策文章。"
   }
 }

@@ -68,6 +68,7 @@ export type Project = {
   image?: string
   video?: string
   videoPoster?: string
+  relatedWritingSlug?: string
   order?: number
   updatedAt?: string
   detail: ProjectDetail
@@ -114,8 +115,9 @@ const projectsEn: Project[] = [
       },
     ],
     featured: true,
+    relatedWritingSlug: "confirmation-first-telegram-trading-workflow",
     order: 1,
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-07-26",
     video: "https://cv.kylewu.me/kaiyn-demo.mp4",
     videoPoster: "https://cv.kylewu.me/kaiyn-demo-poster.webp",
     detail: {
@@ -353,8 +355,9 @@ const projectsZh: Project[] = [
       },
     ],
     featured: true,
+    relatedWritingSlug: "confirmation-first-telegram-trading-workflow",
     order: 1,
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-07-26",
     video: "https://cv.kylewu.me/kaiyn-demo.mp4",
     videoPoster: "https://cv.kylewu.me/kaiyn-demo-poster.webp",
     detail: {

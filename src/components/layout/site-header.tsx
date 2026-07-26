@@ -10,7 +10,13 @@ import type { Profile } from "@/data/profile"
 import { Link, usePathname, useRouter } from "@/i18n/routing"
 import { cn } from "@/lib/utils"
 
-export function SiteHeader({ profile }: { profile: Profile }) {
+export function SiteHeader({
+  profile,
+  languagePath,
+}: {
+  profile: Profile
+  languagePath?: string
+}) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
   const menuButtonRef = React.useRef<HTMLButtonElement>(null)
   const mobileMenuRef = React.useRef<HTMLDivElement>(null)
@@ -70,16 +76,21 @@ export function SiteHeader({ profile }: { profile: Profile }) {
   }, [isMobileMenuOpen])
 
   const navLinks = [
-    { href: "/#work", label: t("Work") },
-    { href: "/#capabilities", label: t("Capabilities") },
-    { href: "/#about", label: t("About") },
+    { href: "/#work", label: t("Work"), isActive: false },
+    { href: "/#capabilities", label: t("Capabilities"), isActive: false },
+    {
+      href: "/writing",
+      label: t("Writing"),
+      isActive: pathname.startsWith("/writing"),
+    },
+    { href: "/#about", label: t("About"), isActive: false },
   ]
 
   const toggleLanguage = () => {
     const nextLocale = locale === "en" ? "zh-TW" : "en"
     const hash = typeof window !== "undefined" ? window.location.hash : ""
-    // Append hash to pathname so next-intl router routes to the translated anchor
-    router.replace(pathname + hash, { locale: nextLocale, scroll: false })
+    const nextPath = languagePath ?? pathname + hash
+    router.replace(nextPath, { locale: nextLocale, scroll: false })
   }
 
   return (
@@ -114,12 +125,16 @@ export function SiteHeader({ profile }: { profile: Profile }) {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="text-muted-foreground hidden items-center gap-12 text-sm font-medium md:flex">
+        <nav className="text-muted-foreground hidden items-center gap-8 text-sm font-medium md:flex lg:gap-12">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="hover:text-foreground transition-colors"
+              aria-current={link.isActive ? "page" : undefined}
+              className={cn(
+                "hover:text-foreground transition-colors",
+                link.isActive && "text-foreground",
+              )}
             >
               {link.label}
             </Link>
@@ -197,7 +212,11 @@ export function SiteHeader({ profile }: { profile: Profile }) {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-foreground text-lg font-medium transition-colors dark:hover:text-white hover:text-foreground"
+                aria-current={link.isActive ? "page" : undefined}
+                className={cn(
+                  "text-foreground text-lg font-medium transition-colors dark:hover:text-white hover:text-foreground",
+                  link.isActive && "text-primary",
+                )}
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
