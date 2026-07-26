@@ -16,6 +16,8 @@ type OgCardProps = {
   description?: string
   footer?: string
   accent?: string
+  layout?: "identity" | "project" | "editorial"
+  projectVisual?: "kaiyn-workflow" | "pm-lab-research"
 }
 
 const notoSansData = readFile(
@@ -31,6 +33,19 @@ const backgroundData = readFile(
   join(process.cwd(), "public/og/og-background.png"),
   "base64",
 ).then((data) => `data:image/png;base64,${data}`)
+const projectVisualData = {
+  "kaiyn-workflow": readFile(
+    join(process.cwd(), "public/og/projects/kaiyn-trading-flow.png"),
+    "base64",
+  ).then((data) => `data:image/png;base64,${data}`),
+  "pm-lab-research": readFile(
+    join(
+      process.cwd(),
+      "public/og/projects/prediction-market-signal-funnel.png",
+    ),
+    "base64",
+  ).then((data) => `data:image/png;base64,${data}`),
+}
 
 export async function createOgImage({
   locale,
@@ -40,15 +55,29 @@ export async function createOgImage({
   description,
   footer = "Kyle Wu",
   accent = "#c4a56c",
+  layout = "identity",
+  projectVisual,
 }: OgCardProps) {
   const isEnglish = locale === "en"
-  const [bodyFont, titleFont, background] = await Promise.all([
+  const [bodyFont, titleFont, background, visual] = await Promise.all([
     isEnglish ? geistData : notoSansData,
     isEnglish ? newsreaderData : notoSansData,
     backgroundData,
+    projectVisual ? projectVisualData[projectVisual] : undefined,
   ])
   const bodyFontFamily = isEnglish ? "Geist" : "Noto Sans TC"
   const titleFontFamily = isEnglish ? "Newsreader" : "Noto Sans TC"
+  const editorialTitleSize = isEnglish
+    ? title.length > 52
+      ? 48
+      : title.length > 28
+        ? 58
+        : 74
+    : title.length > 24
+      ? 42
+      : title.length > 14
+        ? 48
+        : 54
 
   return new ImageResponse(
     <div
@@ -116,49 +145,186 @@ export async function createOgImage({
           </span>
         </div>
 
-        <div
-          style={{
-            display: "flex",
-            maxWidth: 980,
-            flexDirection: "column",
-            gap: 20,
-          }}
-        >
+        {layout === "project" && visual ? (
           <div
             style={{
               display: "flex",
-              fontSize: title.length > 28 ? 64 : 78,
-              lineHeight: 1.08,
-              letterSpacing: "-0.035em",
-              color: "#f3f2ee",
-              fontFamily: titleFontFamily,
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: 52,
             }}
           >
-            {title}
-          </div>
-          <div
-            style={{
-              display: "flex",
-              fontSize: 31,
-              lineHeight: 1.35,
-              color: "#c9c5bb",
-            }}
-          >
-            {subtitle}
-          </div>
-          {description && (
             <div
               style={{
                 display: "flex",
-                fontSize: 21,
-                lineHeight: 1.4,
-                color: accent,
+                width: 555,
+                flexDirection: "column",
+                gap: 24,
               }}
             >
-              {description}
+              <div
+                style={{
+                  display: "flex",
+                  fontSize: title.length > 28 ? 54 : 66,
+                  lineHeight: 1.05,
+                  letterSpacing: "-0.035em",
+                  color: "#f3f2ee",
+                  fontFamily: titleFontFamily,
+                }}
+              >
+                {title}
+              </div>
+              <div
+                style={{
+                  display: "flex",
+                  width: 510,
+                  fontSize: 26,
+                  lineHeight: 1.4,
+                  color: "#c9c5bb",
+                }}
+              >
+                {subtitle}
+              </div>
             </div>
-          )}
-        </div>
+            <div
+              style={{
+                display: "flex",
+                width: 460,
+                height: 290,
+                overflow: "hidden",
+                border: `1px solid ${accent}66`,
+                borderRadius: 14,
+                backgroundColor: "#11151d",
+                boxShadow: `0 20px 55px ${accent}1f`,
+              }}
+            >
+              {/* biome-ignore lint/performance/noImgElement: ImageResponse renders local data URLs directly. */}
+              <img
+                alt=""
+                src={visual}
+                width={460}
+                height={290}
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "contain",
+                }}
+              />
+            </div>
+          </div>
+        ) : layout === "editorial" ? (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "stretch",
+              justifyContent: "space-between",
+              gap: 58,
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                width: 690,
+                flexDirection: "column",
+                justifyContent: "center",
+                borderLeft: `4px solid ${accent}`,
+                paddingLeft: 34,
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  fontSize: editorialTitleSize,
+                  lineHeight: 1.06,
+                  letterSpacing: "-0.035em",
+                  color: "#f3f2ee",
+                  fontFamily: titleFontFamily,
+                }}
+              >
+                {title}
+              </div>
+            </div>
+            <div
+              style={{
+                display: "flex",
+                width: 330,
+                flexDirection: "column",
+                justifyContent: "flex-end",
+                gap: 18,
+                borderTop: "1px solid rgba(240,234,221,0.22)",
+                paddingTop: 26,
+                paddingBottom: 8,
+              }}
+            >
+              <div
+                style={{
+                  display: "flex",
+                  fontSize: 25,
+                  lineHeight: 1.45,
+                  color: "#c9c5bb",
+                }}
+              >
+                {subtitle}
+              </div>
+              {description && (
+                <div
+                  style={{
+                    display: "flex",
+                    fontSize: 18,
+                    lineHeight: 1.4,
+                    color: accent,
+                  }}
+                >
+                  {description}
+                </div>
+              )}
+            </div>
+          </div>
+        ) : (
+          <div
+            style={{
+              display: "flex",
+              maxWidth: 980,
+              flexDirection: "column",
+              gap: 20,
+            }}
+          >
+            <div
+              style={{
+                display: "flex",
+                fontSize: title.length > 28 ? 64 : 78,
+                lineHeight: 1.08,
+                letterSpacing: "-0.035em",
+                color: "#f3f2ee",
+                fontFamily: titleFontFamily,
+              }}
+            >
+              {title}
+            </div>
+            <div
+              style={{
+                display: "flex",
+                fontSize: 31,
+                lineHeight: 1.35,
+                color: "#c9c5bb",
+              }}
+            >
+              {subtitle}
+            </div>
+            {description && (
+              <div
+                style={{
+                  display: "flex",
+                  fontSize: 21,
+                  lineHeight: 1.4,
+                  color: accent,
+                }}
+              >
+                {description}
+              </div>
+            )}
+          </div>
+        )}
 
         <div
           style={{

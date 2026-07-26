@@ -25,5 +25,6 @@ export default async function OpenGraphImage({
         ? "記錄公開專案背後的產品策略、市場系統與工程決策。"
         : "Product decisions, market systems, and the engineering behind public work.",
     accent: "#9fb396",
+    layout: "editorial",
   })
 }

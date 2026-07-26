@@ -33,5 +33,6 @@ export default async function OpenGraphImage({
     subtitle: entry.ogSubtitle,
     footer: `Kyle Wu · ${entry.publishedAt.slice(0, 4)}`,
     accent: "#9fb396",
+    layout: "editorial",
   })
 }
