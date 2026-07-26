@@ -7,5 +7,5 @@ export const config = {
   // Keep the Edge runtime: local Vercel tests showed lower TTFB than Node proxy.
   runtime: "experimental-edge",
   // Bypass localized and static routes so they can use CDN-level cache hits.
-  matcher: ["/", "/((?!api|_next|_vercel|zh-TW|.*\\..*).*)"],
+  matcher: ["/", "/((?!api|_next|_vercel|zh-TW|.*opengraph-image|.*\\..*).*)"],
 }

@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/layout/site-footer"
 import { SiteHeader } from "@/components/layout/site-header"
 import { getProfile } from "@/data/profile"
 import { getWritingIndexEntries, getWritingPath } from "@/data/writing"
-import { siteConfig } from "@/lib/seo"
+import { getOgImagePath, siteConfig } from "@/lib/seo"
 
 type Props = {
   params: Promise<{ locale: string }>
@@ -46,6 +46,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: t("writingTitle"),
       description: t("writingDescription"),
+      images: [
+        {
+          url: getOgImagePath(locale, "/writing"),
+          alt: "Kyle Wu writing",
+        },
+      ],
     },
   }
 }

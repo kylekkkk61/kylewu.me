@@ -23,7 +23,7 @@ const newsreader = Newsreader({
 })
 
 import { getTranslations } from "next-intl/server"
-import { siteConfig } from "@/lib/seo"
+import { getOgImagePath, siteConfig } from "@/lib/seo"
 
 export async function generateMetadata({
   params,
@@ -51,8 +51,8 @@ export async function generateMetadata({
       },
     },
     openGraph: {
-      title: t("title"),
-      description: t("description"),
+      title: t("socialTitle"),
+      description: t("socialDescription"),
       url: `${siteConfig.url}${canonicalPath === "/" ? "" : canonicalPath}`,
       siteName: t("titleShort"),
       locale: locale === "zh-TW" ? "zh_TW" : "en_US",
@@ -60,8 +60,14 @@ export async function generateMetadata({
     },
     twitter: {
       card: "summary_large_image",
-      title: t("title"),
-      description: t("description"),
+      title: t("socialTitle"),
+      description: t("socialDescription"),
+      images: [
+        {
+          url: getOgImagePath(locale),
+          alt: "Kyle Wu portfolio",
+        },
+      ],
     },
     robots: {
       index: true,

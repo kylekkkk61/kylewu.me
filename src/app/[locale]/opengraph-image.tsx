@@ -1,10 +1,14 @@
 import { createOgImage, ogImageSize } from "@/components/seo/og-card"
 import { getProfile } from "@/data/profile"
+import { routing } from "@/i18n/routing"
 
 export const alt = "Kyle Wu portfolio"
 export const size = ogImageSize
 export const contentType = "image/png"
-export const runtime = "nodejs"
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }))
+}
 
 export default async function OpenGraphImage({
   params,
@@ -15,6 +19,7 @@ export default async function OpenGraphImage({
   const profile = getProfile(locale)
 
   return createOgImage({
+    locale,
     eyebrow: locale === "zh-TW" ? "個人作品集" : "Personal Portfolio",
     title: profile.name,
     subtitle: profile.positioning.replaceAll(" / ", " · "),

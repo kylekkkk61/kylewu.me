@@ -8,7 +8,7 @@ import { links } from "@/data/links"
 import { getProfile } from "@/data/profile"
 import { getResume, type ResumeEntry } from "@/data/resume"
 import { Link } from "@/i18n/routing"
-import { siteConfig } from "@/lib/seo"
+import { getOgImagePath, siteConfig } from "@/lib/seo"
 import { cn } from "@/lib/utils"
 
 type Props = {
@@ -42,6 +42,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: t("resumeTitle"),
       description: t("resumeDescription"),
+      images: [
+        {
+          url: getOgImagePath(locale, "/resume"),
+          alt: "Kyle Wu resume",
+        },
+      ],
     },
   }
 }
