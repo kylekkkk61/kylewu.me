@@ -2,6 +2,7 @@
   "Navigation": {
     "Work": "Work",
     "Capabilities": "Capabilities",
+    "Writing": "Writing",
     "About": "About",
     "Contact": "Contact",
     "SwitchToLight": "Switch to light mode",
@@ -57,7 +58,23 @@
     "Focus": "Focus",
     "BuiltWith": "Built with",
     "Artifact": "Public artifact",
-    "Disclaimer": "Disclaimer"
+    "Disclaimer": "Disclaimer",
+    "RelatedWriting": "Related writing",
+    "ReadRelatedArticle": "Read the confirmation-first workflow case study"
+  },
+  "Writing": {
+    "Eyebrow": "Writing",
+    "Title": "Articles on product decisions and applied FinTech work",
+    "Description": "Long-form notes connecting product strategy, market systems, and the engineering decisions behind my public work.",
+    "ReadArticle": "Read article",
+    "BackToWriting": "Back to Writing",
+    "Published": "Published",
+    "Updated": "Updated",
+    "EnglishArticle": "English article",
+    "ChineseArticle": "Traditional Chinese article",
+    "SourceMaterial": "Source material",
+    "RelatedProject": "Related project",
+    "ViewProject": "View the Kaiyn Trading Bot case study"
   },
   "Footer": {
     "AllRightsReserved": "All rights reserved."
@@ -92,6 +109,8 @@
     "titleShort": "Kyle Wu",
     "description": "Kyle Wu is a Taiwan-based FinTech builder and incoming MSc Financial Technology student at Warwick Business School, working across product strategy, market analysis, digital finance, and AI-native software execution.",
     "resumeTitle": "Resume",
-    "resumeDescription": "Kyle Wu's resume covering FinTech product strategy, market analysis, venture building, selected projects, professional experience, and education."
+    "resumeDescription": "Kyle Wu's resume covering FinTech product strategy, market analysis, venture building, selected projects, professional experience, and education.",
+    "writingTitle": "Writing",
+    "writingDescription": "Articles by Kyle Wu on product strategy, applied FinTech systems, market workflows, and the engineering decisions behind public projects."
   }
 }

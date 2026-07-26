@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next"
 import { projects } from "@/data/projects"
+import { writingEntries } from "@/data/writing"
 import { routing } from "@/i18n/routing"
 import { siteConfig } from "@/lib/seo"
 
@@ -34,5 +35,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified,
   }))
 
-  return [...homePages, ...projectPages, ...resumePages]
+  const writingPages = routing.locales.map((locale) => ({
+    url: getUrl(locale, "/writing"),
+    lastModified: new Date("2026-07-26"),
+  }))
+
+  const articlePages = writingEntries.map((entry) => ({
+    url: getUrl(entry.locale, `/writing/${entry.slug}`),
+    lastModified: new Date(entry.updatedAt),
+  }))
+
+  return [
+    ...homePages,
+    ...projectPages,
+    ...resumePages,
+    ...writingPages,
+    ...articlePages,
+  ]
 }

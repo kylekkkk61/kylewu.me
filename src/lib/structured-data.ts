@@ -1,4 +1,5 @@
 import { links } from "@/data/links"
+import type { WritingEntry } from "@/data/writing"
 import { siteConfig } from "@/lib/seo"
 
 /**
@@ -168,6 +169,31 @@ export function getProjectSchema(
   return {
     ...baseSchema,
     "@type": "CreativeWork",
+  }
+}
+
+/**
+ * Generate article schema for an available writing locale.
+ */
+export function getArticleSchema(entry: WritingEntry) {
+  const prefix = entry.locale === "en" ? "" : `/${entry.locale}`
+  const url = `${siteConfig.url}${prefix}/writing/${entry.slug}`
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${url}#article`,
+    headline: entry.title,
+    description: entry.description,
+    datePublished: entry.publishedAt,
+    dateModified: entry.updatedAt,
+    inLanguage: entry.locale,
+    articleSection: entry.category,
+    url,
+    mainEntityOfPage: url,
+    isPartOf: { "@id": "https://kylewu.me/#website" },
+    author: { "@id": "https://kylewu.me/#person" },
+    publisher: { "@id": "https://kylewu.me/#person" },
   }
 }
 

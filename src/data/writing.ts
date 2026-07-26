@@ -1,0 +1,74 @@
+export type WritingLocale = "en" | "zh-TW"
+
+export type WritingEntry = {
+  slug: string
+  locale: WritingLocale
+  title: string
+  ogSubtitle: string
+  description: string
+  category: string
+  publishedAt: string
+  updatedAt: string
+  relatedProjectSlug: string
+}
+
+export const writingEntries: WritingEntry[] = [
+  {
+    slug: "confirmation-first-telegram-trading-workflow",
+    locale: "en",
+    title:
+      "How a Confirmation-First Telegram Trading Workflow Reduces Execution Risk",
+    ogSubtitle:
+      "Turning fast-moving community signals into validated, auditable order flows.",
+    description:
+      "A product and engineering case study on turning Telegram trading signals into explicit, validated, and auditable order workflows.",
+    category: "Product Workflow",
+    publishedAt: "2026-07-26",
+    updatedAt: "2026-07-26",
+    relatedProjectSlug: "kaiyn-trading-bot",
+  },
+  {
+    slug: "confirmation-first-telegram-trading-workflow",
+    locale: "zh-TW",
+    title: "確認優先的 Telegram 交易流程，如何降低下單風險",
+    ogSubtitle: "把快速流動的社群交易訊號，轉化為經過驗證、可追溯的下單流程。",
+    description:
+      "一篇從產品與工程角度出發的案例文章，說明如何將 Telegram 交易訊號轉化為明確、經過驗證且可追溯的下單流程。",
+    category: "產品流程設計",
+    publishedAt: "2026-07-26",
+    updatedAt: "2026-07-26",
+    relatedProjectSlug: "kaiyn-trading-bot",
+  },
+]
+
+export function getWritingEntry(slug: string, locale: string) {
+  return writingEntries.find(
+    (entry) => entry.slug === slug && entry.locale === locale,
+  )
+}
+
+export function getWritingIndexEntries(locale: string) {
+  const slugs = [...new Set(writingEntries.map((entry) => entry.slug))]
+
+  return slugs.flatMap((slug) => {
+    const entry =
+      getWritingEntry(slug, locale) ??
+      writingEntries.find((item) => item.slug === slug)
+    return entry ? [entry] : []
+  })
+}
+
+export function getWritingAlternates(slug: string) {
+  return writingEntries
+    .filter((entry) => entry.slug === slug)
+    .reduce<Partial<Record<WritingLocale, string>>>((alternates, entry) => {
+      const prefix = entry.locale === "en" ? "" : `/${entry.locale}`
+      alternates[entry.locale] = `${prefix}/writing/${entry.slug}`
+      return alternates
+    }, {})
+}
+
+export function getWritingPath(entry: WritingEntry) {
+  const prefix = entry.locale === "en" ? "" : `/${entry.locale}`
+  return `${prefix}/writing/${entry.slug}`
+}
