@@ -38,5 +38,12 @@ export default async function OpenGraphImage({
     subtitle: project.ogSubtitle ?? project.subtitle,
     footer: `Kyle Wu · ${project.year ?? "2026"}`,
     accent: project.slug === "kaiyn-trading-bot" ? "#7ec7d8" : "#8da2ff",
+    layout: "project",
+    projectVisual:
+      project.visual === "kaiyn-workflow"
+        ? "kaiyn-workflow"
+        : project.visual === "pm-lab-research"
+          ? "pm-lab-research"
+          : undefined,
   })
 }
