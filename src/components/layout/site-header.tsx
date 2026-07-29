@@ -26,6 +26,7 @@ export function SiteHeader({
   const pathname = usePathname()
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = React.useState(false)
+  const [isLanguagePending, startLanguageTransition] = React.useTransition()
 
   React.useEffect(() => {
     setMounted(true)
@@ -90,7 +91,9 @@ export function SiteHeader({
     const nextLocale = locale === "en" ? "zh-TW" : "en"
     const hash = typeof window !== "undefined" ? window.location.hash : ""
     const nextPath = languagePath ?? pathname + hash
-    router.replace(nextPath, { locale: nextLocale, scroll: false })
+    startLanguageTransition(() => {
+      router.replace(nextPath, { locale: nextLocale, scroll: false })
+    })
   }
 
   return (
@@ -161,12 +164,16 @@ export function SiteHeader({
           <button
             type="button"
             onClick={toggleLanguage}
+            disabled={isLanguagePending}
+            aria-busy={isLanguagePending}
             aria-label={
               locale === "en" ? t("SwitchToChinese") : t("SwitchToEnglish")
             }
-            className="text-muted-foreground hover:text-foreground flex items-center gap-1.5 text-sm font-medium transition-colors"
+            className="text-muted-foreground hover:text-foreground flex items-center gap-1.5 text-sm font-medium transition-[color,opacity] disabled:cursor-wait disabled:opacity-60"
           >
-            <Globe size={16} />
+            <span className={cn(isLanguagePending && "animate-pulse")}>
+              <Globe aria-hidden="true" size={16} />
+            </span>
             <span className="hidden sm:inline">
               {locale === "en" ? "中文" : "EN"}
             </span>
