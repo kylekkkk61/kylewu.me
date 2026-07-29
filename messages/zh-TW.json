@@ -51,14 +51,13 @@
   "ProjectDetail": {
     "BackToWork": "返回專案列表",
     "LiveDemo": "線上 Demo",
-    "KeyHighlights": "專案亮點",
     "TechStack": "使用技術",
     "AtAGlance": "專案速覽",
     "ProjectType": "專案類型",
+    "MyRole": "我的角色",
     "Focus": "核心重點",
-    "BuiltWith": "使用技術",
     "Artifact": "公開成果",
-    "Disclaimer": "免責聲明",
+    "DecisionsAndTradeoffs": "關鍵決策與取捨",
     "RelatedWriting": "延伸閱讀",
     "ReadRelatedArticle": "閱讀確認優先工作流程案例文章"
   },

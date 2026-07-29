@@ -51,14 +51,13 @@
   "ProjectDetail": {
     "BackToWork": "Back to Selected Work",
     "LiveDemo": "Live Demo",
-    "KeyHighlights": "Key Highlights",
     "TechStack": "Tech Stack",
     "AtAGlance": "At a Glance",
     "ProjectType": "Type",
+    "MyRole": "My role",
     "Focus": "Focus",
-    "BuiltWith": "Built with",
     "Artifact": "Public artifact",
-    "Disclaimer": "Disclaimer",
+    "DecisionsAndTradeoffs": "Key Decisions and Trade-offs",
     "RelatedWriting": "Related writing",
     "ReadRelatedArticle": "Read the confirmation-first workflow case study"
   },
