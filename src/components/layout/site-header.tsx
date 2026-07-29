@@ -77,13 +77,13 @@ export function SiteHeader({
 
   const navLinks = [
     { href: "/#work", label: t("Work"), isActive: false },
-    { href: "/#capabilities", label: t("Capabilities"), isActive: false },
     {
       href: "/writing",
       label: t("Writing"),
       isActive: pathname.startsWith("/writing"),
     },
-    { href: "/#about", label: t("About"), isActive: false },
+    { href: "/#how-i-work", label: t("HowIWork"), isActive: false },
+    { href: "/#about", label: t("Background"), isActive: false },
   ]
 
   const toggleLanguage = () => {

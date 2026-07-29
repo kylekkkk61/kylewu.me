@@ -1,9 +1,9 @@
 {
   "Navigation": {
     "Work": "精選專案",
-    "Capabilities": "專業能力",
     "Writing": "文章與研究",
-    "About": "關於我",
+    "HowIWork": "工作方式",
+    "Background": "個人背景",
     "Contact": "聯絡我",
     "SwitchToLight": "切換至淺色模式",
     "SwitchToDark": "切換至深色模式",
@@ -82,8 +82,10 @@
   "Sections": {
     "SelectedWork": "精選專案",
     "SelectedWorkDesc": "這些公開專案呈現我如何把市場問題、產品痛點與流程障礙，轉化為可實際運作的系統、研究成果與決策工具。",
-    "Capabilities": "核心能力",
-    "CapabilitiesDesc": "我運用策略、資料分析與技術能力，將市場問題轉化為可實際運作的金融科技系統。",
+    "LatestWriting": "最新文章",
+    "LatestWritingDesc": "記錄專案背後的產品決策、市場系統與實作取捨。",
+    "ViewAllWriting": "查看所有文章與研究",
+    "HowIWork": "工作方式",
     "Background": "個人背景",
     "SeeMyResume": "查看完整履歷"
   },

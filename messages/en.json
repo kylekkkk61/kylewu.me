@@ -1,9 +1,9 @@
 {
   "Navigation": {
     "Work": "Work",
-    "Capabilities": "Capabilities",
     "Writing": "Writing",
-    "About": "About",
+    "HowIWork": "How I Work",
+    "Background": "Background",
     "Contact": "Contact",
     "SwitchToLight": "Switch to light mode",
     "SwitchToDark": "Switch to dark mode",
@@ -82,8 +82,10 @@
   "Sections": {
     "SelectedWork": "Selected Work",
     "SelectedWorkDesc": "Public projects that show how I translate market questions, product problems, and workflow frictions into practical systems, research outputs, and decision-support tools.",
-    "Capabilities": "Capabilities",
-    "CapabilitiesDesc": "The strategy, analysis, and technical capabilities I use to turn market problems into practical fintech systems.",
+    "LatestWriting": "Latest Writing",
+    "LatestWritingDesc": "Notes on the product decisions, market systems, and implementation choices behind my work.",
+    "ViewAllWriting": "View all writing",
+    "HowIWork": "How I Work",
     "Background": "Background",
     "SeeMyResume": "See my resume"
   },

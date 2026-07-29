@@ -2,14 +2,7 @@
 import * as React from "react"
 import { cn } from "@/lib/utils"
 
-const SECTIONS = [
-  "hero",
-  "what-i-do",
-  "work",
-  "capabilities",
-  "about",
-  "contact",
-]
+const SECTIONS = ["hero", "work", "writing", "how-i-work", "about", "contact"]
 
 const SECTION_THEMES: Record<
   string,
@@ -21,19 +14,19 @@ const SECTION_THEMES: Record<
     nodePast: "bg-track-line-default",
     nodeActive: "bg-track-train-default",
   },
-  "what-i-do": {
-    train: "bg-track-train-default shadow-[var(--track-shadow)]",
-    track: "bg-track-line-default",
-    nodePast: "bg-track-line-default",
-    nodeActive: "bg-track-train-default",
-  },
   work: {
     train: "bg-track-train-default shadow-[var(--track-shadow)]",
     track: "bg-track-line-default",
     nodePast: "bg-track-line-default",
     nodeActive: "bg-track-train-default",
   },
-  capabilities: {
+  writing: {
+    train: "bg-track-train-default shadow-[var(--track-shadow)]",
+    track: "bg-track-line-default",
+    nodePast: "bg-track-line-default",
+    nodeActive: "bg-track-train-default",
+  },
+  "how-i-work": {
     train: "bg-track-train-teal shadow-[var(--track-shadow)]",
     track: "bg-track-line-teal",
     nodePast: "bg-track-line-teal",

@@ -1,3 +1,4 @@
+import { ArrowRight } from "lucide-react"
 import { useTranslations } from "next-intl"
 import { SectionContainer } from "@/components/layout/section-container"
 import { FadeIn } from "@/components/ui/fade-in"
@@ -18,42 +19,30 @@ export function AboutSection({ profile }: { profile: Profile }) {
         </div>
 
         <div className="space-y-6 md:col-span-7 lg:col-span-8">
-          <FadeIn className="rounded-[2rem] border-2 border-black/20 dark:border-white/20 bg-black/[0.02] dark:bg-white/[0.02] p-2 shadow-2xl">
-            <div className="rounded-[1.5rem] border border-black/[0.08] dark:border-white/[0.08] bg-black/[0.04] dark:bg-white/[0.04] p-8 md:p-10">
-              <p className="text-primary mb-5 font-mono text-xs font-medium tracking-[0.14em] uppercase">
-                {profile.alternateName}
-              </p>
-              <div className="prose prose-zinc dark:prose-invert text-muted-foreground max-w-none space-y-4">
-                {profile.about.split("\n\n").map((paragraph) => (
-                  <p key={paragraph} className="text-lg leading-relaxed">
-                    {paragraph}
-                  </p>
-                ))}
-              </div>
+          <FadeIn className="border-border/60 border-t pt-8 md:pt-10">
+            <p className="text-primary mb-5 font-mono text-xs font-medium tracking-[0.14em] uppercase">
+              {profile.alternateName}
+            </p>
+            <div className="prose prose-zinc dark:prose-invert text-muted-foreground max-w-none space-y-4">
+              {profile.about.split("\n\n").map((paragraph) => (
+                <p key={paragraph} className="text-lg leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
 
-              <div className="pt-6">
-                <Link
-                  href={links.resume}
-                  prefetch={false}
-                  className="group inline-flex items-center justify-center rounded-lg border border-black/20 dark:border-white/20 bg-white/40 dark:bg-white/[0.04] px-6 py-3 text-base font-medium text-foreground dark:text-white transition-colors hover:border-black/30 dark:hover:border-white/30 hover:bg-white/50 dark:hover:bg-white/10"
-                >
-                  {t("SeeMyResume")}
-                  <svg
-                    aria-hidden="true"
-                    className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
-                    />
-                  </svg>
-                </Link>
-              </div>
+            <div className="pt-6">
+              <Link
+                href={links.resume}
+                prefetch={false}
+                className="group text-foreground hover:text-primary inline-flex items-center font-medium transition-colors"
+              >
+                {t("SeeMyResume")}
+                <ArrowRight
+                  aria-hidden="true"
+                  className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-0.5"
+                />
+              </Link>
             </div>
           </FadeIn>
         </div>
