@@ -31,7 +31,7 @@ export function HeroSection({ profile }: { profile: Profile }) {
   return (
     <SectionContainer
       id="hero"
-      className="relative flex min-h-[75dvh] flex-col justify-center overflow-hidden py-12 md:py-20"
+      className="relative flex min-h-[70dvh] flex-col justify-center overflow-hidden py-12 md:py-16"
     >
       <div className="relative z-10 grid w-full grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-8">
         <div className="max-w-2xl space-y-8">

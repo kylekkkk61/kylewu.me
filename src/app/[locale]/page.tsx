@@ -2,11 +2,11 @@ import { SiteFooter } from "@/components/layout/site-footer"
 import { SiteHeader } from "@/components/layout/site-header"
 import { SiteTrack } from "@/components/layout/site-track"
 import { AboutSection } from "@/components/sections/about-section"
-import { CapabilitiesSection } from "@/components/sections/capabilities-section"
 import { ContactSection } from "@/components/sections/contact-section"
 import { HeroSection } from "@/components/sections/hero-section"
+import { HowIWorkSection } from "@/components/sections/how-i-work-section"
+import { LatestWritingSection } from "@/components/sections/latest-writing-section"
 import { ProjectsSection } from "@/components/sections/projects-section"
-import { WhatIDoSection } from "@/components/sections/what-i-do-section"
 import { JsonLd } from "@/components/seo/json-ld"
 import {
   getPersonSchema,
@@ -23,6 +23,7 @@ const SectionDivider = () => (
 import { setRequestLocale } from "next-intl/server"
 import { getProfile } from "@/data/profile"
 import { getProjects } from "@/data/projects"
+import { getWritingIndexEntries } from "@/data/writing"
 
 export default async function Home({
   params,
@@ -33,6 +34,7 @@ export default async function Home({
   setRequestLocale(locale)
   const profile = getProfile(locale)
   const projectsData = getProjects(locale)
+  const writingEntries = getWritingIndexEntries(locale)
 
   const personSchema = getPersonSchema()
   const websiteSchema = getWebSiteSchema()
@@ -48,11 +50,11 @@ export default async function Home({
         <SiteTrack />
         <HeroSection profile={profile} />
         <SectionDivider />
-        <WhatIDoSection profile={profile} />
-        <SectionDivider />
         <ProjectsSection projects={projectsData} />
         <SectionDivider />
-        <CapabilitiesSection profile={profile} />
+        <LatestWritingSection entries={writingEntries} locale={locale} />
+        <SectionDivider />
+        <HowIWorkSection profile={profile} />
         <SectionDivider />
         <AboutSection profile={profile} />
         <SectionDivider />
