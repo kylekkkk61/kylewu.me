@@ -169,7 +169,7 @@ export function SiteHeader({
             aria-label={
               locale === "en" ? t("SwitchToChinese") : t("SwitchToEnglish")
             }
-            className="text-muted-foreground hover:text-foreground flex items-center gap-1.5 text-sm font-medium transition-[color,opacity] disabled:cursor-wait disabled:opacity-60"
+            className="text-muted-foreground hover:text-foreground flex items-center gap-1.5 text-sm font-medium transition-[color,opacity] disabled:opacity-60"
           >
             <span className={cn(isLanguagePending && "animate-pulse")}>
               <Globe aria-hidden="true" size={16} />
