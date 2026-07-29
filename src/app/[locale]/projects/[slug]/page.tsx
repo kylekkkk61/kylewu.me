@@ -232,7 +232,7 @@ export default async function ProjectPage({ params }: Props) {
                 >
                   {t("AtAGlance")}
                 </h2>
-                <dl className="grid grid-cols-1 gap-4 sm:grid-cols-2 text-sm">
+                <dl className="grid grid-cols-1 gap-x-8 gap-y-5 text-sm sm:grid-cols-2">
                   <div className="space-y-1">
                     <dt className="text-muted-foreground font-medium">
                       {t("ProjectType")}
@@ -241,68 +241,40 @@ export default async function ProjectPage({ params }: Props) {
                   </div>
                   <div className="space-y-1">
                     <dt className="text-muted-foreground font-medium">
+                      {t("Artifact")}
+                    </dt>
+                    <dd className="text-foreground">{project.status}</dd>
+                  </div>
+                  <div className="space-y-1 sm:col-span-2">
+                    <dt className="text-muted-foreground font-medium">
+                      {t("MyRole")}
+                    </dt>
+                    <dd className="text-foreground leading-relaxed">
+                      {project.detail.role}
+                    </dd>
+                  </div>
+                  <div className="space-y-1 sm:col-span-2">
+                    <dt className="text-muted-foreground font-medium">
                       {t("Focus")}
                     </dt>
                     <dd className="text-foreground">
                       {project.capabilities.join(" / ")}
                     </dd>
                   </div>
-                  <div className="space-y-1 sm:col-span-2">
-                    <dt className="text-muted-foreground font-medium">
-                      {t("BuiltWith")}
-                    </dt>
-                    <dd className="text-foreground">
-                      {project.detail.techStack.join(", ")}
-                    </dd>
-                  </div>
-                  <div className="space-y-1">
-                    <dt className="text-muted-foreground font-medium">
-                      {t("Artifact")}
-                    </dt>
-                    <dd className="text-foreground">{project.status}</dd>
-                  </div>
-                  {project.detail.disclaimer && (
-                    <div className="space-y-1 sm:col-span-2 border-t border-black/[0.04] dark:border-white/[0.04] pt-3 mt-1">
-                      <dt className="text-muted-foreground font-medium text-xs uppercase tracking-wider">
-                        {t("Disclaimer")}
-                      </dt>
-                      <dd className="text-muted-foreground text-xs italic">
-                        {project.detail.disclaimer}
-                      </dd>
-                    </div>
-                  )}
                 </dl>
               </section>
 
-              {/* Community Context */}
-              {project.detail.communityContext && (
-                <section className="bg-primary/5 border-primary/10 space-y-4 rounded-xl border p-6">
-                  <h2 className="text-primary text-2xl font-semibold tracking-tight">
-                    {project.detail.communityContext.title}
-                  </h2>
-                  <div className="text-muted-foreground space-y-4 text-lg leading-relaxed">
-                    {project.detail.communityContext.paragraphs.map((p) => (
-                      <p key={p}>{p}</p>
-                    ))}
-                  </div>
-                  {project.detail.communityContext.links && (
-                    <div className="mt-6 flex flex-wrap gap-4">
-                      {project.detail.communityContext.links.map((link) => (
-                        <a
-                          key={link.href}
-                          href={link.href}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="text-primary hover:text-primary/80 inline-flex items-center text-base font-medium transition-colors"
-                        >
-                          <ExternalLink className="mr-2 h-4 w-4" />
-                          {link.label}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-                </section>
-              )}
+              {/* Context */}
+              <section className="space-y-5">
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  {project.detail.context.title}
+                </h2>
+                <div className="text-muted-foreground space-y-4 text-lg leading-relaxed">
+                  {project.detail.context.paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </section>
 
               {/* Video Demo */}
               {project.video && (
@@ -326,87 +298,51 @@ export default async function ProjectPage({ params }: Props) {
                 </section>
               )}
 
-              {/* Why It Matters */}
-              {project.detail.whyItMatters && (
-                <section className="bg-primary/5 border-primary/10 space-y-4 rounded-xl border p-6">
-                  <h2 className="text-primary text-2xl font-semibold tracking-tight">
-                    {project.detail.whyItMatters.title}
+              {/* Decisions and Trade-offs */}
+              <section className="space-y-6">
+                <h2 className="text-2xl font-semibold tracking-tight">
+                  {t("DecisionsAndTradeoffs")}
+                </h2>
+                <div className="border-border border-t">
+                  {project.detail.decisions.map((decision) => (
+                    <article
+                      key={decision.title}
+                      className="border-border grid gap-3 border-b py-6 md:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] md:gap-10"
+                    >
+                      <h3 className="text-lg font-medium tracking-tight">
+                        {decision.title}
+                      </h3>
+                      <p className="text-muted-foreground leading-relaxed">
+                        {decision.body}
+                      </p>
+                    </article>
+                  ))}
+                </div>
+              </section>
+
+              {/* Outcome and Limitations */}
+              <section className="grid gap-10 md:grid-cols-[minmax(0,1.15fr)_minmax(0,0.85fr)] md:gap-14">
+                <div className="space-y-5">
+                  <h2 className="text-2xl font-semibold tracking-tight">
+                    {project.detail.outcome.title}
                   </h2>
-                  <p className="text-muted-foreground text-lg leading-relaxed">
-                    {project.detail.whyItMatters.body}
-                  </p>
-                </section>
-              )}
+                  <div className="text-muted-foreground space-y-4 text-lg leading-relaxed">
+                    {project.detail.outcome.paragraphs.map((paragraph) => (
+                      <p key={paragraph}>{paragraph}</p>
+                    ))}
+                  </div>
+                </div>
 
-              {/* Context */}
-              <section className="space-y-4">
-                <h2 className="text-2xl font-semibold tracking-tight">
-                  {project.detail.context.title}
-                </h2>
-                <p className="text-muted-foreground text-lg leading-relaxed">
-                  {project.detail.context.body}
-                </p>
-              </section>
-
-              {/* What I Built */}
-              <section className="space-y-4">
-                <h2 className="text-2xl font-semibold tracking-tight">
-                  {project.detail.whatIBuilt.title}
-                </h2>
-                <p className="text-muted-foreground text-lg leading-relaxed">
-                  {project.detail.whatIBuilt.body}
-                </p>
-              </section>
-
-              {/* Workflow / Process */}
-              <section className="space-y-4">
-                <h2 className="text-2xl font-semibold tracking-tight">
-                  {project.detail.process.title}
-                </h2>
-                <ul className="text-muted-foreground space-y-2 text-lg">
-                  {project.detail.process.items?.map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span className="text-primary/70 mt-1.5 shrink-0 text-sm">
-                        ▹
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-
-              {/* Key Highlights (from top level) */}
-              <section className="space-y-4">
-                <h2 className="text-2xl font-semibold tracking-tight">
-                  {t("KeyHighlights")}
-                </h2>
-                <ul className="text-muted-foreground space-y-2 text-lg">
-                  {project.highlights.map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span className="text-primary/70 mt-1.5 shrink-0 text-sm">
-                        ▹
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </section>
-
-              {/* What This Demonstrates */}
-              <section className="space-y-4">
-                <h2 className="text-2xl font-semibold tracking-tight">
-                  {project.detail.demonstrates.title}
-                </h2>
-                <ul className="text-muted-foreground space-y-2 text-lg">
-                  {project.detail.demonstrates.items?.map((item) => (
-                    <li key={item} className="flex gap-3">
-                      <span className="text-primary/70 mt-1.5 shrink-0 text-sm">
-                        ▹
-                      </span>
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="border-primary/25 space-y-5 border-l-2 pl-6">
+                  <h2 className="text-xl font-semibold tracking-tight">
+                    {project.detail.limitations.title}
+                  </h2>
+                  <ul className="text-muted-foreground space-y-4 leading-relaxed">
+                    {project.detail.limitations.items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
               </section>
 
               {/* Representative Artifacts */}

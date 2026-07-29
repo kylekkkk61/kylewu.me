@@ -16,8 +16,17 @@ export type ProjectVisualType = "kaiyn-workflow" | "pm-lab-research" | "default"
 
 export type ProjectSection = {
   title: string
-  body?: string
-  items?: string[]
+  items: string[]
+}
+
+export type ProjectNarrativeSection = {
+  title: string
+  paragraphs: string[]
+}
+
+export type ProjectDecision = {
+  title: string
+  body: string
 }
 
 export type ProjectArtifact = {
@@ -27,19 +36,11 @@ export type ProjectArtifact = {
 }
 
 export type ProjectDetail = {
-  whyItMatters?: {
-    title: string
-    body: string
-  }
-  communityContext?: {
-    title: string
-    paragraphs: string[]
-    links?: { label: string; href: string }[]
-  }
-  context: ProjectSection
-  whatIBuilt: ProjectSection
-  process: ProjectSection
-  demonstrates: ProjectSection
+  role: string
+  context: ProjectNarrativeSection
+  decisions: ProjectDecision[]
+  outcome: ProjectNarrativeSection
+  limitations: ProjectSection
   techStack: string[]
   disclaimer?: string
   visualDisclaimer?: string
@@ -60,7 +61,6 @@ export type Project = {
   status?: string
   year?: string
   capabilities: string[]
-  highlights: string[]
   tags: string[]
   links: ProjectLink[]
   visual: ProjectVisualType
@@ -87,7 +87,7 @@ const projectsEn: Project[] = [
     description:
       "A Telegram-based execution workflow for crypto trading communities, designed around confirmation-first order flow, fixed-risk sizing, exchange-rule validation, encrypted API credentials, PostgreSQL-backed state, audit records, and Docker-first deployment.",
     category: "Trading Infrastructure",
-    status: "Public GitHub project",
+    status: "Deployed in Kaiyn Capital operations",
     year: "2026",
     visual: "kaiyn-workflow",
     capabilities: [
@@ -96,12 +96,6 @@ const projectsEn: Project[] = [
       "Audit-ready backend infrastructure",
     ],
     tags: ["Python", "PostgreSQL", "Docker", "Telegram", "Exchange API"],
-    highlights: [
-      "Transforms Telegram trading signals into a structured execution workflow.",
-      "Uses confirmation-first execution and fixed 1R risk sizing.",
-      "Includes encrypted API credential storage, audit trails, backups, and CI checks.",
-      "Designed as a production-style workflow rather than a profit-guaranteeing trading bot.",
-    ],
     links: [
       {
         label: "Landing Page",
@@ -113,59 +107,54 @@ const projectsEn: Project[] = [
         href: "https://github.com/kaiyn-capital/kaiyn-trading-bot",
         type: "github",
       },
+      {
+        label: "Community",
+        href: "https://t.me/kaiyncapital",
+        type: "external",
+      },
     ],
     featured: true,
     relatedWritingSlug: "confirmation-first-telegram-trading-workflow",
     order: 1,
-    updatedAt: "2026-07-26",
+    updatedAt: "2026-07-29",
     video: "https://cv.kylewu.me/kaiyn-demo.mp4",
     videoPoster: "https://cv.kylewu.me/kaiyn-demo-poster.webp",
     detail: {
-      whyItMatters: {
-        title: "Why It Matters",
-        body: "This project shows how trading-community workflows can be converted into safer, auditable, confirmation-first execution systems.",
-      },
-      communityContext: {
-        title: "Community Context",
-        paragraphs: [
-          "Kaiyn Trading Bot came from a real operating problem inside Kaiyn Capital, a crypto trading community that I founded and have operated for around three years.",
-          "In a Telegram-based trading community, market commentary, trading signals, chart updates, and risk discussions often move quickly. That speed is useful, but it also creates friction: users need to interpret signals, manage risk, confirm order details, and avoid execution mistakes under time pressure.",
-          "This project was built to make that workflow more structured. Instead of treating trading signals as plain text messages, the bot turns them into a confirmation-first execution process with validation, fixed-risk sizing, and clearer audit records.",
-        ],
-        links: [
-          {
-            label: "Kaiyn Capital Telegram",
-            href: "https://t.me/kaiyncapital",
-          },
-        ],
-      },
+      role: "Founder of Kaiyn Capital, product owner, and sole developer responsible for product requirements, the Telegram user flow, backend engineering, deployment, and ongoing operations.",
       context: {
-        title: "Context",
-        body: "Crypto trading communities often distribute signals through Telegram, but manual execution introduces friction, inconsistent sizing, repeated actions, and unclear confirmation flow.",
-      },
-      whatIBuilt: {
-        title: "What I Built",
-        body: "I built a structured execution workflow that connects Telegram-based signal delivery with confirmation-first trading operations, exchange-rule validation, risk sizing, and backend audit records.",
-      },
-      process: {
-        title: "Workflow",
-        items: [
-          "Signal parsing",
-          "User confirmation",
-          "Fixed-risk sizing",
-          "Exchange contract validation",
-          "Order preparation",
-          "Execution",
-          "Audit trail",
+        title: "Context and Operating Problem",
+        paragraphs: [
+          "Kaiyn Capital distributes market commentary and trading signals through Telegram. The operating problem was not simply parsing a message: users still had to verify the instrument, size the position, check exchange rules, and avoid repeated actions under time pressure.",
+          "The system was built to close that gap between signal publication and order submission with an explicit confirmation point, consistent risk calculations, persisted state, and an auditable execution path.",
         ],
       },
-      demonstrates: {
-        title: "What This Demonstrates",
+      decisions: [
+        {
+          title: "Require confirmation before execution",
+          body: "The system creates an inspectable order preview and requires explicit user approval. This gives up some speed, but keeps an irreversible financial action behind a human decision point.",
+        },
+        {
+          title: "Persist workflow state in PostgreSQL",
+          body: "Pending orders, signals, and preview sessions resolve from short Telegram tokens to database-backed state. The added schema and migration work provides restart-safe workflows, audit records, and row-level locking against repeated confirmation.",
+        },
+        {
+          title: "Escalate ambiguous exchange results",
+          body: "Network timeouts and uncertain responses are not treated as failed orders or retried automatically. Deterministic client order IDs, a manual-review state, and later reconciliation reduce duplicate-order risk at the cost of administrative review.",
+        },
+      ],
+      outcome: {
+        title: "Outcome and Evidence",
+        paragraphs: [
+          "The system is deployed and used in Kaiyn Capital operations. It implements the path from Telegram signals and order previews through fixed-risk sizing, exchange-rule validation, Bitget submission, persisted state, and audit records.",
+          "Docker-first CI checks migrations, typing, order-safety rules, and PostgreSQL integration. Deployment, health checks, encrypted offsite backups, and restore procedures are documented as part of the operating system rather than treated as afterthoughts.",
+        ],
+      },
+      limitations: {
+        title: "Current Limitations",
         items: [
-          "Translating community workflow problems into software systems",
-          "Designing risk-aware trading infrastructure",
-          "Building backend workflows with state, validation, and auditability",
-          "Thinking beyond scripts toward production-style operations",
+          "The full post-submission lifecycle of limit orders is not tracked.",
+          "Cancellation, expiry synchronization, and automatic take-profit orders remain outside the system boundary.",
+          "The project has not undergone large-scale load or trading-volume simulation and does not claim that duplicate orders are impossible or that trading is profitable.",
         ],
       },
       techStack: [
@@ -224,12 +213,6 @@ const projectsEn: Project[] = [
       "Public-safe research dashboard",
     ],
     tags: ["Python", "Streamlit", "Polymarket", "Research", "Data Analysis"],
-    highlights: [
-      "Separates theoretical pricing edge from executable edge.",
-      "Includes public-safe sample data, research reports, notebooks, and a live dashboard.",
-      "Analyzes execution funnel, probability calibration, ML filtering, and risk simulation.",
-      "Explicitly avoids profitability claims and private execution-sensitive details.",
-    ],
     links: [
       {
         label: "Portfolio Page",
@@ -249,46 +232,50 @@ const projectsEn: Project[] = [
     ],
     featured: true,
     order: 2,
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-07-29",
     detail: {
-      whyItMatters: {
-        title: "Why It Matters",
-        body: "This project separates apparent market edge from executable edge, which is closer to how real trading and execution research should be evaluated.",
-      },
+      role: "Independent researcher and developer responsible for framing the research question, building the private prototype and data workflow, running replay and model experiments, and converting sensitive work into reproducible public artifacts.",
       context: {
-        title: "Context",
-        body: "Short-horizon prediction markets may show apparent pricing edge, but apparent edge is not the same as executable edge.",
-      },
-      whatIBuilt: {
-        title: "What I Built",
-        body: "I built a public research lab with sample data, notebooks, reports, dashboard, execution diagnostics, calibration analysis, ML filtering, and risk simulation.",
-      },
-      process: {
-        title: "Research Workflow",
-        items: [
-          "Market data sample",
-          "Signal construction",
-          "Execution funnel",
-          "Fill diagnostics",
-          "Calibration analysis",
-          "Risk simulation",
-          "Public-safe reporting",
+        title: "Research Context",
+        paragraphs: [
+          "Early tick replay suggested that short-horizon prediction markets might contain pricing edge. Live-like execution produced a weaker result once network latency, API response time, stale order books, failed fills, and reversals near settlement were included.",
+          "The research question therefore shifted from whether a model could find a price discrepancy to whether that discrepancy could survive the execution funnel and become reliable filled exposure.",
         ],
       },
-      demonstrates: {
-        title: "What This Demonstrates",
+      decisions: [
+        {
+          title: "Study the simulation-to-live gap",
+          body: "Instead of presenting the strongest early replay result, the project made execution degradation the main research object. This gives up an easier strategy narrative in favor of a question that better reflects real market conditions.",
+        },
+        {
+          title: "Use ML as an execution gate",
+          body: "ML is applied after edge detection to decide whether a candidate deserves exposure, with chronological splits used for later-sample checks. This avoids treating an expected-value score as a profitability guarantee.",
+        },
+        {
+          title: "Preserve public reproducibility",
+          body: "The public version keeps anonymized, downsampled, and normalized data with simplified diagnostics while excluding wallets, signers, private ledgers, model artifacts, and strategy-sensitive parameters.",
+        },
+      ],
+      outcome: {
+        title: "Outcome and Evidence",
+        paragraphs: [
+          "The public execution sample records 1,000 attempts with 5.8% accepted and filled rates. Across 986 joined market-level observations, market-implied probability was slightly better calibrated than the fair-probability model on both Brier score and log loss.",
+          "The sample does not support a stable profitability claim. Its main result is diagnostic: most apparent edge did not become filled exposure, extreme probability buckets were sparse and unstable, and reasonable ML or fill-probability gates could fail on later data or suppress nearly all trade flow.",
+        ],
+      },
+      limitations: {
+        title: "Research Limitations",
         items: [
-          "Market microstructure reasoning",
-          "Data analysis and research communication",
-          "Separating theoretical signal from executable outcome",
-          "Building public-safe research artifacts without exposing sensitive execution data",
+          "Public data is anonymized, downsampled, and normalized and does not represent complete historical performance.",
+          "Tick replay and bootstrap simulation are not equivalent to live execution, and full capital, fees, and venue-level fill dynamics are not reconstructed.",
+          "Binance is used as a faster reference layer, but the lead-lag assumption has not been tested in a dedicated study.",
         ],
       },
       techStack: ["Python", "Streamlit", "Pandas", "NumPy"],
       disclaimer:
         "This project is presented as a public research and portfolio artifact. It does not represent financial advice, trading advice, or a claim of trading profitability.",
       visualDisclaimer:
-        "Illustrative interface values — not live trading performance or empirical research results.",
+        "Illustrative interface values - not live trading performance or empirical research results.",
       artifacts: {
         title: "Representative Artifacts",
         items: [
@@ -296,19 +283,19 @@ const projectsEn: Project[] = [
             id: "pm-lab-funnel",
             title: "Execution Funnel",
             description:
-              "Visualizing the degradation of theoretical edge into executable edge due to frictions.",
+              "Tracing how public-sample attempts move through submission, acceptance, and fill states.",
           },
           {
             id: "pm-lab-calibration",
-            title: "Calibration Simulation",
+            title: "Calibration Analysis",
             description:
-              "Modeling probability accuracy and risk exposure across varied market conditions.",
+              "Comparing fair and market-implied probabilities against 986 joined public-sample outcomes.",
           },
           {
             id: "pm-lab-dashboard",
             title: "Research Dashboard",
             description:
-              "Abstract view of market depth, liquidity metrics, and execution diagnostics.",
+              "A public-sample interface for execution, calibration, ML-filter, and risk diagnostics.",
           },
         ],
       },
@@ -327,7 +314,7 @@ const projectsZh: Project[] = [
     description:
       "一套為加密貨幣交易社群設計的 Telegram 執行流程，涵蓋下單前確認、固定風險部位計算、交易所規則驗證、API 憑證加密、PostgreSQL 狀態管理、稽核紀錄，以及以 Docker 為核心的部署方式。",
     category: "交易系統與基礎設施",
-    status: "公開 GitHub 專案",
+    status: "已部署於 Kaiyn Capital 實際營運",
     year: "2026",
     visual: "kaiyn-workflow",
     capabilities: [
@@ -336,12 +323,6 @@ const projectsZh: Project[] = [
       "可供稽核的後端架構",
     ],
     tags: ["Python", "PostgreSQL", "Docker", "Telegram", "Exchange API"],
-    highlights: [
-      "將 Telegram 交易訊號轉換為結構化的執行流程。",
-      "採用下單前確認機制與固定 1R 風險部位計算。",
-      "內建加密 API 憑證儲存、稽核紀錄、資料庫備份與 CI 檢查流程。",
-      "以接近正式營運環境的方式設計，而非宣稱能保證獲利的自動交易機器人。",
-    ],
     links: [
       {
         label: "專案首頁",
@@ -353,59 +334,54 @@ const projectsZh: Project[] = [
         href: "https://github.com/kaiyn-capital/kaiyn-trading-bot",
         type: "github",
       },
+      {
+        label: "Kaiyn Capital 社群",
+        href: "https://t.me/kaiyncapital",
+        type: "external",
+      },
     ],
     featured: true,
     relatedWritingSlug: "confirmation-first-telegram-trading-workflow",
     order: 1,
-    updatedAt: "2026-07-26",
+    updatedAt: "2026-07-29",
     video: "https://cv.kylewu.me/kaiyn-demo.mp4",
     videoPoster: "https://cv.kylewu.me/kaiyn-demo-poster.webp",
     detail: {
-      whyItMatters: {
-        title: "專案價值",
-        body: "本專案呈現如何將原本仰賴人工處理的交易社群流程，轉化為更安全、可供稽核且採下單前確認的執行系統。",
-      },
-      communityContext: {
-        title: "社群背景與痛點",
-        paragraphs: [
-          "Kaiyn Trading Bot 源自我創立並營運近三年的加密貨幣交易社群 Kaiyn Capital 內部的實際營運問題。",
-          "在 Telegram 交易社群中，市場觀點、交易訊號、圖表更新與風險討論往往快速流動。即時性雖有價值，卻也增加操作負擔：使用者必須在時間壓力下解讀訊號、管理風險、確認訂單內容並避免下單錯誤。",
-          "此專案將純文字交易訊號轉化為包含資料驗證、固定風險部位計算、下單前確認與清楚稽核紀錄的結構化流程。",
-        ],
-        links: [
-          {
-            label: "Kaiyn Capital Telegram",
-            href: "https://t.me/kaiyncapital",
-          },
-        ],
-      },
+      role: "Kaiyn Capital 創辦人、產品負責人與獨立開發者，完整負責產品需求、Telegram 使用流程、後端開發、部署與後續營運。",
       context: {
-        title: "背景與挑戰",
-        body: "加密貨幣交易社群經常透過 Telegram 發送訊號，但手動執行容易造成操作負擔、部位大小不一致、重複操作與確認流程不清。",
-      },
-      whatIBuilt: {
-        title: "解決方案",
-        body: "我建立一套結構化執行流程，串連 Telegram 訊號、下單前確認、交易所規則驗證、風險部位計算與後端稽核紀錄。",
-      },
-      process: {
-        title: "工作流程",
-        items: [
-          "訊號解析",
-          "使用者確認",
-          "固定風險部位計算",
-          "交易所合約規則驗證",
-          "訂單準備",
-          "訂單執行",
-          "稽核追蹤",
+        title: "背景與實際營運問題",
+        paragraphs: [
+          "Kaiyn Capital 透過 Telegram 發布市場觀點與交易訊號。實際問題不只是如何解析訊息，使用者仍必須在時間壓力下核對交易標的、計算部位、確認交易所規則，並避免重複操作。",
+          "這套系統以明確的下單前確認、固定風險計算、狀態保存與稽核流程，銜接訊號發布與實際送單之間原本容易出錯的環節。",
         ],
       },
-      demonstrates: {
-        title: "核心能力展現",
+      decisions: [
+        {
+          title: "要求使用者在送單前確認",
+          body: "系統先建立可核對的訂單預覽，再由使用者明確確認。這犧牲部分速度，但將不可逆的金融操作保留在人類決策點，也讓錯誤能在送單前被發現。",
+        },
+        {
+          title: "將工作流程狀態保存於 PostgreSQL",
+          body: "待處理訂單、訊號與預覽工作階段透過短 token 連回資料庫狀態。額外的資料結構與資料庫遷移成本，換來重啟後可恢復的流程、清楚的稽核紀錄，以及以資料列鎖定控制重複確認的能力。",
+        },
+        {
+          title: "不確定的交易所結果交由人工覆核",
+          body: "網路逾時或回應不明時，系統不直接視為失敗，也不自動重送。依固定規則產生的 client order ID、人工覆核狀態與後續查單能降低重複送單風險，代價是部分情況必須由管理員核對。",
+        },
+      ],
+      outcome: {
+        title: "成果與驗證證據",
+        paragraphs: [
+          "系統已部署並用於 Kaiyn Capital 的實際營運，涵蓋 Telegram 訊號、訂單預覽、固定風險部位計算、交易所規則驗證、Bitget 送單、狀態保存與稽核紀錄。",
+          "Docker-first CI 會檢查資料庫遷移、型別、訂單安全規則與 PostgreSQL 整合流程；部署、健康檢查、加密異地備份與還原程序也納入正式營運設計。",
+        ],
+      },
+      limitations: {
+        title: "目前限制",
         items: [
-          "將社群工作流程的問題轉化為軟體系統設計",
-          "設計納入風險控管的交易系統",
-          "建構具備狀態管理、驗證與稽核能力的後端工作流程",
-          "從單一腳本延伸至接近正式營運環境的流程",
+          "目前不追蹤限價單送出後的完整成交生命週期。",
+          "掛單取消、過期同步與自動止盈仍不在系統責任範圍內。",
+          "專案尚未進行大量壓測或交易量模擬，也不宣稱能完全避免重複訂單或保證交易獲利。",
         ],
       },
       techStack: [
@@ -458,12 +434,6 @@ const projectsZh: Project[] = [
     visual: "pm-lab-research",
     capabilities: ["執行品質分析", "機率校準", "可公開使用的研究儀表板"],
     tags: ["Python", "Streamlit", "Polymarket", "Research", "Data Analysis"],
-    highlights: [
-      "區分理論定價優勢與實際可執行的優勢。",
-      "提供可公開使用的樣本資料、研究報告、Python Notebook 與互動式儀表板。",
-      "分析執行漏斗、機率校準、機器學習篩選與風險模擬。",
-      "明確不宣稱獲利能力，亦不公開敏感的交易執行資料。",
-    ],
     links: [
       {
         label: "專案介紹",
@@ -483,63 +453,67 @@ const projectsZh: Project[] = [
     ],
     featured: true,
     order: 2,
-    updatedAt: "2026-07-23",
+    updatedAt: "2026-07-29",
     detail: {
-      whyItMatters: {
-        title: "專案價值",
-        body: "本專案區分表面定價優勢與可實際執行的優勢，這種區分更符合真實交易與執行研究的評估方式。",
-      },
+      role: "獨立研究者與獨立開發者，負責定義研究問題、建立私有原型與資料流程、執行歷史回放與模型實驗，並將敏感研究轉化為可公開重現的成果。",
       context: {
-        title: "背景與挑戰",
-        body: "短週期預測市場可能呈現表面上的定價優勢，但這不代表該優勢能夠實際執行並成交。",
-      },
-      whatIBuilt: {
-        title: "解決方案",
-        body: "我建立一套公開研究專案，包含樣本資料、Python Notebook、分析報告、互動式儀表板、執行診斷、機率校準、機器學習篩選與風險模擬。",
-      },
-      process: {
-        title: "研究工作流程",
-        items: [
-          "市場資料抽樣",
-          "訊號建構",
-          "執行漏斗分析",
-          "成交診斷",
-          "機率校準分析",
-          "風險模擬",
-          "產出可公開分享的研究報告",
+        title: "研究背景",
+        paragraphs: [
+          "早期逐筆報價回放顯示短週期預測市場可能存在定價優勢，但進入近似實盤的執行後，網路延遲、API 回應時間、過期委託簿、未成交與結算前反轉都讓結果明顯轉弱。",
+          "研究問題因此從「模型能否找到價格差」轉為「價格差能否通過完整執行漏斗，形成可靠的實際曝險」。",
         ],
       },
-      demonstrates: {
-        title: "核心能力展現",
+      decisions: [
+        {
+          title: "研究模擬與實際執行的落差",
+          body: "專案沒有選擇呈現早期較漂亮的歷史回放結果，而是把執行過程中的衰減當成主要研究對象。這放棄較容易宣傳的策略敘事，換來更接近真實市場條件的問題。",
+        },
+        {
+          title: "將機器學習定位為執行篩選機制",
+          body: "模型只在偵測到潛在優勢後，判斷候選訊號是否值得進一步執行，並使用時間順序切分檢查後段樣本。這能避免把預期價值分數誤當成獲利保證。",
+        },
+        {
+          title: "優先保留可公開重現性",
+          body: "公開版本只保留匿名、降採樣與標準化的資料及簡化診斷流程，並排除錢包、簽署工具、私有帳本、模型產物與策略敏感參數。",
+        },
+      ],
+      outcome: {
+        title: "研究結果與證據",
+        paragraphs: [
+          "公開執行樣本包含 1,000 次嘗試，訂單接受率與成交率皆為 5.8%。在 986 筆可對齊的市場層級觀察中，市場隱含機率的 Brier 分數與對數損失均略優於合理機率模型。",
+          "公開樣本不支持穩定獲利的宣稱。主要結果在於，多數表面定價優勢沒有形成實際成交曝險；極端機率區間樣本較少且不穩定，合理的機器學習或成交機率篩選也可能在後段資料失效，或壓縮幾乎所有交易流量。",
+        ],
+      },
+      limitations: {
+        title: "研究限制",
         items: [
-          "市場微結構分析與推理",
-          "資料分析與研究結果溝通",
-          "區分理論訊號與實際執行結果",
-          "在不公開敏感執行資料的前提下，產出適合公開分享的研究成果",
+          "公開資料經過匿名、降採樣與標準化，不能代表完整歷史績效。",
+          "逐筆報價回放與 bootstrap 模擬不等同實際交易，也未重建完整資金、手續費與交易場所層級的成交動態。",
+          "研究以 Binance 作為較快的參考價格來源，但尚未完成專門的領先與落後關係驗證。",
         ],
       },
       techStack: ["Python", "Streamlit", "Pandas", "NumPy"],
       disclaimer:
         "本專案僅作為公開研究與作品展示，不構成財務或交易建議，也不宣稱具有交易獲利能力。",
-      visualDisclaimer: "介面數值僅供示意，不代表實際交易績效或實證研究結果。",
+      visualDisclaimer: "介面數值僅供示意，不代表實際交易績效或研究樣本結果。",
       artifacts: {
         title: "代表性產出",
         items: [
           {
             id: "pm-lab-funnel",
             title: "執行漏斗分析",
-            description:
-              "呈現理論定價優勢如何因市場摩擦而逐步衰減為可執行優勢。",
+            description: "追蹤公開樣本從送單、接受到實際成交的各階段狀態。",
           },
           {
             id: "pm-lab-calibration",
-            title: "機率校準模擬",
-            description: "模擬不同市場條件下的機率準確度與風險曝險。",
+            title: "機率校準分析",
+            description:
+              "以 986 筆可對齊的公開樣本結果，比較合理機率與市場隱含機率。",
           },
           {
             id: "pm-lab-dashboard",
             title: "研究儀表板",
-            description: "以概覽方式呈現市場深度、流動性指標與執行診斷。",
+            description: "集中呈現公開樣本的執行、校準、模型篩選與風險診斷。",
           },
         ],
       },
