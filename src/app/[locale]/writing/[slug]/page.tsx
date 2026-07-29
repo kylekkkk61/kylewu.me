@@ -7,6 +7,8 @@ import { SiteHeader } from "@/components/layout/site-header"
 import { JsonLd } from "@/components/seo/json-ld"
 import { ConfirmationFirstTradingWorkflowArticle } from "@/content/writing/confirmation-first-telegram-trading-workflow"
 import { ConfirmationFirstTradingWorkflowArticleZh } from "@/content/writing/confirmation-first-telegram-trading-workflow-zh"
+import { WorkflowAutomationHumanJudgmentArticle } from "@/content/writing/workflow-automation-human-judgment"
+import { WorkflowAutomationHumanJudgmentArticleZh } from "@/content/writing/workflow-automation-human-judgment-zh"
 import { getProfile } from "@/data/profile"
 import {
   getWritingAlternates,
@@ -35,6 +37,22 @@ function formatDate(date: string, locale: string) {
     dateStyle: "long",
     timeZone: "UTC",
   }).format(new Date(`${date}T00:00:00Z`))
+}
+
+function ArticleContent({ slug, locale }: { slug: string; locale: string }) {
+  if (slug === "workflow-automation-human-judgment") {
+    return locale === "zh-TW" ? (
+      <WorkflowAutomationHumanJudgmentArticleZh />
+    ) : (
+      <WorkflowAutomationHumanJudgmentArticle />
+    )
+  }
+
+  return locale === "zh-TW" ? (
+    <ConfirmationFirstTradingWorkflowArticleZh />
+  ) : (
+    <ConfirmationFirstTradingWorkflowArticle />
+  )
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -151,71 +169,86 @@ export default async function WritingArticlePage({ params }: Props) {
             </header>
 
             <div className="pt-12 md:pt-16">
-              {locale === "zh-TW" ? (
-                <ConfirmationFirstTradingWorkflowArticleZh />
-              ) : (
-                <ConfirmationFirstTradingWorkflowArticle />
-              )}
+              <ArticleContent slug={slug} locale={locale} />
             </div>
 
-            <footer className="mt-16 space-y-10 border-t border-border pt-10 md:mt-20">
-              <section className="space-y-4" aria-labelledby="source-material">
-                <h2 id="source-material" className="text-lg font-semibold">
-                  {t("SourceMaterial")}
-                </h2>
-                <ul className="space-y-3 text-sm">
-                  <li>
-                    <a
-                      href="https://github.com/kaiyn-capital/kaiyn-trading-bot"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors"
-                    >
-                      Kaiyn Trading Bot repository
-                      <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://github.com/kaiyn-capital/kaiyn-trading-bot/blob/main/references/trading_flow.md"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors"
-                    >
-                      Trading Flow
-                      <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://github.com/kaiyn-capital/kaiyn-trading-bot/blob/main/references/production_readiness.md"
-                      target="_blank"
-                      rel="noreferrer"
-                      className="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors"
-                    >
-                      Production Readiness Record
-                      <ArrowUpRight aria-hidden="true" className="h-4 w-4" />
-                    </a>
-                  </li>
-                </ul>
-              </section>
+            {(entry.relatedProjectSlug ||
+              slug === "confirmation-first-telegram-trading-workflow") && (
+              <footer className="mt-16 space-y-10 border-t border-border pt-10 md:mt-20">
+                {slug === "confirmation-first-telegram-trading-workflow" && (
+                  <section
+                    className="space-y-4"
+                    aria-labelledby="source-material"
+                  >
+                    <h2 id="source-material" className="text-lg font-semibold">
+                      {t("SourceMaterial")}
+                    </h2>
+                    <ul className="space-y-3 text-sm">
+                      <li>
+                        <a
+                          href="https://github.com/kaiyn-capital/kaiyn-trading-bot"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors"
+                        >
+                          Kaiyn Trading Bot repository
+                          <ArrowUpRight
+                            aria-hidden="true"
+                            className="h-4 w-4"
+                          />
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://github.com/kaiyn-capital/kaiyn-trading-bot/blob/main/references/trading_flow.md"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors"
+                        >
+                          Trading Flow
+                          <ArrowUpRight
+                            aria-hidden="true"
+                            className="h-4 w-4"
+                          />
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href="https://github.com/kaiyn-capital/kaiyn-trading-bot/blob/main/references/production_readiness.md"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors"
+                        >
+                          Production Readiness Record
+                          <ArrowUpRight
+                            aria-hidden="true"
+                            className="h-4 w-4"
+                          />
+                        </a>
+                      </li>
+                    </ul>
+                  </section>
+                )}
 
-              <section className="border-border bg-muted/30 rounded-xl border p-6 md:p-8">
-                <p className="mb-2 font-mono text-xs uppercase tracking-wide text-muted-foreground">
-                  {t("RelatedProject")}
-                </p>
-                <Link
-                  href={`/projects/${entry.relatedProjectSlug}`}
-                  className="group inline-flex items-center gap-2 text-lg font-semibold"
-                >
-                  {t("ViewProject")}
-                  <ArrowUpRight
-                    aria-hidden="true"
-                    className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                  />
-                </Link>
-              </section>
-            </footer>
+                {entry.relatedProjectSlug && (
+                  <section className="border-border bg-muted/30 rounded-xl border p-6 md:p-8">
+                    <p className="mb-2 font-mono text-xs uppercase tracking-wide text-muted-foreground">
+                      {t("RelatedProject")}
+                    </p>
+                    <Link
+                      href={`/projects/${entry.relatedProjectSlug}`}
+                      className="group inline-flex items-center gap-2 text-lg font-semibold"
+                    >
+                      {t("ViewProject")}
+                      <ArrowUpRight
+                        aria-hidden="true"
+                        className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                      />
+                    </Link>
+                  </section>
+                )}
+              </footer>
+            )}
           </div>
         </article>
       </main>

@@ -9,7 +9,7 @@ export type WritingEntry = {
   category: string
   publishedAt: string
   updatedAt: string
-  relatedProjectSlug: string
+  relatedProjectSlug?: string
 }
 
 export const writingEntries: WritingEntry[] = [
@@ -38,6 +38,31 @@ export const writingEntries: WritingEntry[] = [
     publishedAt: "2026-07-26",
     updatedAt: "2026-07-26",
     relatedProjectSlug: "kaiyn-trading-bot",
+  },
+  {
+    slug: "workflow-automation-human-judgment",
+    locale: "en",
+    title:
+      "AI, Automation, and Standardization: What Still Requires Human Judgment in Product Workflows?",
+    ogSubtitle:
+      "A practical framework for deciding what systems should execute, prepare, or leave to human judgment.",
+    description:
+      "A practical framework for deciding which product workflow steps to standardize, automate, or reserve for accountable human judgment.",
+    category: "Product Workflow",
+    publishedAt: "2026-07-29",
+    updatedAt: "2026-07-29",
+  },
+  {
+    slug: "workflow-automation-human-judgment",
+    locale: "zh-TW",
+    title: "AI、自動化與標準化：工作流程中，人還需要做什麼？",
+    ogSubtitle:
+      "從標準化、自動執行到人工確認，判斷工作流程應該停在哪一條決策邊界。",
+    description:
+      "從營隊審查、群眾募資與產品實作經驗，整理哪些工作適合標準化、自動化，哪些關鍵判斷仍應由人承擔。",
+    category: "產品流程設計",
+    publishedAt: "2026-07-29",
+    updatedAt: "2026-07-29",
   },
 ]
 
