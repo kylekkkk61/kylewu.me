@@ -97,9 +97,12 @@ export default async function RootLayout({
     notFound()
   }
 
-  // Providing all messages to the client
-  // side is the easiest way to get started
   const messages = await getMessages()
+  const clientMessages = {
+    Navigation: messages.Navigation,
+    CurrentFocus: messages.CurrentFocus,
+    Contact: messages.Contact,
+  }
 
   return (
     <html
@@ -108,7 +111,7 @@ export default async function RootLayout({
       suppressHydrationWarning
     >
       <body className="bg-background text-foreground relative flex min-h-full flex-col">
-        <NextIntlClientProvider messages={messages}>
+        <NextIntlClientProvider messages={clientMessages}>
           <ThemeProvider
             attribute="class"
             defaultTheme="dark"
