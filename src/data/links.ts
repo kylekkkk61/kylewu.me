@@ -7,5 +7,5 @@ export const links = {
   resume: "/resume",
   // NOTE: If you update the resume PDF in Cloudflare R2, remember to increment the version parameter
   // (e.g., ?v=2) to flush legacy client-side browser disk cache that does not contain CORS headers.
-  resumePdf: "https://cv.kylewu.me/kyle-wu-resume.pdf?v=2",
+  resumePdf: "https://cv.kylewu.me/kyle-wu-resume.pdf?v=3",
 }

@@ -33,12 +33,13 @@ const resumeEn: ResumeData = {
   education: [
     {
       school: "Warwick Business School",
-      degree: "MSc Financial Technology, Incoming",
+      degree: "MSc Financial Technology, Incoming (25% Scholarship)",
       period: "Expected Sep 2026 - Sep 2027",
     },
     {
       school: "National Cheng Kung University (NCKU), Taiwan",
       degree: "B.B.A., Business Administration",
+      period: "Sep 2020 - Jun 2024",
       detail: "GPA: 3.62 / 4.3",
     },
     {
@@ -63,8 +64,8 @@ const resumeEn: ResumeData = {
       role: "Product & Backend Project",
       period: "2026",
       bullets: [
-        "Built a Telegram-based trading signal workflow for the Kaiyn crypto trading community, converting informal trade calls into structured signal creation, chart updates, and execution-confirmation flows while reducing manual copy-paste friction.",
-        "Implemented backend infrastructure with PostgreSQL, Docker Compose, Alembic, pytest, Ruff, and GitHub Actions to support database migrations, automated checks, and maintainable deployment workflows.",
+        "Launched an open-source Telegram trading signal and execution workflow supporting 10+ daily signals in a private Kaiyn community.",
+        "Built fixed-risk order confirmation, exchange-rule validation, encrypted credential storage, audit trails, and backup / restore workflows using Python, PostgreSQL, Docker Compose, and automated tests.",
       ],
     },
     {
@@ -72,17 +73,17 @@ const resumeEn: ResumeData = {
       role: "Independent FinTech Research Project",
       period: "2026",
       bullets: [
-        "Built a public research lab testing whether apparent short-horizon Polymarket BTC pricing edges survive execution frictions including spread, fill probability, latency, risk limits, and settlement outcomes.",
-        "Developed reproducible Python notebooks, report figures, and dashboard outputs to decompose theoretical pricing signals into execution-quality metrics and evidence on execution feasibility.",
+        "Built a public research lab and Streamlit dashboard testing whether short-horizon Polymarket BTC pricing edges survive spread, failed fills, latency, quote staleness, risk limits, and settlement outcomes.",
+        "Developed reproducible Python notebooks, public-safe sample datasets, and report figures showing that practical feasibility depends on execution quality rather than price signals alone.",
       ],
     },
     {
       title: "Prinsur",
-      role: "Co-founder, InsurTech Product Strategy",
+      role: "Co-founder, InsurTech Product Strategy (Non-operating / Advisory)",
       period: "Sep 2025 - Present",
       bullets: [
-        "Developed early-stage product and venture materials for an AI-enabled insurance comparison platform and advisor workstation, including product roadmap, pitch deck, pricing assumptions, and grant application documents.",
-        "Conducted competitor and distribution-channel research across Taiwan's insurance market to support regulatory-aware positioning, go-to-market planning, and advisor workflow design.",
+        "Conducted market research and competitive analysis; supported product strategy, business-model design, GTM planning, pricing assumptions, and early validation discussions with Taiwanese insurance distribution partners.",
+        "Produced pitch decks, product mockups, and funding materials; assessed regulatory and brokerage-licence constraints that informed a pivot towards a B2B adviser workflow.",
       ],
     },
   ],
@@ -111,7 +112,8 @@ const resumeEn: ResumeData = {
       role: "General Coordinator",
       period: "Jan 2022 - Feb 2023",
       bullets: [
-        "Led a 60-person team to deliver a 5-day residential business programme for 120 participants, generating approximately TWD 800,000 in total revenue; managed programme design, university liaison, corporate outreach, and on-site execution.",
+        "Led a 60-person team to deliver a 5-day residential business programme for 120 participants, generating approximately TWD 800,000 in revenue and over TWD 200,000 in net profit.",
+        "Owned workstream design, budget control, recruitment marketing, vendor and venue coordination, and on-site issue handling across seven teams.",
       ],
       link: {
         href: "/writing/participant-needs-service-design",
@@ -121,12 +123,13 @@ const resumeEn: ResumeData = {
   ],
   skills: {
     technical:
-      "Python, pandas, Excel, PostgreSQL, Docker Compose, GitHub Actions, pytest, Ruff, Alembic, TradingView / Pine Script",
+      "Python, pandas, Excel, PostgreSQL, Docker Compose, GitHub Actions, pytest, mypy, Ruff, Alembic, TradingView / Pine Script",
     analytics:
-      "Market microstructure analysis, execution-quality analysis, digital asset market analysis, Google Analytics, advertising data analysis",
+      "Market microstructure analysis, execution-quality analysis, digital asset research, Google Analytics",
     businessProduct:
-      "FinTech product strategy, trading operations, risk education, go-to-market research, business model design, product documentation",
-    languages: "Mandarin, Hokkien, English, Spanish (basic)",
+      "Project execution, cross-functional coordination, FinTech product strategy, workflow design, go-to-market research, business model design",
+    languages:
+      "Mandarin, Hokkien, English (IELTS Academic 7.0), Spanish (basic)",
   },
 }
 
@@ -134,12 +137,13 @@ const resumeZh: ResumeData = {
   education: [
     {
       school: "華威商學院（Warwick Business School）",
-      degree: "金融科技理學碩士（即將入學）",
+      degree: "金融科技理學碩士（即將入學，25% 獎學金）",
       period: "預計 2026 年 9 月至 2027 年 9 月",
     },
     {
       school: "國立成功大學",
       degree: "企業管理學系學士",
+      period: "2020 年 9 月至 2024 年 6 月",
       detail: "GPA：3.62 / 4.3",
     },
     {
@@ -164,8 +168,8 @@ const resumeZh: ResumeData = {
       role: "產品與後端專案",
       period: "2026",
       bullets: [
-        "為 Kaiyn 加密貨幣交易社群打造 Telegram 交易訊號工作流程，將非正式交易訊號整理為結構化的訊號建立、圖表更新與下單前確認流程，減少手動複製貼上的重複作業。",
-        "使用 PostgreSQL、Docker Compose、Alembic、pytest、Ruff 與 GitHub Actions 建置後端基礎設施，以支援資料庫遷移、自動化檢查與可維護的部署流程。",
+        "為 Kaiyn 私人社群推出開源的 Telegram 交易訊號與執行工作流程，每日支援超過 10 則交易訊號。",
+        "使用 Python、PostgreSQL、Docker Compose 與自動化測試，建置固定風險下單確認、交易所規則驗證、加密憑證儲存、稽核軌跡，以及備份與還原流程。",
       ],
     },
     {
@@ -173,17 +177,17 @@ const resumeZh: ResumeData = {
       role: "獨立金融科技研究專案",
       period: "2026",
       bullets: [
-        "建立公開研究專案，檢驗 Polymarket BTC 短週期市場中看似存在的定價優勢，能否在買賣價差、成交機率、延遲、風險限制與結算結果等執行條件下成立。",
-        "建立可重現的 Python Notebook、研究圖表與儀表板，將理論定價訊號拆解為執行品質指標，並評估實際執行的可行性。",
+        "建立公開研究專案與 Streamlit 儀表板，檢驗 Polymarket BTC 短週期定價優勢能否在買賣價差、未成交、延遲、報價過時、風險限制與結算結果等條件下成立。",
+        "建立可重現的 Python Notebook、可安全公開的樣本資料集與研究圖表，呈現實務可行性取決於執行品質，而非僅由價格訊號決定。",
       ],
     },
     {
       title: "Prinsur",
-      role: "共同創辦人｜InsurTech 產品策略",
+      role: "共同創辦人｜InsurTech 產品策略（非營運／顧問角色）",
       period: "2025 年 9 月至今",
       bullets: [
-        "為 AI 保險比較平台與保險顧問作業平台製作早期產品與創業規劃文件，包括產品路線圖、募資簡報、定價假設及補助申請資料。",
-        "研究台灣保險市場的競爭者與通路，支援兼顧法規要求的產品定位、市場進入策略與顧問工作流程設計。",
+        "進行市場研究與競爭分析，支援產品策略、商業模式設計、市場進入規劃、定價假設，以及與台灣保險通路合作夥伴的早期驗證討論。",
+        "製作募資簡報、產品原型與資金申請資料；評估法規與保險經紀業執照限制，作為產品轉向 B2B 顧問工作流程的依據。",
       ],
     },
   ],
@@ -212,7 +216,8 @@ const resumeZh: ResumeData = {
       role: "總召集人",
       period: "2022 年 1 月至 2023 年 2 月",
       bullets: [
-        "帶領 60 人團隊，為 120 名學員舉辦為期 5 天的住宿型商管營隊，營收約新台幣 80 萬元；負責課程設計、校方協調、企業接洽與現場執行。",
+        "帶領 60 人團隊，為 120 名學員舉辦為期 5 天的住宿型商管營隊，創造約新台幣 80 萬元營收與超過新台幣 20 萬元淨利。",
+        "統籌七個團隊的工作流程設計、預算控管、招生行銷、供應商與場地協調，以及現場問題處理。",
       ],
       link: {
         href: "/writing/participant-needs-service-design",
@@ -222,12 +227,11 @@ const resumeZh: ResumeData = {
   ],
   skills: {
     technical:
-      "Python、pandas、Excel、PostgreSQL、Docker Compose、GitHub Actions、pytest、Ruff、Alembic、TradingView／Pine Script",
-    analytics:
-      "市場微結構分析、執行品質分析、數位資產市場分析、Google Analytics、廣告資料分析",
+      "Python、pandas、Excel、PostgreSQL、Docker Compose、GitHub Actions、pytest、mypy、Ruff、Alembic、TradingView／Pine Script",
+    analytics: "市場微結構分析、執行品質分析、數位資產研究、Google Analytics",
     businessProduct:
-      "金融科技產品策略、交易營運、風險教育、市場進入策略研究、商業模式設計、產品文件撰寫",
-    languages: "華語、台語、英文、西班牙文（基礎）",
+      "專案執行、跨職能協作、金融科技產品策略、工作流程設計、市場進入策略研究、商業模式設計",
+    languages: "華語、台語、英文（IELTS Academic 7.0）、西班牙文（基礎）",
   },
 }
 
