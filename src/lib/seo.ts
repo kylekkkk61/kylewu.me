@@ -11,3 +11,7 @@ export const siteConfig = {
 export function getOgImagePath(locale: string, pathname = "") {
   return `/${locale}${pathname}/opengraph-image`
 }
+
+export function getRssPath(locale: string) {
+  return locale === "zh-TW" ? "/zh-TW/feed.xml" : "/feed.xml"
+}

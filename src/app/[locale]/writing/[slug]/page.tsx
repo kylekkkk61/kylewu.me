@@ -13,7 +13,7 @@ import {
   writingEntries,
 } from "@/data/writing"
 import { Link } from "@/i18n/routing"
-import { siteConfig } from "@/lib/seo"
+import { getRssPath, siteConfig } from "@/lib/seo"
 import { getArticleSchema } from "@/lib/structured-data"
 
 type Props = {
@@ -56,6 +56,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: {
       canonical: canonicalPath,
       languages,
+      types: {
+        "application/rss+xml": getRssPath(locale),
+      },
     },
     openGraph: {
       title: entry.title,
