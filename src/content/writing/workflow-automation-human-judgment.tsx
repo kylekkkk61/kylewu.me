@@ -65,12 +65,25 @@ export function WorkflowAutomationHumanJudgmentArticle() {
       <section className="space-y-5" aria-labelledby="standardize-first">
         <h2 id="standardize-first">Standardize before you automate</h2>
         <p>
-          Before AI tools became part of my regular work, I served as general
-          coordinator for a five-day pre-college business programme at National
-          Cheng Kung University. The programme planned to admit 120 high-school
-          students, and we wanted participants who were genuinely interested in
-          learning about business administration rather than simply collecting
-          another activity credential.
+          Before AI tools became part of my regular work, I served as{" "}
+          <Link
+            href="/resume"
+            className="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+          >
+            general coordinator
+          </Link>{" "}
+          for a{" "}
+          <Link
+            href="/writing/participant-needs-service-design"
+            className="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+          >
+            five-day pre-college business programme at National Cheng Kung
+            University
+          </Link>
+          . The programme planned to admit 120 high-school students, and we
+          wanted participants who were genuinely interested in learning about
+          business administration rather than simply collecting another activity
+          credential.
         </p>
         <p>
           Applications covered personal experience, motivation, academic

@@ -3,6 +3,10 @@ export type ResumeEntry = {
   role: string
   period: string
   bullets: string[]
+  link?: {
+    href: string
+    label: string
+  }
 }
 
 export type ResumeEducation = {
@@ -109,6 +113,10 @@ const resumeEn: ResumeData = {
       bullets: [
         "Led a 60-person team to deliver a 5-day residential business programme for 120 participants, generating approximately TWD 800,000 in total revenue; managed programme design, university liaison, corporate outreach, and on-site execution.",
       ],
+      link: {
+        href: "/writing/participant-needs-service-design",
+        label: "Read the service design case study",
+      },
     },
   ],
   skills: {
@@ -206,6 +214,10 @@ const resumeZh: ResumeData = {
       bullets: [
         "帶領 60 人團隊，為 120 名學員舉辦為期 5 天的住宿型商管營隊，營收約新台幣 80 萬元；負責課程設計、校方協調、企業接洽與現場執行。",
       ],
+      link: {
+        href: "/writing/participant-needs-service-design",
+        label: "閱讀服務設計案例",
+      },
     },
   ],
   skills: {

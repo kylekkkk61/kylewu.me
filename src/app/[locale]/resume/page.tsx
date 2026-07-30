@@ -79,6 +79,14 @@ function ResumeEntries({ entries }: { entries: ResumeEntry[] }) {
               </li>
             ))}
           </ul>
+          {entry.link && (
+            <Link
+              href={entry.link.href}
+              className="text-foreground inline-flex text-sm font-medium underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+            >
+              {entry.link.label}
+            </Link>
+          )}
         </article>
       ))}
     </div>
