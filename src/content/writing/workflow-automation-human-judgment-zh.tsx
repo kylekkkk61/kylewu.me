@@ -43,10 +43,21 @@ export function WorkflowAutomationHumanJudgmentArticleZh() {
       <section className="space-y-5" aria-labelledby="standardize-first-zh">
         <h2 id="standardize-first-zh">先標準化，再思考自動化</h2>
         <p>
-          在 AI
-          工具進入日常工作以前，我曾擔任成功大學企管營總召，帶領團隊舉辦一場為期五天、預計招收
-          120
-          名高中生的住宿型營隊。我們希望錄取真正想了解企業管理、願意投入學習的學生，而不只是把營隊當成另一項經歷。
+          在 AI 工具進入日常工作以前，我曾擔任
+          <Link
+            href="/resume"
+            className="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+          >
+            成功大學企管營總召
+          </Link>
+          ，帶領團隊舉辦
+          <Link
+            href="/writing/participant-needs-service-design"
+            className="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+          >
+            一場為期五天、預計招收 120 名高中生的住宿型營隊
+          </Link>
+          。我們希望錄取真正想了解企業管理、願意投入學習的學生，而不只是把營隊當成另一項經歷。
         </p>
         <p>
           報名資料涵蓋個人經歷、參加動機、學習興趣、課外活動與未來方向，無法只靠單一數字判斷。評分團隊約有五人，每位報名者平均由三人交叉評分；正式評分以前，我們先說明不同情況應如何給分、需要觀察哪些面向，以及為什麼評分時應保持中立。

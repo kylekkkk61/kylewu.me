@@ -32,7 +32,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Resume pages
   const resumePages = routing.locales.map((locale) => ({
     url: getUrl(locale, "/resume"),
-    lastModified,
+    lastModified: new Date("2026-07-30"),
   }))
 
   const privacyPages = routing.locales.map((locale) => ({
