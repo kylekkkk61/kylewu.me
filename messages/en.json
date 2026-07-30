@@ -76,7 +76,42 @@
     "ViewProject": "View the Kaiyn Trading Bot case study"
   },
   "Footer": {
-    "AllRightsReserved": "All rights reserved."
+    "AllRightsReserved": "All rights reserved.",
+    "Privacy": "Privacy"
+  },
+  "Accessibility": {
+    "SkipToContent": "Skip to main content"
+  },
+  "Privacy": {
+    "Eyebrow": "Privacy",
+    "Title": "Privacy and analytics",
+    "Description": "How kylewu.me handles information when you browse the site or contact me.",
+    "LastUpdated": "Last updated 30 July 2026",
+    "AnalyticsTitle": "Analytics services",
+    "AnalyticsIntro": "This site uses the following services to understand traffic and website performance:",
+    "VercelAnalytics": "Vercel Web Analytics records aggregated page-view information such as pages, referrers, browser, device type, and approximate location. Vercel states that this service does not use third-party cookies.",
+    "SpeedInsights": "Vercel Speed Insights records real-world performance metrics, including Core Web Vitals.",
+    "GoogleAnalytics": "Google Analytics records page views and website interactions when the Google Analytics ID is configured. Google may use cookies and process device, browser, and usage information under its own privacy policy.",
+    "UseTitle": "How the information is used",
+    "UseTraffic": "Understand which pages and referral sources are useful to visitors.",
+    "UsePerformance": "Identify performance problems and improve Core Web Vitals.",
+    "UseContent": "Improve website content, structure, and navigation.",
+    "CookiesTitle": "Cookies and browser controls",
+    "CookiesBody": "This site does not display a cookie consent banner. Google Analytics may store cookies in your browser. You can restrict or delete cookies through your browser settings or use tools that block analytics requests.",
+    "ContactTitle": "Contact by email",
+    "ContactBody": "This site does not use a contact form. If you email me, your message is handled by your email provider and mine, and is used only to reply or continue the correspondence.",
+    "LinksTitle": "External links",
+    "LinksBody": "Links to GitHub, LinkedIn, project websites, and other external services are governed by those services' own privacy terms.",
+    "PoliciesTitle": "Provider policies",
+    "GooglePrivacy": "Google Privacy Policy",
+    "VercelPrivacy": "Vercel Privacy and Compliance",
+    "ContactLink": "Questions about this page? Email me"
+  },
+  "NotFound": {
+    "Title": "Page not found",
+    "Description": "The page may have moved, or the address may be incorrect.",
+    "BackHome": "Return home",
+    "ViewWriting": "View writing"
   },
   "Sections": {
     "SelectedWork": "Selected Work",
@@ -114,6 +149,8 @@
     "resumeTitle": "Resume",
     "resumeDescription": "Kyle Wu's resume covering FinTech product strategy, market analysis, venture building, selected projects, professional experience, and education.",
     "writingTitle": "Writing",
-    "writingDescription": "Articles by Kyle Wu on product strategy, applied FinTech systems, market workflows, and the engineering decisions behind public projects."
+    "writingDescription": "Articles by Kyle Wu on product strategy, applied FinTech systems, market workflows, and the engineering decisions behind public projects.",
+    "privacyTitle": "Privacy",
+    "privacyDescription": "How kylewu.me uses analytics services and handles information when visitors browse the site or contact Kyle Wu."
   }
 }

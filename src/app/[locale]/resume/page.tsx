@@ -112,7 +112,11 @@ export default async function ResumePage({ params }: Props) {
   const email = links.email.replace("mailto:", "")
 
   return (
-    <div className="bg-background min-h-screen py-12 md:py-16">
+    <main
+      id="main-content"
+      tabIndex={-1}
+      className="bg-background min-h-screen py-12 md:py-16"
+    >
       <SectionContainer>
         <nav
           aria-label={t("BackToHome")}
@@ -248,6 +252,6 @@ export default async function ResumePage({ params }: Props) {
           </div>
         </article>
       </SectionContainer>
-    </div>
+    </main>
   )
 }

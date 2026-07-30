@@ -133,7 +133,11 @@ export default async function ProjectPage({ params }: Props) {
       <JsonLd data={projectSchema} />
       {videoSchema && <JsonLd data={videoSchema} />}
       <SiteHeader profile={profile} />
-      <main className="flex-1 pt-12 pb-24 md:pt-16 md:pb-32">
+      <main
+        id="main-content"
+        tabIndex={-1}
+        className="flex-1 pt-12 pb-24 md:pt-16 md:pb-32"
+      >
         <SectionContainer>
           {/* Back link */}
           <div className="mb-12">

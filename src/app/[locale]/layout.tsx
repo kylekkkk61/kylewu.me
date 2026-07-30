@@ -98,6 +98,10 @@ export default async function RootLayout({
   }
 
   const messages = await getMessages()
+  const accessibility = await getTranslations({
+    locale,
+    namespace: "Accessibility",
+  })
   const clientMessages = {
     Navigation: messages.Navigation,
     CurrentFocus: messages.CurrentFocus,
@@ -118,6 +122,12 @@ export default async function RootLayout({
             enableSystem={false}
             disableTransitionOnChange
           >
+            <a
+              href="#main-content"
+              className="bg-background text-foreground ring-primary fixed top-4 left-4 z-[100] -translate-y-24 rounded-md px-4 py-2 text-sm font-medium shadow-lg transition-transform focus:translate-y-0 focus:ring-2 focus:outline-none"
+            >
+              {accessibility("SkipToContent")}
+            </a>
             <SiteBackground />
             <div className="relative flex min-h-screen flex-col">
               {children}
