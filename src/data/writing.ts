@@ -24,7 +24,7 @@ export const writingEntries: WritingEntry[] = [
       "A product and engineering case study on turning Telegram trading signals into explicit, validated, and auditable order workflows.",
     category: "Product Workflow",
     publishedAt: "2026-07-26",
-    updatedAt: "2026-07-26",
+    updatedAt: "2026-07-30",
     relatedProjectSlug: "kaiyn-trading-bot",
   },
   {
@@ -36,7 +36,7 @@ export const writingEntries: WritingEntry[] = [
       "一篇從產品與工程角度出發的案例文章，說明如何將 Telegram 交易訊號轉化為明確、經過驗證且可追溯的下單流程。",
     category: "產品流程設計",
     publishedAt: "2026-07-26",
-    updatedAt: "2026-07-26",
+    updatedAt: "2026-07-30",
     relatedProjectSlug: "kaiyn-trading-bot",
   },
   {
@@ -50,7 +50,7 @@ export const writingEntries: WritingEntry[] = [
       "A practical framework for deciding which product workflow steps to standardize, automate, or reserve for accountable human judgment.",
     category: "Product Workflow",
     publishedAt: "2026-07-29",
-    updatedAt: "2026-07-29",
+    updatedAt: "2026-07-30",
   },
   {
     slug: "workflow-automation-human-judgment",
@@ -62,7 +62,32 @@ export const writingEntries: WritingEntry[] = [
       "從營隊審查、群眾募資與產品實作經驗，整理哪些工作適合標準化、自動化，哪些關鍵判斷仍應由人承擔。",
     category: "產品流程設計",
     publishedAt: "2026-07-29",
-    updatedAt: "2026-07-29",
+    updatedAt: "2026-07-30",
+  },
+  {
+    slug: "participant-needs-service-design",
+    locale: "en",
+    title:
+      "From Participant Needs to Service Design: Building a Five-Day Business Camp Experience",
+    ogSubtitle:
+      "How research, constraints, and a live company case shaped a five-day learning experience.",
+    description:
+      "A service design case study on turning participant research, operational constraints, and a live company challenge into a five-day business camp.",
+    category: "Service Design",
+    publishedAt: "2026-07-30",
+    updatedAt: "2026-07-30",
+  },
+  {
+    slug: "participant-needs-service-design",
+    locale: "zh-TW",
+    title: "從參與者需求到服務設計：如何打造五天的企管營體驗",
+    ogSubtitle:
+      "從需求研究、營運限制到真實企業個案，設計一場完整的五天學習體驗。",
+    description:
+      "一篇服務設計案例文章，記錄如何整合歷屆資料、參與者需求、營運限制與真實企業個案，打造五天的企管營體驗。",
+    category: "服務設計",
+    publishedAt: "2026-07-30",
+    updatedAt: "2026-07-30",
   },
 ]
 
@@ -75,12 +100,14 @@ export function getWritingEntry(slug: string, locale: string) {
 export function getWritingIndexEntries(locale: string) {
   const slugs = [...new Set(writingEntries.map((entry) => entry.slug))]
 
-  return slugs.flatMap((slug) => {
-    const entry =
-      getWritingEntry(slug, locale) ??
-      writingEntries.find((item) => item.slug === slug)
-    return entry ? [entry] : []
-  })
+  return slugs
+    .flatMap((slug) => {
+      const entry =
+        getWritingEntry(slug, locale) ??
+        writingEntries.find((item) => item.slug === slug)
+      return entry ? [entry] : []
+    })
+    .sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))
 }
 
 export function getWritingAlternates(slug: string) {

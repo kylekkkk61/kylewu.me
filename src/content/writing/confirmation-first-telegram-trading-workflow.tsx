@@ -157,9 +157,9 @@ export function ConfirmationFirstTradingWorkflowArticle() {
           monitor reconciles stale processing orders by looking up that client
           order ID through Bitget’s order detail and history endpoints. It
           updates local state when it finds the order, but it does not
-          automatically submit another one. In a live trading workflow, an
-          uncertain missing response is safer to investigate than to interpret
-          as permission to retry.
+          automatically submit another one. When the outcome of an exchange
+          request is uncertain, investigating the original request is safer than
+          retrying it.
         </p>
       </section>
 
@@ -179,9 +179,9 @@ export function ConfirmationFirstTradingWorkflowArticle() {
           The same principle shaped the deployment pipeline. CI exercises the
           Docker Compose path with migration checks, type checks, tests, and
           PostgreSQL integration coverage. Releases are published as container
-          images and deployed only after production environment approval. The
-          operating model is therefore documented alongside the user flow rather
-          than treated as an invisible implementation detail.
+          images and deployed only after approval for the production
+          environment. The operating model is therefore documented alongside the
+          user flow rather than treated as an invisible implementation detail.
         </p>
       </section>
 
@@ -196,9 +196,9 @@ export function ConfirmationFirstTradingWorkflowArticle() {
           </p>
           <p className="text-base! leading-7!">
             The current system records whether Bitget accepts a GTC limit order;
-            it does not continuously synchronize its later fill, cancellation,
-            or expiry state. Automated take-profit placement and large-scale
-            load testing also remain outside the documented scope.
+            it does not continuously synchronize subsequent order states such as
+            filled, cancelled, or expired. Automated take-profit placement and
+            large-scale load testing also remain outside the documented scope.
           </p>
         </div>
       </aside>

@@ -2,6 +2,7 @@ import {
   AdmissionsReviewFlow,
   AutomationDecisionFlow,
 } from "@/components/writing/workflow-diagrams"
+import { Link } from "@/i18n/routing"
 
 export function WorkflowAutomationHumanJudgmentArticle() {
   return (
@@ -9,10 +10,10 @@ export function WorkflowAutomationHumanJudgmentArticle() {
       <section className="space-y-5">
         <p>
           When people discuss AI and automation, the conversation often starts
-          with tools: what a model can generate, which task an agent can
+          with tools: what a model can generate, what tasks an agent can
           complete, or how many hours a workflow might save. That framing starts
           too late. Before choosing a tool, I first need to understand the work
-          itself.
+          itself. A useful workflow begins with standardization, not automation.
         </p>
         <p>
           What repeats? Which inputs are reliable? Where do rules remain stable?
@@ -22,15 +23,11 @@ export function WorkflowAutomationHumanJudgmentArticle() {
         </p>
         <p>
           Across student programme operations, crowdfunding marketing, community
-          work, and software projects, I have repeatedly encountered smaller
-          versions of the same problem. Some steps benefit from consistent
-          rules. Some can be automated. Others should only be carried to a
-          clearly defined decision boundary, where a person reviews the
-          available evidence and makes the final call.
-        </p>
-        <p>
-          AI can accelerate parts of that system, but AI is not the system
-          itself. A useful workflow begins with standardization, not automation.
+          work, and software projects, I have repeatedly encountered the same
+          problem at different scales. Some steps benefit from consistent rules.
+          Some can be automated. Others should only be carried to a clearly
+          defined decision boundary, where a person reviews the available
+          evidence and makes the final call.
         </p>
       </section>
 
@@ -68,36 +65,28 @@ export function WorkflowAutomationHumanJudgmentArticle() {
       <section className="space-y-5" aria-labelledby="standardize-first">
         <h2 id="standardize-first">Standardize before you automate</h2>
         <p>
-          Before AI tools became part of my regular work, I led the general
-          coordination of a five-day pre-college business programme at National
+          Before AI tools became part of my regular work, I served as general
+          coordinator for a five-day pre-college business programme at National
           Cheng Kung University. The programme planned to admit 120 high-school
           students, and we wanted participants who were genuinely interested in
           learning about business administration rather than simply collecting
           another activity credential.
         </p>
         <p>
-          The applications contained personal experiences, reasons for applying,
-          expectations for the programme, academic interests, extracurricular
-          activities, and thoughts about future study or career directions.
-          Reviewing that material consistently was not a simple ranking problem.
+          Applications covered personal experience, motivation, academic
+          interests, extracurricular activities, and future direction, so this
+          was not a simple ranking problem. Around five reviewers participated,
+          and each application was evaluated by approximately three people.
+          Before scoring, reviewers received guidance on the relevant dimensions
+          and on applying them neutrally.
         </p>
         <p>
-          We created a small review workflow. Around five reviewers
-          participated, and each application was evaluated by approximately
-          three people. Before scoring began, reviewers received guidance on how
-          different situations should be assessed, which dimensions to consider,
-          and why they should remain neutral rather than reward applicants who
-          happened to write in a familiar style.
-        </p>
-        <p>
-          The review considered factors such as the applicant&apos;s interest in
-          business administration, their existing understanding of the field,
-          the clarity of their motivation, their school and extracurricular
-          experiences, and how they were thinking about future directions. We no
-          longer have the original weighting document, so I would not
-          reconstruct a precise formula after the fact. The value of the
-          workflow was not a supposedly perfect score. It was the shared
-          structure around the score.
+          The review considered interest in business administration, existing
+          understanding, motivation, school experience, future direction, and
+          extracurricular work. We no longer have the original weighting
+          document, so I would not reconstruct a precise formula after the fact.
+          The value was not a supposedly perfect score, but a shared structure
+          around it.
         </p>
         <p>
           Scores were consolidated and used to create an initial ranking. Large
@@ -109,14 +98,10 @@ export function WorkflowAutomationHumanJudgmentArticle() {
         </p>
         <AdmissionsReviewFlow locale="en" />
         <p>
-          Nothing about this process required AI. It also did not eliminate
-          judgment. Standardization reduced arbitrary variation and made
-          disagreement visible; the final comparison still required people to
-          read the applications, recall the purpose of the programme, and decide
-          which differences mattered.
-        </p>
-        <p>
-          A rubric can prepare a decision without pretending to be the decision.
+          Nothing about this process required AI or eliminated judgment.
+          Standardization reduced arbitrary variation and made disagreement
+          visible; the rubric prepared evidence, while people returned to the
+          programme&apos;s purpose and decided which differences mattered.
         </p>
       </section>
 
@@ -127,13 +112,10 @@ export function WorkflowAutomationHumanJudgmentArticle() {
         <p>
           I encountered a different workflow while supporting digital marketing
           and product communication for the CAVE grill crowdfunding campaign.
-        </p>
-        <p>
-          The campaign involved many small, connected decisions: advertising
-          audiences, images, slogans, page copy, and the order in which product
-          information appeared. Evaluating these decisions only through taste
-          would have made the process inconsistent. Treating a dashboard metric
-          as an automatic verdict would have been equally weak.
+          Advertising audiences, images, slogans, page copy, and information
+          order all interacted. Evaluating them only through taste would have
+          been inconsistent; treating a dashboard metric as an automatic verdict
+          would have been equally weak.
         </p>
         <p>
           We used Facebook advertising data and Google Analytics to observe the
@@ -161,17 +143,12 @@ export function WorkflowAutomationHumanJudgmentArticle() {
           ))}
         </ol>
         <p>
-          The data helped locate a problem and narrow the next question. It did
-          not decide what the product should mean to a customer or which
-          sentence best represented it. Those choices still required product
-          understanding, communication judgment, and awareness of what else was
-          changing at the same time.
-        </p>
-        <p>
-          This is another form of a decision boundary. Monitoring, aggregation,
-          and alerts can be automated. The interpretation of why a message is
-          underperforming—and whether the answer is to change the message at
-          all—may still need a person.
+          The data helped locate a problem and narrow the next question, but it
+          did not decide what the product should mean to a customer. Monitoring,
+          aggregation, and alerts can be automated; understanding why a message
+          is underperforming—and whether the answer is to change it at all—still
+          requires product knowledge, communication judgment, and awareness of
+          what else is changing.
         </p>
       </section>
 
@@ -181,44 +158,31 @@ export function WorkflowAutomationHumanJudgmentArticle() {
         </h2>
         <p>
           The same principle became more consequential when our programme team
-          planned its budget.
+          planned its budget. The programme had a target capacity of 120
+          participants, but the operating plan needed to remain viable under
+          different enrolment outcomes. Venue choices, food, transport, safety,
+          and programme quality interacted with one another. Passing certain
+          participation thresholds could also make it reasonable to improve a
+          venue or part of the participant experience, so the relationship
+          between attendance, cost, and the final surplus was not linear.
         </p>
         <p>
-          The programme had a target capacity of 120 participants, but the
-          operating plan needed to remain viable under different enrolment
-          outcomes. Venue choices, food, transport, safety, and programme
-          quality interacted with one another. Passing certain participation
-          thresholds could also make it reasonable to improve a venue or part of
-          the participant experience, so the relationship between attendance,
-          cost, and the final surplus was not linear.
-        </p>
-        <p>
-          We used an early generative AI tool to help surface possible budget
-          structures, cost reductions, and consequences. It was useful for
-          generating another view of the problem. It did not have the complete
-          context unless we described every constraint, informal dependency, and
-          quality expectation in detail.
-        </p>
-        <p>
-          The team therefore built more than ten budget versions covering
-          different enrolment and operating conditions. The tool could help
-          produce options. People still had to verify the assumptions and choose
-          among trade-offs involving cost, safety, venue capacity, transport,
-          food, and the experience we wanted participants to have.
+          We used an early generative AI tool to surface possible budget
+          structures, cost reductions, and consequences. The team still built
+          more than ten versions covering different enrolment and operating
+          conditions because the tool could not supply constraints, informal
+          dependencies, or quality expectations that we had not provided. It
+          could produce options; people still had to verify assumptions and
+          choose among cost, safety, capacity, transport, food, and participant
+          experience.
         </p>
         <p>
           When two venues look similar across price, capacity, and convenience,
-          a scoring table may show that they are close. The table cannot assume
-          responsibility for the final choice. Someone still needs to notice the
-          contextual differences the model does not contain, decide which
-          experience matters more, and accept what follows from that decision.
-        </p>
-        <p>
-          The workflow should automate everything useful before that point:
-          collect inputs, calculate scenarios, flag inconsistencies, compare
-          assumptions, and prepare questions for review. It should not disguise
-          a consequential choice as an objective output merely because the
-          numbers can be placed in a spreadsheet.
+          a scoring table can show that they are close but cannot own the
+          choice. A useful workflow collects inputs, calculates scenarios, flags
+          inconsistencies, and compares assumptions before a person decides
+          which contextual differences matter. It should not disguise that
+          choice as objective merely because the numbers fit in a spreadsheet.
         </p>
       </section>
 
@@ -230,36 +194,30 @@ export function WorkflowAutomationHumanJudgmentArticle() {
           Consequence and reversibility determine where automation stops
         </h2>
         <p>
-          Frequency matters when deciding whether to automate a task, but
-          consequence matters more when deciding where the automation must stop.
+          Frequency helps determine whether a task is worth automating;
+          consequences determine where the automation should stop. Repetitive,
+          low-impact work with stable inputs is a strong candidate. A financial
+          transaction, safety decision, or product action that is difficult to
+          reverse demands a different design.
         </p>
         <p>
-          A repetitive, low-impact task with stable inputs is a strong
-          automation candidate. A financial transaction, safety decision, or
-          irreversible product action demands a different design. The system may
-          still automate most of the preparation, but it should expose its
-          assumptions and preserve a clear confirmation point.
+          I later applied this principle in the{" "}
+          <Link
+            href="/writing/confirmation-first-telegram-trading-workflow"
+            className="text-foreground underline decoration-border underline-offset-4 transition-colors hover:decoration-foreground"
+          >
+            confirmation-first workflow for Kaiyn Trading Bot
+          </Link>
+          . The system can validate exchange rules, calculate position size,
+          persist pending state, and prepare an order, but the signal sender and
+          end user still confirm the consequential transitions.
         </p>
         <p>
-          I later applied this principle directly in Kaiyn Trading Bot. The
-          system can validate exchange rules, calculate position size, persist
-          pending state, and prepare an order. It does not treat a community
-          signal as permission to trade immediately. The sender confirms before
-          publication, and the end user confirms the calculated order before
-          submission.
-        </p>
-        <p>
-          If the exchange response is uncertain, the system reconciles the
-          existing order state instead of assuming that uncertainty is
-          permission to submit another order. In that context, an automatic
-          retry might be operationally convenient but financially dangerous.
-        </p>
-        <p>
-          This does not mean every important action needs more warnings or
-          clicks. A confirmation boundary is valuable only if the person
-          receives information that changes what they can understand:
-          assumptions, calculated values, current constraints, and the
-          consequences of continuing.
+          If the outcome of an exchange request is uncertain, the system checks
+          the existing order instead of submitting another one. Human
+          confirmation is also useful only when it exposes assumptions,
+          calculated values, current constraints, and possible consequences;
+          adding warnings or clicks alone does not make an action safer.
         </p>
       </section>
 
@@ -276,7 +234,7 @@ export function WorkflowAutomationHumanJudgmentArticle() {
         <AutomationDecisionFlow locale="en" />
         <div className="space-y-8">
           <div className="space-y-3">
-            <h3>1. Does the step require strong judgment?</h3>
+            <h3>1. Does the step depend heavily on judgment?</h3>
             <p>
               If reasonable people can reach different answers from the same
               information, first identify what values or context make those
@@ -341,14 +299,11 @@ export function WorkflowAutomationHumanJudgmentArticle() {
           Human judgment is not another processing step
         </h2>
         <p>
-          AI can help organize appropriately protected records, summarize
-          feedback, calculate scenarios, generate alternatives, and identify
-          unusual data. Those capabilities can make standardized workflows
-          faster and more consistent. They do not remove the need to decide what
-          the system is optimizing for.
-        </p>
-        <p>
-          Some choices have no unique objective answer. A cheaper venue and a
+          When privacy and access controls are in place, AI can help organize
+          records, summarize feedback, calculate scenarios, generate
+          alternatives, and identify unusual patterns. Those capabilities can
+          make standardized workflows faster and more consistent, but some
+          choices still have no unique objective answer. A cheaper venue and a
           more comfortable venue may be equally defensible under different
           priorities. Two applicants may receive similar scores while bringing
           different kinds of curiosity to a programme. A marketing message may

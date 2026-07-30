@@ -7,6 +7,8 @@ import { SiteHeader } from "@/components/layout/site-header"
 import { JsonLd } from "@/components/seo/json-ld"
 import { ConfirmationFirstTradingWorkflowArticle } from "@/content/writing/confirmation-first-telegram-trading-workflow"
 import { ConfirmationFirstTradingWorkflowArticleZh } from "@/content/writing/confirmation-first-telegram-trading-workflow-zh"
+import { ParticipantNeedsServiceDesignArticle } from "@/content/writing/participant-needs-service-design"
+import { ParticipantNeedsServiceDesignArticleZh } from "@/content/writing/participant-needs-service-design-zh"
 import { WorkflowAutomationHumanJudgmentArticle } from "@/content/writing/workflow-automation-human-judgment"
 import { WorkflowAutomationHumanJudgmentArticleZh } from "@/content/writing/workflow-automation-human-judgment-zh"
 import { getProfile } from "@/data/profile"
@@ -16,7 +18,7 @@ import {
   writingEntries,
 } from "@/data/writing"
 import { Link } from "@/i18n/routing"
-import { getOgImagePath, siteConfig } from "@/lib/seo"
+import { siteConfig } from "@/lib/seo"
 import { getArticleSchema } from "@/lib/structured-data"
 
 type Props = {
@@ -40,6 +42,14 @@ function formatDate(date: string, locale: string) {
 }
 
 function ArticleContent({ slug, locale }: { slug: string; locale: string }) {
+  if (slug === "participant-needs-service-design") {
+    return locale === "zh-TW" ? (
+      <ParticipantNeedsServiceDesignArticleZh />
+    ) : (
+      <ParticipantNeedsServiceDesignArticle />
+    )
+  }
+
   if (slug === "workflow-automation-human-judgment") {
     return locale === "zh-TW" ? (
       <WorkflowAutomationHumanJudgmentArticleZh />
@@ -90,12 +100,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: entry.title,
       description: entry.ogSubtitle,
-      images: [
-        {
-          url: getOgImagePath(locale, `/writing/${slug}`),
-          alt: `${entry.title} by Kyle Wu`,
-        },
-      ],
     },
   }
 }
