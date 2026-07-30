@@ -42,7 +42,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const writingPages = routing.locales.map((locale) => ({
     url: getUrl(locale, "/writing"),
-    lastModified: new Date("2026-07-29"),
+    lastModified: new Date("2026-07-30"),
   }))
 
   const articlePages = writingEntries.map((entry) => ({
