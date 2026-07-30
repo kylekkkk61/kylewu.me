@@ -76,7 +76,42 @@
     "ViewProject": "查看 Kaiyn Trading Bot 專案介紹"
   },
   "Footer": {
-    "AllRightsReserved": "版權所有"
+    "AllRightsReserved": "版權所有",
+    "Privacy": "隱私說明"
+  },
+  "Accessibility": {
+    "SkipToContent": "跳至主要內容"
+  },
+  "Privacy": {
+    "Eyebrow": "隱私說明",
+    "Title": "隱私與網站分析",
+    "Description": "說明你瀏覽 kylewu.me 或透過電子郵件與我聯絡時，網站如何處理相關資訊。",
+    "LastUpdated": "最後更新：2026 年 7 月 30 日",
+    "AnalyticsTitle": "網站分析服務",
+    "AnalyticsIntro": "本站使用以下服務了解網站流量與實際效能：",
+    "VercelAnalytics": "Vercel Web Analytics 會記錄彙整後的瀏覽資料，例如造訪頁面、來源網站、瀏覽器、裝置類型與大致地區。Vercel 表示此服務不使用第三方 Cookie。",
+    "SpeedInsights": "Vercel Speed Insights 會記錄真實使用情境下的網站效能指標，包括 Core Web Vitals。",
+    "GoogleAnalytics": "設定 Google Analytics ID 後，Google Analytics 會記錄頁面瀏覽與網站互動。Google 可能使用 Cookie，並依其隱私權政策處理裝置、瀏覽器與使用情況資訊。",
+    "UseTitle": "資訊用途",
+    "UseTraffic": "了解訪客較常使用的頁面與流量來源。",
+    "UsePerformance": "找出效能問題並改善 Core Web Vitals。",
+    "UseContent": "改善網站內容、資訊結構與導覽方式。",
+    "CookiesTitle": "Cookie 與瀏覽器控制",
+    "CookiesBody": "本站目前不顯示 Cookie 同意提示。Google Analytics 可能在你的瀏覽器中儲存 Cookie。你可以透過瀏覽器設定限制或刪除 Cookie，或使用能阻擋網站分析請求的工具。",
+    "ContactTitle": "透過電子郵件聯絡",
+    "ContactBody": "本站不使用聯絡表單。若你透過電子郵件與我聯絡，信件會由你我雙方的電子郵件服務商處理，並僅用於回覆或延續相關聯繫。",
+    "LinksTitle": "外部連結",
+    "LinksBody": "GitHub、LinkedIn、專案網站與其他外部服務連結，均依各服務自身的隱私條款處理資料。",
+    "PoliciesTitle": "服務商政策",
+    "GooglePrivacy": "Google 隱私權政策",
+    "VercelPrivacy": "Vercel 隱私與法規遵循說明",
+    "ContactLink": "對本頁有疑問？寄信與我聯絡"
+  },
+  "NotFound": {
+    "Title": "找不到這個頁面",
+    "Description": "頁面可能已移動，或網址輸入有誤。",
+    "BackHome": "返回首頁",
+    "ViewWriting": "查看文章與研究"
   },
   "Sections": {
     "SelectedWork": "精選專案",
@@ -114,6 +149,8 @@
     "resumeTitle": "個人履歷",
     "resumeDescription": "Kyle Wu（吳秉儒）的履歷，涵蓋金融科技產品策略、市場分析、創業經驗、精選專案、工作經歷與教育背景。",
     "writingTitle": "文章與研究",
-    "writingDescription": "Kyle Wu（吳秉儒）撰寫的產品策略、金融科技系統、市場工作流程與公開專案工程決策文章。"
+    "writingDescription": "Kyle Wu（吳秉儒）撰寫的產品策略、金融科技系統、市場工作流程與公開專案工程決策文章。",
+    "privacyTitle": "隱私說明",
+    "privacyDescription": "說明 kylewu.me 使用的網站分析服務，以及訪客瀏覽網站或聯絡 Kyle Wu（吳秉儒）時的資訊處理方式。"
   }
 }

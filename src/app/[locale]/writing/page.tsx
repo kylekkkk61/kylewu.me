@@ -66,7 +66,7 @@ export default async function WritingPage({ params }: Props) {
   return (
     <>
       <SiteHeader profile={profile} />
-      <main className="flex-1 py-16 md:py-24">
+      <main id="main-content" tabIndex={-1} className="flex-1 py-16 md:py-24">
         <div className="mx-auto w-full max-w-5xl px-6 md:px-8">
           <header className="max-w-3xl space-y-5 pb-16 md:pb-20">
             <p className="text-primary text-sm font-medium tracking-wide uppercase">

@@ -119,7 +119,7 @@ export default async function WritingArticlePage({ params }: Props) {
     <>
       <JsonLd data={articleSchema} />
       <SiteHeader profile={profile} languagePath={languagePath} />
-      <main className="flex-1 py-12 md:py-20">
+      <main id="main-content" tabIndex={-1} className="flex-1 py-12 md:py-20">
         <article className="mx-auto w-full max-w-5xl px-6 md:px-8">
           <div className="mx-auto max-w-3xl">
             <Link

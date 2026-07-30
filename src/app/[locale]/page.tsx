@@ -46,7 +46,7 @@ export default async function Home({
       <JsonLd data={websiteSchema} />
       <JsonLd data={profilePageSchema} />
       <SiteHeader profile={profile} />
-      <main className="relative flex-1">
+      <main id="main-content" tabIndex={-1} className="relative flex-1">
         <SiteTrack />
         <HeroSection profile={profile} />
         <SectionDivider />
