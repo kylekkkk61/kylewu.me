@@ -11,7 +11,8 @@ export function ParticipantNeedsServiceDesignArticle() {
         <p>
           Asking people what they want is useful, but it is not always enough to
           design a good service. This is especially true when the participants
-          are still forming the frame they need to answer the question.
+          are still developing the experience and vocabulary needed to answer
+          the question.
         </p>
         <p>
           In 2023, I served as General Coordinator and Head of Administration
@@ -19,8 +20,8 @@ export function ParticipantNeedsServiceDesignArticle() {
           Pre-college Camp. A 60-person student team had one year to design and
           operate a five-day residential experience for 120 high-school
           students. The goal was not to persuade every participant to study
-          business. It was to give them enough knowledge, practice, and lived
-          experience to make a better judgment for themselves.
+          business. It was to give them enough knowledge, practice, and
+          firsthand experience to make a better judgment for themselves.
         </p>
         <p>
           That changed the design problem. We were not assembling a timetable of
@@ -63,35 +64,35 @@ export function ParticipantNeedsServiceDesignArticle() {
 
       <section className="space-y-5" aria-labelledby="stable-and-adjustable">
         <h2 id="stable-and-adjustable">
-          Preserve the service spine, redesign the adjustable parts
+          Preserve the core structure, redesign the adjustable parts
         </h2>
         <p>
-          A recurring program should not be rebuilt from zero each year. Some
+          A recurring programme should not be rebuilt from zero each year. Some
           parts existed for good reasons: participants needed a coherent
           introduction to business, a safe residential environment, time to
           build relationships, and a schedule the organizing team could actually
           operate.
         </p>
         <p>
-          The design work was to distinguish that stable spine from the parts
-          that should respond to the current cohort. We reduced the number and
-          length of external speaker sessions we had initially considered, then
-          used more interactive formats to introduce business concepts. An
+          The design work was to distinguish that stable structure from the
+          parts that should respond to the current cohort. We reduced the number
+          and length of external speaker sessions we had initially considered,
+          then used more interactive formats to introduce business concepts. An
           investment game, for example, made abstract ideas easier to test and
           discuss than another long lecture would have.
         </p>
         <p>
-          We also kept social activities, an evening program, and a dance. A
+          We also kept social activities, an evening programme, and a dance. A
           five-day camp made entirely of classes might appear academically
           rigorous, but it would not match how teenagers sustain attention,
           build trust, or remember an experience. Learning and enjoyment were
-          not competing products. They were two parts of the same service.
+          not competing priorities. They were two parts of the same service.
         </p>
       </section>
 
       <section className="space-y-5" aria-labelledby="live-company-case">
         <h2 id="live-company-case">
-          Use one real problem to connect the program
+          Use one real problem to connect five days of learning
         </h2>
         <p>
           The most important change was replacing a fictional case with a live
@@ -109,9 +110,9 @@ export function ParticipantNeedsServiceDesignArticle() {
           food products, and intergenerational farming collaboration.
         </p>
         <p>
-          Local agriculture was a timely issue, and the company connected that
-          issue to the city where the camp took place. It was also established
-          enough to offer a substantive operating problem while remaining close
+          Local agriculture was a prominent issue at the time, and the company
+          connected it to the city where the camp took place. It was established
+          enough to offer a substantive business challenge while remaining close
           enough to the local context for high-school students to investigate.
         </p>
         <p>
@@ -130,10 +131,10 @@ export function ParticipantNeedsServiceDesignArticle() {
           Let participants explore instead of prescribing one future
         </h2>
         <p>
-          Another part of the program, called Virtual University, addressed a
+          Another part of the programme, called Virtual University, addressed a
           different uncertainty. Participants did not only want to know what a
           business course contained. They wanted to understand what university
-          life and the paths after it might feel like.
+          life might feel like and where it could lead.
         </p>
         <p>
           Our team built a small web-based course registration system modelled
@@ -156,7 +157,7 @@ export function ParticipantNeedsServiceDesignArticle() {
         <p>
           Service design became operational long before participants arrived. I
           recruited and aligned the heads of seven departments, then worked
-          across administration, program design, training, human resources,
+          across administration, programme design, training, human resources,
           media, design, and external coordination. As Head of Administration, I
           also carried direct responsibility for finance, admissions, marketing,
           venues, logistics, and the integrated schedule. This leadership role
@@ -182,7 +183,7 @@ export function ParticipantNeedsServiceDesignArticle() {
           masks, ventilation, seating, temperature checks, sanitation, rapid
           testing, and escalation procedures. These details were not separate
           from the participant experience. They were the system that allowed the
-          program to run safely and retain university approval.
+          programme to run safely and retain university approval.
         </p>
       </section>
 
@@ -190,17 +191,17 @@ export function ParticipantNeedsServiceDesignArticle() {
         <div className="space-y-5">
           <h2 id="evidence-and-limits">What the evidence supports</h2>
           <p>
-            All 120 selected participants attended. After the camp, 100
+            All 120 admitted participants attended. After the camp, 100
             participants completed the feedback survey, an 83.3 percent response
-            rate. The results support the overall service direction, while
-            remaining self-reported feedback from one cohort rather than a
-            controlled evaluation.
+            rate. The data show how this cohort experienced the programme, while
+            remaining self-reported feedback rather than a controlled
+            evaluation.
           </p>
         </div>
 
         <dl className="not-prose border-border grid overflow-hidden rounded-2xl border sm:grid-cols-2">
           {[
-            ["4.41 / 5", "Average rating for the overall program flow"],
+            ["4.41 / 5", "Average rating for the overall programme flow"],
             ["4.35 / 5", "Average rating for course arrangement"],
             ["87%", "Rated the overall flow 4 or 5"],
             ["88%", "Rated course arrangement 4 or 5"],
@@ -221,17 +222,17 @@ export function ParticipantNeedsServiceDesignArticle() {
           When asked which course area was most beneficial, 47 respondents
           selected marketing, 27 selected financial management, and 26 selected
           human resources. For the learning games, 45 selected the investment
-          game, 36 selected the lottery wager, and 19 selected the advertising
+          game, 36 selected the lottery game, and 19 selected the advertising
           game theory activity. Open responses also frequently mentioned the
-          dance, showing that the social experience remained memorable beside
+          dance, showing that the social experience remained memorable alongside
           the academic content.
         </p>
         <p>
-          These results do not prove that every design choice caused a specific
-          outcome, and they do not justify claims about national rankings or
-          long-term educational impact. They do show that a large program could
-          maintain both learning value and experience quality when research,
-          content, and operations were designed as one system.
+          These results do not establish causality or justify claims about
+          national rankings or long-term educational impact. They show that this
+          cohort rated both the course structure and the overall programme
+          highly, while open responses also showed that the social experience
+          remained memorable.
         </p>
       </section>
 

@@ -24,7 +24,7 @@ export const writingEntries: WritingEntry[] = [
       "A product and engineering case study on turning Telegram trading signals into explicit, validated, and auditable order workflows.",
     category: "Product Workflow",
     publishedAt: "2026-07-26",
-    updatedAt: "2026-07-26",
+    updatedAt: "2026-07-30",
     relatedProjectSlug: "kaiyn-trading-bot",
   },
   {
@@ -36,7 +36,7 @@ export const writingEntries: WritingEntry[] = [
       "一篇從產品與工程角度出發的案例文章，說明如何將 Telegram 交易訊號轉化為明確、經過驗證且可追溯的下單流程。",
     category: "產品流程設計",
     publishedAt: "2026-07-26",
-    updatedAt: "2026-07-26",
+    updatedAt: "2026-07-30",
     relatedProjectSlug: "kaiyn-trading-bot",
   },
   {
@@ -50,7 +50,7 @@ export const writingEntries: WritingEntry[] = [
       "A practical framework for deciding which product workflow steps to standardize, automate, or reserve for accountable human judgment.",
     category: "Product Workflow",
     publishedAt: "2026-07-29",
-    updatedAt: "2026-07-29",
+    updatedAt: "2026-07-30",
   },
   {
     slug: "workflow-automation-human-judgment",
@@ -62,7 +62,7 @@ export const writingEntries: WritingEntry[] = [
       "從營隊審查、群眾募資與產品實作經驗，整理哪些工作適合標準化、自動化，哪些關鍵判斷仍應由人承擔。",
     category: "產品流程設計",
     publishedAt: "2026-07-29",
-    updatedAt: "2026-07-29",
+    updatedAt: "2026-07-30",
   },
   {
     slug: "participant-needs-service-design",

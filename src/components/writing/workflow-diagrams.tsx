@@ -39,7 +39,7 @@ const decisionCopy = {
     no: "No",
     questions: [
       {
-        question: "Does the step require strong judgment?",
+        question: "Does the step depend heavily on judgment?",
         yes: "Keep it human-led; use AI only to prepare evidence.",
         no: "Continue evaluating the workflow.",
       },
@@ -68,7 +68,7 @@ const decisionCopy = {
     no: "否",
     questions: [
       {
-        question: "這個環節是否需要強判斷？",
+        question: "這個環節是否高度仰賴判斷？",
         yes: "以人工為主，AI 只協助準備與整理證據。",
         no: "繼續評估這項工作。",
       },

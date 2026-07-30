@@ -4,7 +4,7 @@ const discoveryCopy = {
   en: {
     title: "Research becomes a service architecture",
     description:
-      "No single source could explain what participants needed. The program combined historical evidence, current signals, and operating constraints.",
+      "No single source could explain what participants needed. The programme combined historical evidence, current signals, and operating constraints.",
     sources: [
       [
         "Past applications",
@@ -26,7 +26,7 @@ const discoveryCopy = {
     synthesis: "Participant needs",
     synthesisBody:
       "Enough structure to explore business, with enough freedom to discover what matters personally.",
-    fixed: "Stable program spine",
+    fixed: "Stable programme structure",
     fixedBody: "Core learning, community, safety, and operating requirements",
     flexible: "Adjustable modules",
     flexibleBody: "Topics, formats, speakers, games, and the company case",
@@ -38,7 +38,7 @@ const discoveryCopy = {
       "單一資料來源無法完整說明參與者需要什麼，因此我們同時整理歷史證據、當屆訊號與營運限制。",
     sources: [
       ["歷屆報名資料", "整理過去參與者的疑問、動機與期待"],
-      ["活動後回饋", "了解參與者重視、遺漏或感到困難的環節"],
+      ["活動後回饋", "了解參與者重視、認為不足或感到困難的環節"],
       ["團隊交接與檔案", "保留歷屆決策、失誤與營運經驗"],
       ["當屆需求訊號", "結合報名表與高中生的非正式訪談"],
     ],

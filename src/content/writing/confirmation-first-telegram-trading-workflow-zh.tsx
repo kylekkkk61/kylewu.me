@@ -84,7 +84,7 @@ export function ConfirmationFirstTradingWorkflowArticleZh() {
           系統也會保存預覽與待確認訂單，而不是把完整狀態塞進 Telegram callback
           資料。確認因此成為真正的生命週期，包含
           pending、processing、executed、failed、cancelled 與 expired
-          等狀態。只要 session 仍在有效期限內，即使 Bot
+          等狀態。只要預覽仍在有效期限內，即使 Bot
           重新啟動，使用者仍能繼續原本的預覽流程。
         </p>
       </section>
@@ -118,7 +118,7 @@ export function ConfirmationFirstTradingWorkflowArticleZh() {
           更棘手的情況是：交易所可能已經收到訂單，但本機程序沒有取得明確回應。健康檢查服務會使用同一個
           client order ID，從 Bitget 的訂單明細與歷史紀錄核對長時間停在
           processing
-          的訂單。找到訂單後，系統會補齊本機狀態，但不會自動再送一次。在真實交易流程中，無法確認的回應應該先被查明，而不是直接視為重試的許可。
+          的訂單。找到訂單後，系統會補齊本機狀態，但不會自動再送一次。當交易所請求的結果不明時，應先查明原訂單狀態，而不是直接重新送單。
         </p>
       </section>
 
@@ -128,10 +128,9 @@ export function ConfirmationFirstTradingWorkflowArticleZh() {
           使用者看見的流程會在下單摘要結束，但一套需要長期運作的系統，還得依賴操作紀錄、管理員告警、健康檢查、資料保留清理、資料庫備份，以及有文件可循的還原程序。這些功能不會讓主要操作畫面更吸引人，卻能讓團隊在問題發生時查得清楚。
         </p>
         <p>
-          部署流程也遵循相同原則。CI 會沿用 Docker Compose 執行路徑，檢查資料庫
-          migration、型別、測試與 PostgreSQL 整合測試；release
-          會發布容器映像，並在 production environment
-          核准後才部署。維運方式因此和使用者流程放在同一套文件裡，而不是被當成看不見的實作細節。
+          部署流程也遵循相同原則。CI 會沿用 Docker Compose
+          的執行路徑，檢查資料庫 migration、型別、測試與 PostgreSQL
+          整合測試；發布流程會建立容器映像，並在正式環境核准後部署。維運方式因此和使用者流程放在同一套文件裡，而不是被當成看不見的實作細節。
         </p>
       </section>
 
