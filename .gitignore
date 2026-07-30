@@ -46,3 +46,6 @@ next-env.d.ts
 # codegraph
 .codegraph
 .cursor
+
+# local agent instructions
+/AGENTS.md
