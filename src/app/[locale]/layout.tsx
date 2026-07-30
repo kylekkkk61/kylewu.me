@@ -23,7 +23,7 @@ const newsreader = Newsreader({
 })
 
 import { getTranslations } from "next-intl/server"
-import { getOgImagePath, siteConfig } from "@/lib/seo"
+import { getOgImagePath, getRssPath, siteConfig } from "@/lib/seo"
 
 export async function generateMetadata({
   params,
@@ -48,6 +48,9 @@ export async function generateMetadata({
         en: "/",
         "zh-TW": "/zh-TW",
         "x-default": "/",
+      },
+      types: {
+        "application/rss+xml": getRssPath(locale),
       },
     },
     openGraph: {

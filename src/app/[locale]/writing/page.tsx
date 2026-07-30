@@ -1,4 +1,4 @@
-import { ArrowUpRight } from "lucide-react"
+import { ArrowUpRight, Rss } from "lucide-react"
 import type { Metadata } from "next"
 import NextLink from "next/link"
 import { getTranslations, setRequestLocale } from "next-intl/server"
@@ -6,7 +6,7 @@ import { SiteFooter } from "@/components/layout/site-footer"
 import { SiteHeader } from "@/components/layout/site-header"
 import { getProfile } from "@/data/profile"
 import { getWritingIndexEntries, getWritingPath } from "@/data/writing"
-import { getOgImagePath, siteConfig } from "@/lib/seo"
+import { getOgImagePath, getRssPath, siteConfig } from "@/lib/seo"
 
 type Props = {
   params: Promise<{ locale: string }>
@@ -33,6 +33,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
         en: "/writing",
         "zh-TW": "/zh-TW/writing",
         "x-default": "/writing",
+      },
+      types: {
+        "application/rss+xml": getRssPath(locale),
       },
     },
     openGraph: {
@@ -78,6 +81,13 @@ export default async function WritingPage({ params }: Props) {
             <p className="text-muted-foreground max-w-2xl text-lg leading-8 md:text-xl">
               {t("Description")}
             </p>
+            <a
+              href={getRssPath(locale)}
+              className="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 text-sm font-medium transition-colors"
+            >
+              <Rss aria-hidden="true" className="h-4 w-4" />
+              RSS
+            </a>
           </header>
 
           <section aria-label={t("Eyebrow")} className="border-border border-y">
@@ -92,9 +102,6 @@ export default async function WritingPage({ params }: Props) {
                       {formatDate(entry.publishedAt, locale)}
                     </time>
                     <span>{entry.category}</span>
-                    {entry.locale !== locale && (
-                      <span>{t("EnglishArticle")}</span>
-                    )}
                   </div>
 
                   <div className="max-w-2xl space-y-3">
