@@ -92,9 +92,6 @@ export default async function WritingPage({ params }: Props) {
                       {formatDate(entry.publishedAt, locale)}
                     </time>
                     <span>{entry.category}</span>
-                    {entry.locale !== locale && (
-                      <span>{t("EnglishArticle")}</span>
-                    )}
                   </div>
 
                   <div className="max-w-2xl space-y-3">

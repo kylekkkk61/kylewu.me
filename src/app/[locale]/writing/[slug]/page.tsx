@@ -5,16 +5,11 @@ import { getTranslations, setRequestLocale } from "next-intl/server"
 import { SiteFooter } from "@/components/layout/site-footer"
 import { SiteHeader } from "@/components/layout/site-header"
 import { JsonLd } from "@/components/seo/json-ld"
-import { ConfirmationFirstTradingWorkflowArticle } from "@/content/writing/confirmation-first-telegram-trading-workflow"
-import { ConfirmationFirstTradingWorkflowArticleZh } from "@/content/writing/confirmation-first-telegram-trading-workflow-zh"
-import { ParticipantNeedsServiceDesignArticle } from "@/content/writing/participant-needs-service-design"
-import { ParticipantNeedsServiceDesignArticleZh } from "@/content/writing/participant-needs-service-design-zh"
-import { WorkflowAutomationHumanJudgmentArticle } from "@/content/writing/workflow-automation-human-judgment"
-import { WorkflowAutomationHumanJudgmentArticleZh } from "@/content/writing/workflow-automation-human-judgment-zh"
 import { getProfile } from "@/data/profile"
 import {
   getWritingAlternates,
   getWritingEntry,
+  loadWritingArticle,
   writingEntries,
 } from "@/data/writing"
 import { Link } from "@/i18n/routing"
@@ -39,30 +34,6 @@ function formatDate(date: string, locale: string) {
     dateStyle: "long",
     timeZone: "UTC",
   }).format(new Date(`${date}T00:00:00Z`))
-}
-
-function ArticleContent({ slug, locale }: { slug: string; locale: string }) {
-  if (slug === "participant-needs-service-design") {
-    return locale === "zh-TW" ? (
-      <ParticipantNeedsServiceDesignArticleZh />
-    ) : (
-      <ParticipantNeedsServiceDesignArticle />
-    )
-  }
-
-  if (slug === "workflow-automation-human-judgment") {
-    return locale === "zh-TW" ? (
-      <WorkflowAutomationHumanJudgmentArticleZh />
-    ) : (
-      <WorkflowAutomationHumanJudgmentArticle />
-    )
-  }
-
-  return locale === "zh-TW" ? (
-    <ConfirmationFirstTradingWorkflowArticleZh />
-  ) : (
-    <ConfirmationFirstTradingWorkflowArticle />
-  )
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -108,8 +79,9 @@ export default async function WritingArticlePage({ params }: Props) {
   const { locale, slug } = await params
   setRequestLocale(locale)
   const entry = getWritingEntry(slug, locale)
+  const ArticleContent = await loadWritingArticle(slug, locale)
 
-  if (!entry) notFound()
+  if (!entry || !ArticleContent) notFound()
 
   const profile = getProfile(locale)
   const t = await getTranslations("Writing")
@@ -173,13 +145,12 @@ export default async function WritingArticlePage({ params }: Props) {
             </header>
 
             <div className="pt-12 md:pt-16">
-              <ArticleContent slug={slug} locale={locale} />
+              <ArticleContent />
             </div>
 
-            {(entry.relatedProjectSlug ||
-              slug === "confirmation-first-telegram-trading-workflow") && (
+            {(entry.sources?.length || entry.relatedProjectSlug) && (
               <footer className="mt-16 space-y-10 border-t border-border pt-10 md:mt-20">
-                {slug === "confirmation-first-telegram-trading-workflow" && (
+                {entry.sources?.length && (
                   <section
                     className="space-y-4"
                     aria-labelledby="source-material"
@@ -188,48 +159,22 @@ export default async function WritingArticlePage({ params }: Props) {
                       {t("SourceMaterial")}
                     </h2>
                     <ul className="space-y-3 text-sm">
-                      <li>
-                        <a
-                          href="https://github.com/kaiyn-capital/kaiyn-trading-bot"
-                          target="_blank"
-                          rel="noreferrer"
-                          className="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors"
-                        >
-                          Kaiyn Trading Bot repository
-                          <ArrowUpRight
-                            aria-hidden="true"
-                            className="h-4 w-4"
-                          />
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://github.com/kaiyn-capital/kaiyn-trading-bot/blob/main/references/trading_flow.md"
-                          target="_blank"
-                          rel="noreferrer"
-                          className="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors"
-                        >
-                          Trading Flow
-                          <ArrowUpRight
-                            aria-hidden="true"
-                            className="h-4 w-4"
-                          />
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="https://github.com/kaiyn-capital/kaiyn-trading-bot/blob/main/references/production_readiness.md"
-                          target="_blank"
-                          rel="noreferrer"
-                          className="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors"
-                        >
-                          Production Readiness Record
-                          <ArrowUpRight
-                            aria-hidden="true"
-                            className="h-4 w-4"
-                          />
-                        </a>
-                      </li>
+                      {entry.sources.map((source) => (
+                        <li key={source.href}>
+                          <a
+                            href={source.href}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors"
+                          >
+                            {source.label}
+                            <ArrowUpRight
+                              aria-hidden="true"
+                              className="h-4 w-4"
+                            />
+                          </a>
+                        </li>
+                      ))}
                     </ul>
                   </section>
                 )}
