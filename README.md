@@ -122,4 +122,10 @@ src/
 
 ## License
 
-[MIT](LICENSE) © Kyle Wu 2026
+This repository contains software and content under different terms:
+
+- **Source code and technical documentation**: [MIT License](LICENSE)
+- **Original Writing articles and diagrams**: [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
+- **Resume, profile, case-study, and brand materials**: All rights reserved unless otherwise stated
+
+See the [licensing page](https://kylewu.me/licensing) for the plain-language overview and the [LICENSE](LICENSE) file for the repository scope and legal terms.

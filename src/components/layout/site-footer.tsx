@@ -14,13 +14,19 @@ export function SiteFooter({ profile }: { profile: Profile }) {
           <div className="flex max-w-md flex-wrap items-center justify-center gap-x-4 gap-y-2 text-center md:justify-start md:text-left">
             <p>
               © <span suppressHydrationWarning>{new Date().getFullYear()}</span>{" "}
-              {profile.name}. {t("AllRightsReserved")}
+              {profile.name}
             </p>
             <Link
               href="/privacy"
               className="hover:text-foreground underline-offset-4 transition-colors hover:underline"
             >
               {t("Privacy")}
+            </Link>
+            <Link
+              href="/licensing"
+              className="hover:text-foreground underline-offset-4 transition-colors hover:underline"
+            >
+              {t("Licensing")}
             </Link>
           </div>
           <div className="flex items-center gap-4">

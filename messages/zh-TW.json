@@ -73,11 +73,13 @@
     "ChineseArticle": "中文文章",
     "SourceMaterial": "參考資料",
     "RelatedProject": "相關專案",
-    "ViewProject": "查看 Kaiyn Trading Bot 專案介紹"
+    "ViewProject": "查看 Kaiyn Trading Bot 專案介紹",
+    "LicenseTitle": "文章授權",
+    "LicenseNotice": "本文採<license>創用 CC「姓名標示─非商業性─禁止改作 4.0 國際」授權</license>。你可以在標示作者 Kyle Wu、附上原文與授權條款連結，且不修改內容的前提下，於非商業用途分享或轉載。<details>查看完整授權說明</details>。"
   },
   "Footer": {
-    "AllRightsReserved": "版權所有",
-    "Privacy": "隱私說明"
+    "Privacy": "隱私說明",
+    "Licensing": "授權說明"
   },
   "Accessibility": {
     "SkipToContent": "跳至主要內容"
@@ -106,6 +108,28 @@
     "GooglePrivacy": "Google 隱私權政策",
     "VercelPrivacy": "Vercel 隱私與法規遵循說明",
     "ContactLink": "對本頁有疑問？寄信與我聯絡"
+  },
+  "Licensing": {
+    "Eyebrow": "授權說明",
+    "Title": "本站內容的使用與分享方式",
+    "Description": "kylewu.me 依內容性質採用不同授權，讓程式碼維持開放、文章可以分享，同時保護個人與品牌素材。",
+    "LastUpdated": "最後更新：2026 年 8 月 1 日",
+    "SummaryTitle": "本頁說明範圍",
+    "SummaryBody": "本頁以一般用語整理授權範圍；若內容與正式授權條款不一致，應以適用的授權條款及著作權法規為準。",
+    "CodeTitle": "網站原始碼",
+    "CodeBody": "除非另有註明，kylewu.me 公開儲存庫中的軟體原始碼與技術文件採 MIT License 授權。",
+    "MitLicense": "查看 MIT License",
+    "WritingTitle": "文章與研究",
+    "WritingBody": "「文章與研究」專區中的原創文章與原創圖表，採創用 CC「姓名標示─非商業性─禁止改作 4.0 國際」（CC BY-NC-ND 4.0）授權。",
+    "WritingPermission": "你可以在不修改內容、標示作者 Kyle Wu，並附上原文與授權條款連結的前提下，於非商業用途重製及分享文章。如需商業使用、編修、翻譯、改作或其他授權，請先與我聯絡。",
+    "CreativeCommonsLicense": "查看 CC BY-NC-ND 4.0 授權條款",
+    "ReservedTitle": "個人與品牌素材",
+    "ReservedBody": "除非頁面另有註明，個人履歷與 CV、個人簡介、專案案例文字與資料、標誌、品牌素材、Open Graph 圖片、照片及其他媒體，均不適用 MIT 或創用 CC 授權，相關權利皆予保留。",
+    "SharingTitle": "連結與引用",
+    "SharingBody": "歡迎分享本站連結及其社群預覽；在法令或適用授權允許的範圍內，也可以適度引用。完整轉載「文章與研究」內容時，須遵守創用 CC 授權條款；其他用途則應先取得同意。",
+    "ThirdPartyTitle": "第三方素材",
+    "ThirdPartyBody": "第三方函式庫、名稱、商標、字型與其他素材，仍適用各自的授權及權利。本頁不授予 Kyle Wu 本身未持有的任何權利。",
+    "ContactLink": "需要其他授權？寄信與我聯絡"
   },
   "NotFound": {
     "Title": "找不到這個頁面",
@@ -151,6 +175,8 @@
     "writingTitle": "文章與研究",
     "writingDescription": "Kyle Wu（吳秉儒）撰寫的產品策略、金融科技系統、市場工作流程與公開專案工程決策文章。",
     "privacyTitle": "隱私說明",
-    "privacyDescription": "說明 kylewu.me 使用的網站分析服務，以及訪客瀏覽網站或聯絡 Kyle Wu（吳秉儒）時的資訊處理方式。"
+    "privacyDescription": "說明 kylewu.me 使用的網站分析服務，以及訪客瀏覽網站或聯絡 Kyle Wu（吳秉儒）時的資訊處理方式。",
+    "licensingTitle": "授權說明",
+    "licensingDescription": "說明 kylewu.me 的網站原始碼、文章，以及個人與品牌素材可以如何使用與分享。"
   }
 }

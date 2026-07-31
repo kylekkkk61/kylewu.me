@@ -73,11 +73,13 @@
     "ChineseArticle": "Traditional Chinese article",
     "SourceMaterial": "Source material",
     "RelatedProject": "Related project",
-    "ViewProject": "View the Kaiyn Trading Bot case study"
+    "ViewProject": "View the Kaiyn Trading Bot case study",
+    "LicenseTitle": "Article licence",
+    "LicenseNotice": "This article is licensed under <license>Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International</license>. You may share or republish it unchanged for non-commercial purposes when you credit Kyle Wu and link to the original article and licence. <details>View full licensing details</details>."
   },
   "Footer": {
-    "AllRightsReserved": "All rights reserved.",
-    "Privacy": "Privacy"
+    "Privacy": "Privacy",
+    "Licensing": "Licensing"
   },
   "Accessibility": {
     "SkipToContent": "Skip to main content"
@@ -106,6 +108,28 @@
     "GooglePrivacy": "Google Privacy Policy",
     "VercelPrivacy": "Vercel Privacy and Compliance",
     "ContactLink": "Questions about this page? Email me"
+  },
+  "Licensing": {
+    "Eyebrow": "Licensing",
+    "Title": "How this site may be used and shared",
+    "Description": "Different parts of kylewu.me use different licences so that code can remain open, Writing articles can be shared, and personal or brand materials stay protected.",
+    "LastUpdated": "Last updated 1 August 2026",
+    "SummaryTitle": "About this summary",
+    "SummaryBody": "This page is a plain-language overview. The applicable licence and copyright law control if this summary and the legal terms differ.",
+    "CodeTitle": "Source code",
+    "CodeBody": "Unless otherwise stated, the software source code and technical documentation in the public kylewu.me repository are available under the MIT License.",
+    "MitLicense": "Read the MIT License",
+    "WritingTitle": "Writing articles",
+    "WritingBody": "Original articles published in the Writing section, together with their original diagrams, are licensed under Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0).",
+    "WritingPermission": "You may copy and redistribute an article unchanged for non-commercial purposes when you credit Kyle Wu and link to both the original article and the licence. Please contact me for commercial use, edited translations, adaptations, or other permissions.",
+    "CreativeCommonsLicense": "Read the CC BY-NC-ND 4.0 licence",
+    "ReservedTitle": "Personal and brand materials",
+    "ReservedBody": "Unless a page states otherwise, the resume and CV, biography and profile copy, project case-study copy and data, logos, brand assets, Open Graph images, photographs, and other media are not covered by the MIT or Creative Commons licences. All rights to these materials are reserved.",
+    "SharingTitle": "Linking and quotation",
+    "SharingBody": "You are welcome to link to any page and share its social preview. Short quotations may also be used where permitted by law or the applicable licence. Republishing a complete Writing article must follow the Creative Commons terms; other uses require permission.",
+    "ThirdPartyTitle": "Third-party material",
+    "ThirdPartyBody": "Third-party libraries, names, trademarks, fonts, and other materials remain subject to their own licences and rights. Nothing on this page grants rights that Kyle Wu does not hold.",
+    "ContactLink": "Need another permission? Email me"
   },
   "NotFound": {
     "Title": "Page not found",
@@ -151,6 +175,8 @@
     "writingTitle": "Writing",
     "writingDescription": "Articles by Kyle Wu on product strategy, applied FinTech systems, market workflows, and the engineering decisions behind public projects.",
     "privacyTitle": "Privacy",
-    "privacyDescription": "How kylewu.me uses analytics services and handles information when visitors browse the site or contact Kyle Wu."
+    "privacyDescription": "How kylewu.me uses analytics services and handles information when visitors browse the site or contact Kyle Wu.",
+    "licensingTitle": "Licensing",
+    "licensingDescription": "How source code, Writing articles, and personal or brand materials on kylewu.me may be used and shared."
   }
 }
