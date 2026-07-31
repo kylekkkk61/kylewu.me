@@ -93,6 +93,10 @@ export default async function WritingArticlePage({ params }: Props) {
     ? `/writing/${slug}`
     : "/writing"
   const articleSchema = getArticleSchema(entry)
+  const ccLicenseUrl =
+    locale === "zh-TW"
+      ? "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh-hant"
+      : "https://creativecommons.org/licenses/by-nc-nd/4.0/deed.en"
 
   return (
     <>
@@ -151,56 +155,85 @@ export default async function WritingArticlePage({ params }: Props) {
               <ArticleContent />
             </div>
 
-            {(entry.sources?.length || entry.relatedProjectSlug) && (
-              <footer className="mt-16 space-y-10 border-t border-border pt-10 md:mt-20">
-                {entry.sources?.length && (
-                  <section
-                    className="space-y-4"
-                    aria-labelledby="source-material"
-                  >
-                    <h2 id="source-material" className="text-lg font-semibold">
-                      {t("SourceMaterial")}
-                    </h2>
-                    <ul className="space-y-3 text-sm">
-                      {entry.sources.map((source) => (
-                        <li key={source.href}>
-                          <a
-                            href={source.href}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors"
-                          >
-                            {source.label}
-                            <ArrowUpRight
-                              aria-hidden="true"
-                              className="h-4 w-4"
-                            />
-                          </a>
-                        </li>
-                      ))}
-                    </ul>
-                  </section>
-                )}
+            <footer className="mt-16 space-y-10 border-t border-border pt-10 md:mt-20">
+              {entry.sources?.length && (
+                <section
+                  className="space-y-4"
+                  aria-labelledby="source-material"
+                >
+                  <h2 id="source-material" className="text-lg font-semibold">
+                    {t("SourceMaterial")}
+                  </h2>
+                  <ul className="space-y-3 text-sm">
+                    {entry.sources.map((source) => (
+                      <li key={source.href}>
+                        <a
+                          href={source.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-muted-foreground hover:text-foreground inline-flex items-center gap-2 transition-colors"
+                        >
+                          {source.label}
+                          <ArrowUpRight
+                            aria-hidden="true"
+                            className="h-4 w-4"
+                          />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
 
-                {entry.relatedProjectSlug && (
-                  <section className="border-border bg-muted/30 rounded-xl border p-6 md:p-8">
-                    <p className="mb-2 font-mono text-xs uppercase tracking-wide text-muted-foreground">
-                      {t("RelatedProject")}
-                    </p>
-                    <Link
-                      href={`/projects/${entry.relatedProjectSlug}`}
-                      className="group inline-flex items-center gap-2 text-lg font-semibold"
-                    >
-                      {t("ViewProject")}
-                      <ArrowUpRight
-                        aria-hidden="true"
-                        className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-                      />
-                    </Link>
-                  </section>
-                )}
-              </footer>
-            )}
+              {entry.relatedProjectSlug && (
+                <section className="border-border bg-muted/30 rounded-xl border p-6 md:p-8">
+                  <p className="mb-2 font-mono text-xs uppercase tracking-wide text-muted-foreground">
+                    {t("RelatedProject")}
+                  </p>
+                  <Link
+                    href={`/projects/${entry.relatedProjectSlug}`}
+                    className="group inline-flex items-center gap-2 text-lg font-semibold"
+                  >
+                    {t("ViewProject")}
+                    <ArrowUpRight
+                      aria-hidden="true"
+                      className="h-5 w-5 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                    />
+                  </Link>
+                </section>
+              )}
+
+              <section
+                className="border-border bg-muted/30 rounded-xl border p-6 md:p-8"
+                aria-labelledby="article-licence"
+              >
+                <h2 id="article-licence" className="text-lg font-semibold">
+                  {t("LicenseTitle")}
+                </h2>
+                <p className="text-muted-foreground mt-3 text-sm leading-6">
+                  {t.rich("LicenseNotice", {
+                    license: (chunks) => (
+                      <a
+                        href={ccLicenseUrl}
+                        target="_blank"
+                        rel="license noreferrer"
+                        className="hover:text-foreground underline underline-offset-4 transition-colors"
+                      >
+                        {chunks}
+                      </a>
+                    ),
+                    details: (chunks) => (
+                      <Link
+                        href="/licensing"
+                        className="hover:text-foreground underline underline-offset-4 transition-colors"
+                      >
+                        {chunks}
+                      </Link>
+                    ),
+                  })}
+                </p>
+              </section>
+            </footer>
           </div>
         </article>
       </main>

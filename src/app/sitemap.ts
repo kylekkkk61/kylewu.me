@@ -40,6 +40,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date("2026-07-30"),
   }))
 
+  const licensingPages = routing.locales.map((locale) => ({
+    url: getUrl(locale, "/licensing"),
+    lastModified: new Date("2026-08-01"),
+  }))
+
   const writingPages = routing.locales.map((locale) => ({
     url: getUrl(locale, "/writing"),
     lastModified: new Date("2026-07-30"),
@@ -55,6 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...projectPages,
     ...resumePages,
     ...privacyPages,
+    ...licensingPages,
     ...writingPages,
     ...articlePages,
   ]
