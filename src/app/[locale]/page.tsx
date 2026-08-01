@@ -36,7 +36,7 @@ export default async function Home({
   const projectsData = getProjects(locale)
   const writingEntries = getWritingIndexEntries(locale)
 
-  const personSchema = getPersonSchema()
+  const personSchema = getPersonSchema(locale)
   const websiteSchema = getWebSiteSchema()
   const profilePageSchema = getProfilePageSchema(locale)
 

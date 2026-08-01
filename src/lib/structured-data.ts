@@ -5,7 +5,13 @@ import { siteConfig } from "@/lib/seo"
 /**
  * Generate Person schema markup with stable @id
  */
-export function getPersonSchema() {
+function getPersonDescription(locale: string) {
+  return locale === "zh-TW"
+    ? "Kyle Wu（吳秉儒）來自台灣，畢業於國立成功大學企業管理學系，是即將就讀華威商學院金融科技碩士的 FinTech Builder，專注於產品策略、市場與商業分析、數位金融及 AI 原生軟體開發。"
+    : "Kyle Wu is a Taiwan-based FinTech builder with a background in business administration at National Cheng Kung University, joining Warwick Business School's MSc Financial Technology programme in 2026 and working across product strategy, market and business analysis, digital finance, and AI-native software execution."
+}
+
+export function getPersonSchema(locale: string) {
   const sameAs = [links.github, links.linkedin]
   if (links.telegram) {
     sameAs.push(links.telegram)
@@ -21,6 +27,7 @@ export function getPersonSchema() {
     name: siteConfig.name,
     alternateName: ["Ping-Ju Wu", "吳秉儒"],
     url: siteConfig.url,
+    description: getPersonDescription(locale),
     email: links.email,
     sameAs: sameAs,
     jobTitle: "FinTech Builder",
@@ -83,10 +90,7 @@ export function getProfilePageSchema(locale: string) {
       name: siteConfig.name,
       alternateName: ["Ping-Ju Wu", "吳秉儒"],
       jobTitle: "FinTech Builder",
-      description:
-        locale === "zh-TW"
-          ? "Kyle Wu（吳秉儒）來自台灣，是即將就讀華威商學院金融科技碩士的 FinTech Builder，專注於產品策略、市場分析、數位金融與 AI 原生軟體開發。"
-          : siteConfig.description,
+      description: getPersonDescription(locale),
     },
   }
 }

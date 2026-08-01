@@ -11,6 +11,10 @@ export type Profile = {
     }[]
   }
   about: string
+  backgroundPath: {
+    title: string
+    detail: string
+  }[]
 }
 
 const profileEn: Profile = {
@@ -46,7 +50,25 @@ const profileEn: Profile = {
     ],
   },
   about:
-    "I am an incoming MSc Financial Technology student at Warwick Business School and a fintech builder with experience across digital asset market operations, product strategy, and applied market research.\n\nMy current public projects focus on trading workflow automation and prediction-market execution research, with an emphasis on risk controls, public-safe analysis, decision quality, and practical market infrastructure.",
+    "I am a Taiwan-based FinTech builder with a background in business administration at National Cheng Kung University. In September 2026, I will join Warwick Business School's MSc Financial Technology programme as a 25% scholarship recipient.\n\nMy experience across product development, digital marketing, community building, market operations, and project leadership has shaped how I approach ambiguous problems: clarify the decision, study the evidence, translate the findings into a practical workflow, and validate it in use.\n\nMy current work spans FinTech product strategy, market and business analysis, digital finance, and AI-native software execution. The public trading and prediction-market projects on this site are examples of that broader approach, rather than the boundary of my professional interests.",
+  backgroundPath: [
+    {
+      title: "Business foundation",
+      detail: "NCKU Business Administration",
+    },
+    {
+      title: "Product & operations",
+      detail: "Marketing, e-commerce, and project leadership",
+    },
+    {
+      title: "Venture & public work",
+      detail: "Kaiyn Capital and public FinTech projects",
+    },
+    {
+      title: "Next chapter",
+      detail: "MSc Financial Technology at Warwick",
+    },
+  ],
 }
 
 const profileZh: Profile = {
@@ -82,7 +104,25 @@ const profileZh: Profile = {
     ],
   },
   about:
-    "我即將就讀華威商學院金融科技理學碩士，也是一名具備數位資產市場營運、產品策略與應用市場研究經驗的 FinTech Builder。\n\n目前的公開專案聚焦交易流程自動化與預測市場執行研究，重視風險控管、可公開驗證的分析、決策品質與實際可用的市場基礎設施。",
+    "我來自台灣，畢業於國立成功大學企業管理學系，也是一名 FinTech Builder。2026 年 9 月，我將以 25% 獎學金就讀華威商學院金融科技理學碩士。\n\n產品開發、數位行銷、社群經營、市場營運與專案領導等經驗，逐漸形塑了我處理模糊問題的方式：先釐清需要改善的決策，研究相關證據，再把分析轉化為可實際運作的產品或工作流程，最後回到使用情境中驗證。\n\n我目前的工作與興趣涵蓋金融科技產品策略、市場與商業分析、數位金融，以及 AI 原生軟體開發。網站上的交易工作流程與預測市場專案，是這套方法的公開案例，而不是我職涯方向的界線。",
+  backgroundPath: [
+    {
+      title: "商業基礎",
+      detail: "成功大學企業管理學系",
+    },
+    {
+      title: "產品與營運",
+      detail: "行銷、電子商務與專案領導",
+    },
+    {
+      title: "創業與公開實作",
+      detail: "Kaiyn Capital 與公開 FinTech 專案",
+    },
+    {
+      title: "下一階段",
+      detail: "華威商學院金融科技理學碩士",
+    },
+  ],
 }
 
 export function getProfile(locale: string): Profile {
