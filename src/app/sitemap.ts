@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return `${baseUrl}${prefix}${path}`
   }
 
-  const lastModified = new Date("2026-07-23")
+  const lastModified = new Date("2026-08-01")
 
   // Home pages
   const homePages = routing.locales.map((locale) => ({
