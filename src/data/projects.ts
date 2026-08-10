@@ -373,7 +373,7 @@ const projectsEn: Project[] = [
       outcome: {
         title: "Current Outcome and Evidence",
         paragraphs: [
-          "Readude now has a live public site, an invite-only Beta application, public errata, changelog, and legal pages, plus an English RC3 sample in PDF, EPUB, and Markdown with published checksums. Modern Cryptography connects 32 chapters in a single learning sequence.",
+          "Readude now has a live public site, an invite-only Beta application, public errata, changelog, and legal pages, plus an English RC3 sample in PDF, EPUB, and Markdown with published checksums. Modern Cryptography connects 33 chapters in a single learning sequence.",
           "The publishing workflow rebuilds English and Traditional Chinese publication candidates from ordered, version-controlled sources and records format, link, code, and package checks. This is evidence of a reproducible publishing system, not commercial validation, so public traffic, sales, and revenue are not presented as project outcomes.",
         ],
       },
@@ -683,7 +683,7 @@ const projectsZh: Project[] = [
       outcome: {
         title: "目前成果與驗證證據",
         paragraphs: [
-          "Readude 已有正式公開網站、邀請制 Beta 申請流程、公開勘誤、版本紀錄與法律頁面，並提供附有 SHA-256 校驗碼的英文 RC3 試讀版，格式包含 PDF、EPUB 與 Markdown。Modern Cryptography 以 32 個章節組成一條完整的學習路徑。",
+          "Readude 已有正式公開網站、邀請制 Beta 申請流程、公開勘誤、版本紀錄與法律頁面，並提供附有 SHA-256 校驗碼的英文 RC3 試讀版，格式包含 PDF、EPUB 與 Markdown。Modern Cryptography 以 33 個章節組成一條完整的學習路徑。",
           "出版流程會從依順序管理並納入版本控制的來源檔案，重建英文與繁體中文發行候選版本，並留下格式、連結、程式碼與封裝檢查紀錄。這些證據呈現的是可重現的出版系統，而不是商業驗證，因此不以公開流量、銷售或營收作為專案成果。",
         ],
       },
