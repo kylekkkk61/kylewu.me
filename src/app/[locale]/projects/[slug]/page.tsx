@@ -213,7 +213,7 @@ export default async function ProjectPage({ params }: Props) {
 
               <div className="space-y-3 lg:col-span-7">
                 <div className="bg-muted/30 border-border/50 relative flex min-h-[300px] w-full items-center justify-center rounded-xl border">
-                  <ProjectVisual type={project.visual} />
+                  <ProjectVisual type={project.visual} eager />
                 </div>
                 {project.detail.visualDisclaimer && (
                   <p className="text-muted-foreground px-1 text-xs italic">

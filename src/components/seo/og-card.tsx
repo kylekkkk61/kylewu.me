@@ -17,7 +17,7 @@ type OgCardProps = {
   footer?: string
   accent?: string
   layout?: "identity" | "project" | "editorial"
-  projectVisual?: "kaiyn-workflow" | "pm-lab-research"
+  projectVisual?: "kaiyn-workflow" | "pm-lab-research" | "readude-publishing"
 }
 
 const notoSansData = readFile(
@@ -45,6 +45,10 @@ const projectVisualData = {
     ),
     "base64",
   ).then((data) => `data:image/png;base64,${data}`),
+  "readude-publishing": readFile(
+    join(process.cwd(), "public/projects/readude-social-card.svg"),
+    "base64",
+  ).then((data) => `data:image/svg+xml;base64,${data}`),
 }
 
 export async function createOgImage({

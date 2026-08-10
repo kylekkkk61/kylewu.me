@@ -25,21 +25,20 @@ export function ProjectCard({ project }: { project: Project }) {
       <div className="flex w-full flex-col gap-6 p-6 lg:p-8">
         <div className="space-y-4">
           <div className="space-y-2">
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-primary text-sm font-medium">
-                {project.category}
-              </span>
-              <span className="text-muted-foreground">·</span>
-              <span className="text-muted-foreground text-sm">
-                {project.year}
-              </span>
+            <div className="space-y-1">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-primary text-sm font-medium">
+                  {project.category}
+                </span>
+                <span className="text-muted-foreground">·</span>
+                <span className="text-muted-foreground text-sm">
+                  {project.year}
+                </span>
+              </div>
               {project.status && (
-                <>
-                  <span className="text-muted-foreground">·</span>
-                  <span className="text-muted-foreground text-sm">
-                    {project.status}
-                  </span>
-                </>
+                <p className="text-muted-foreground text-sm">
+                  {project.status}
+                </p>
               )}
             </div>
             <h3 className="text-2xl font-semibold tracking-tight">
