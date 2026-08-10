@@ -1,8 +1,8 @@
 # Kyle Wu
 
-Kyle Wu (Ping-Ju Wu, 吳秉儒) is a Taiwan-based FinTech builder working across product strategy, market analysis, digital finance, and AI-native software execution.
+Kyle Wu (Ping-Ju Wu, 吳秉儒) is a Taiwan-based FinTech builder working across product strategy, market analysis, digital finance, AI-native software execution, and independent digital publishing.
 
-He is an incoming MSc Financial Technology student at Warwick Business School. His public work includes trading workflow automation and prediction-market execution research.
+He is an incoming MSc Financial Technology student at Warwick Business School. His public work includes trading workflow automation, prediction-market execution research, and Readude, an independent digital publishing product.
 
 Primary site:
 https://kylewu.me
@@ -10,6 +10,7 @@ https://kylewu.me
 Selected projects:
 - Kaiyn Trading Bot: https://kylewu.me/projects/kaiyn-trading-bot
 - Prediction Market Execution Lab: https://kylewu.me/projects/prediction-market-execution-lab
+- Readude: https://kylewu.me/projects/readude
 
 Public profiles:
 - GitHub: https://github.com/kylekkkk61

@@ -14,7 +14,7 @@
 [![pnpm](https://img.shields.io/badge/pnpm-11.6.0-F69220?style=for-the-badge&logo=pnpm&logoColor=white)](./package.json)
 
 <p align="center">
-A bilingual portfolio showcasing fintech product strategy, market analysis, venture building, and practical software execution through selected public projects.
+A bilingual portfolio showcasing fintech product strategy, market analysis, venture building, independent digital publishing, and practical software execution through selected public projects.
 </p>
 
 <p align="center">

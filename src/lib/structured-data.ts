@@ -7,8 +7,8 @@ import { siteConfig } from "@/lib/seo"
  */
 function getPersonDescription(locale: string) {
   return locale === "zh-TW"
-    ? "Kyle Wu（吳秉儒）來自台灣，畢業於國立成功大學企業管理學系，是即將就讀華威商學院金融科技碩士的 FinTech Builder，專注於產品策略、市場與商業分析、數位金融及 AI 原生軟體開發。"
-    : "Kyle Wu is a Taiwan-based FinTech builder with a background in business administration at National Cheng Kung University, joining Warwick Business School's MSc Financial Technology programme in 2026 and working across product strategy, market and business analysis, digital finance, and AI-native software execution."
+    ? "Kyle Wu（吳秉儒）來自台灣，畢業於國立成功大學企業管理學系，是即將就讀華威商學院金融科技碩士的 FinTech Builder，專注於產品策略、市場與商業分析、數位金融、AI 原生軟體開發及獨立數位出版。"
+    : "Kyle Wu is a Taiwan-based FinTech builder with a background in business administration at National Cheng Kung University, joining Warwick Business School's MSc Financial Technology programme in 2026 and working across product strategy, market and business analysis, digital finance, AI-native software execution, and independent digital publishing."
 }
 
 export function getPersonSchema(locale: string) {
@@ -31,10 +31,18 @@ export function getPersonSchema(locale: string) {
     email: links.email,
     sameAs: sameAs,
     jobTitle: "FinTech Builder",
-    affiliation: {
-      "@type": "CollegeOrUniversity",
-      name: "Warwick Business School",
-    },
+    affiliation: [
+      {
+        "@type": "CollegeOrUniversity",
+        name: "Warwick Business School",
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://readude.com/#organization",
+        name: "Readude",
+        url: "https://readude.com/",
+      },
+    ],
     alumniOf: {
       "@type": "CollegeOrUniversity",
       name: "National Cheng Kung University",
@@ -51,6 +59,8 @@ export function getPersonSchema(locale: string) {
       "Crypto Market Operations",
       "Market Microstructure",
       "Execution Quality",
+      "Digital Publishing",
+      "Editorial Workflow",
     ],
   }
 }
@@ -166,6 +176,33 @@ export function getProjectSchema(
         {
           "@type": "Thing",
           name: "Execution Quality",
+        },
+      ],
+    }
+  }
+
+  if (project.slug === "readude") {
+    return {
+      ...baseSchema,
+      "@type": "CreativeWork",
+      genre: "Digital Publishing Product Case Study",
+      keywords:
+        "Digital Publishing, Editorial Workflow, Product Strategy, Release Governance, Readude",
+      about: [
+        {
+          "@type": "Organization",
+          "@id": "https://readude.com/#organization",
+          name: "Readude",
+          url: "https://readude.com/",
+          founder: { "@id": "https://kylewu.me/#person" },
+        },
+        {
+          "@type": "Book",
+          "@id": "https://readude.com/#modern-cryptography",
+          name: "Modern Cryptography: A Deep Self-Study Guide",
+          url: "https://readude.com/",
+          author: { "@id": "https://kylewu.me/#person" },
+          publisher: { "@id": "https://readude.com/#organization" },
         },
       ],
     }

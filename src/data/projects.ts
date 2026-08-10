@@ -12,7 +12,11 @@ export type ProjectLink = {
     | "internal"
 }
 
-export type ProjectVisualType = "kaiyn-workflow" | "pm-lab-research" | "default"
+export type ProjectVisualType =
+  | "kaiyn-workflow"
+  | "pm-lab-research"
+  | "readude-publishing"
+  | "default"
 
 export type ProjectSection = {
   title: string
@@ -301,6 +305,99 @@ const projectsEn: Project[] = [
       },
     },
   },
+  {
+    slug: "readude",
+    title: "Readude",
+    subtitle:
+      "An independent digital publishing product built around rigorous editorial workflows, transparent AI-assisted production, and release discipline.",
+    ogSubtitle:
+      "A digital publishing product with explicit editorial, quality, and release gates.",
+    shortDescription:
+      "An independent digital publishing brand and end-to-end product system for producing, reviewing, packaging, and releasing serious digital books with explicit quality and safety gates.",
+    description:
+      "Readude is an independent digital publishing product that combines editorial production, reproducible build and QA workflows, clear public product communication, and gated commerce preparation. Its first title, Modern Cryptography, remains a content-complete release candidate under private review.",
+    category: "Digital Publishing Product",
+    status: "Private review, public sales disabled",
+    year: "2026",
+    visual: "readude-publishing",
+    capabilities: [
+      "Product and release-system design",
+      "Editorial QA and reproducible publishing",
+      "Commerce and delivery readiness",
+    ],
+    tags: [
+      "Product Strategy",
+      "Digital Publishing",
+      "Editorial QA",
+      "AI-assisted Workflow",
+      "Cloudflare",
+    ],
+    links: [
+      {
+        label: "Visit Readude",
+        href: "https://readude.com/",
+        type: "landing-page",
+      },
+      {
+        label: "Free RC3 Sample",
+        href: "https://readude.com/downloads/modern_cryptography_free_sample_en_v1.0.0-rc.3.pdf",
+        type: "external",
+      },
+    ],
+    featured: true,
+    order: 3,
+    updatedAt: "2026-08-10",
+    detail: {
+      role: "Founder of Readude and author and editor of Modern Cryptography, responsible for brand positioning, the publishing workflow, release governance, the public website, and launch preparation.",
+      context: {
+        title: "Product and Publishing Context",
+        paragraphs: [
+          "Readude began with a product and operations question: how can a small independent publisher release demanding technical material without hiding uncertainty, collapsing editorial work into a single document, or treating checkout as the whole product?",
+          "The first title, Modern Cryptography, is a content-complete release candidate under private review. The public site can present the book and an evaluation sample, but sales remain disabled until Beta, named-reader and device QA, final artifact verification, and release approval are complete.",
+        ],
+      },
+      decisions: [
+        {
+          title: "Gate release by evidence, not dates",
+          body: "The manuscript, public website, release artifacts, private QA evidence, and operational decisions are kept as separate but traceable surfaces. A target date never overrides an incomplete review or release gate.",
+        },
+        {
+          title: "Make AI assistance visible and bounded",
+          body: "AI-assisted tools contributed to drafting, organization, and translation. Human responsibility remains explicit for selection, source checks, verification, editing, issue triage, and release, without claiming peer review or a cryptographic audit.",
+        },
+        {
+          title: "Verify controls before enabling commerce",
+          body: "The public site can explain the product, offer a sample, and accept Beta applications while checkout remains disabled. Price, product, delivery, and release controls stay behind reviewed configuration and explicit release approval before a public sale can occur.",
+        },
+      ],
+      outcome: {
+        title: "Current Outcome and Evidence",
+        paragraphs: [
+          "Readude now has a live public site, an invite-only Beta application, public errata, changelog, and legal pages, plus an English RC3 sample in PDF, EPUB, and Markdown with published checksums. Modern Cryptography connects 33 chapters in a single learning sequence.",
+          "The publishing workflow rebuilds English and Traditional Chinese publication candidates from ordered, version-controlled sources and records format, link, code, and package checks. This is evidence of a reproducible publishing system, not commercial validation, so public traffic, sales, and revenue are not presented as project outcomes.",
+        ],
+      },
+      limitations: {
+        title: "Current Limitations",
+        items: [
+          "Invite-only Beta, remaining named-reader and device QA, and the final R2 release gate are incomplete, so public sales remain disabled.",
+          "Modern Cryptography has not received independent peer review or a full cryptographic audit, and its educational examples are not approved for production use.",
+          "Readude currently demonstrates one technical publishing product and does not yet claim repeatable commercial demand, sales, or revenue.",
+        ],
+      },
+      techStack: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Python",
+        "Pandoc",
+        "GitHub Actions",
+        "Cloudflare Pages",
+      ],
+      disclaimer:
+        "Readude is presented as a pre-launch product and publishing-system case study. Public sales remain disabled, and no sales, revenue, peer-review, audit, or market-validation claim is made.",
+    },
+  },
 ]
 
 const projectsZh: Project[] = [
@@ -517,6 +614,98 @@ const projectsZh: Project[] = [
           },
         ],
       },
+    },
+  },
+  {
+    slug: "readude",
+    title: "Readude",
+    subtitle:
+      "一項以嚴謹編輯流程、透明揭露 AI 輔助方式與明確發行門檻打造的獨立數位出版產品。",
+    ogSubtitle: "以明確的編輯、品管與發行門檻打造數位出版產品。",
+    shortDescription:
+      "一個獨立數位出版品牌，也是一套涵蓋內容製作、審閱、封裝與發行的端到端產品系統，透過明確的品質與安全門檻管理出版流程。",
+    description:
+      "Readude 是一項獨立數位出版產品，整合編輯製作、可重現的建置與品管流程、可安全公開的產品溝通，以及逐步開放的商務準備。首部作品 Modern Cryptography 已完成內容，現處於私人審閱階段。",
+    category: "數位出版產品",
+    status: "私人審閱中，尚未開放銷售",
+    year: "2026",
+    visual: "readude-publishing",
+    capabilities: [
+      "產品與發行流程設計",
+      "編輯品管與可重現出版流程",
+      "商務與交付上線準備",
+    ],
+    tags: [
+      "Product Strategy",
+      "Digital Publishing",
+      "Editorial QA",
+      "AI-assisted Workflow",
+      "Cloudflare",
+    ],
+    links: [
+      {
+        label: "前往 Readude",
+        href: "https://readude.com/",
+        type: "landing-page",
+      },
+      {
+        label: "下載 RC3 免費試讀版",
+        href: "https://readude.com/downloads/modern_cryptography_free_sample_en_v1.0.0-rc.3.pdf",
+        type: "external",
+      },
+    ],
+    featured: true,
+    order: 3,
+    updatedAt: "2026-08-10",
+    detail: {
+      role: "Readude 創辦人，以及 Modern Cryptography 的作者與編輯，負責品牌定位、出版流程、發行治理、公開網站與上市準備。",
+      context: {
+        title: "產品與出版背景",
+        paragraphs: [
+          "Readude 從一個產品與營運問題開始：小型獨立出版者要如何發行難度較高的技術內容，同時不隱藏不確定性、不把所有編輯工作塞進單一文件，也不把結帳功能誤當成完整產品？",
+          "首部作品 Modern Cryptography 已完成內容，現以發行候選版本進行私人審閱。公開網站可以介紹書籍並提供評估用試讀版，但在 Beta、指定讀者與裝置測試、最終檔案驗證及發行核准完成前，銷售功能維持關閉。",
+        ],
+      },
+      decisions: [
+        {
+          title: "以驗證證據決定發行，而不是追趕日期",
+          body: "手稿、公開網站、發行檔案、私人品管證據與營運決策各自獨立保存，並維持可追溯關係。只要審閱或發行門檻尚未完成，預定日期就不會凌駕於驗證結果。",
+        },
+        {
+          title: "明確揭露並限制 AI 輔助範圍",
+          body: "AI 輔助工具用於草稿撰寫、內容組織與翻譯；選材、來源查核、驗證、編輯、問題分類與發行仍由人負責，也不宣稱內容已經過同儕審查或密碼學稽核。",
+        },
+        {
+          title: "完成控制驗證後才開放商務流程",
+          body: "公開網站可以說明產品、提供試讀版並接受 Beta 申請，但結帳功能維持關閉。價格、商品、交付與發行控制必須通過設定審查及明確的發行核准，才會開放公開銷售。",
+        },
+      ],
+      outcome: {
+        title: "目前成果與驗證證據",
+        paragraphs: [
+          "Readude 已有正式公開網站、邀請制 Beta 申請流程、公開勘誤、版本紀錄與法律頁面，並提供附有 SHA-256 校驗碼的英文 RC3 試讀版，格式包含 PDF、EPUB 與 Markdown。Modern Cryptography 以 33 個章節組成一條完整的學習路徑。",
+          "出版流程會從依順序管理並納入版本控制的來源檔案，重建英文與繁體中文發行候選版本，並留下格式、連結、程式碼與封裝檢查紀錄。這些證據呈現的是可重現的出版系統，而不是商業驗證，因此不以公開流量、銷售或營收作為專案成果。",
+        ],
+      },
+      limitations: {
+        title: "目前限制",
+        items: [
+          "邀請制 Beta、其餘指定讀者與裝置測試，以及最終 R2 發行門檻尚未完成，因此公開銷售仍維持關閉。",
+          "Modern Cryptography 尚未經過獨立同儕審查或完整密碼學稽核，其中的教育用途範例也不代表已獲准用於正式產品。",
+          "Readude 目前以一項技術出版產品為主，尚不宣稱已驗證可重複的市場需求、銷售或營收。",
+        ],
+      },
+      techStack: [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Python",
+        "Pandoc",
+        "GitHub Actions",
+        "Cloudflare Pages",
+      ],
+      disclaimer:
+        "Readude 在此作為尚未上市的產品與出版系統案例。公開銷售仍維持關閉，也不宣稱已有銷售、營收、同儕審查、稽核或市場驗證成果。",
     },
   },
 ]
