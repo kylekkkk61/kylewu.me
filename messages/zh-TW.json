@@ -20,7 +20,7 @@
   },
   "Contact": {
     "LetsTalk": "歡迎交流",
-    "Description": "歡迎就金融科技策略、產品與商業分析、數位金融、交易工作流程自動化、市場微結構研究及 AI 原生產品開發與我交流。",
+    "Description": "對我的作品有想法，或有金融科技、產品策略、市場分析相關的職位機會，歡迎來信交流。",
     "EmailMe": "寄信給我",
     "CopyEmail": "複製電子郵件",
     "Copied": "已複製"
@@ -32,7 +32,7 @@
     "WorkLabel": "公開專案",
     "WorkPrimary": "金融科技與數位出版專案",
     "EducationLabel": "教育背景",
-    "EducationPrimary": "即將就讀金融科技碩士",
+    "EducationPrimary": "金融科技碩士 · 2026–27 學年",
     "EducationSecondary": "華威商學院"
   },
   "Resume": {
@@ -49,6 +49,9 @@
     "Languages": "語言"
   },
   "ProjectDetail": {
+    "Problem": "要解決的問題",
+    "KeyDecision": "關鍵取捨",
+    "ExploreEvidence": "查看實際成果",
     "BackToWork": "返回專案列表",
     "LiveDemo": "線上 Demo",
     "TechStack": "使用技術",
@@ -138,8 +141,12 @@
     "ViewWriting": "查看文章與研究"
   },
   "Sections": {
+    "CampCategory": "服務設計與活動營運",
+    "CampTitle": "把高中生的探索需求，轉成五天的企管營體驗",
+    "CampDescription": "作為成大企管營總召，我在學習深度、活動趣味與預算限制之間取捨，完成 120 位高中生參與的營隊。",
+    "ReadCampCase": "閱讀案例",
     "SelectedWork": "精選專案",
-    "SelectedWorkDesc": "這些公開專案呈現我如何把市場問題、產品痛點、出版決策與流程障礙，轉化為可實際運作的系統、研究成果與決策工具。",
+    "SelectedWorkDesc": "精選的系統實作、研究與出版作品，以及每個專案背後的決策、成果與限制。",
     "LatestWriting": "最新文章",
     "LatestWritingDesc": "記錄專案背後的產品決策、市場系統與實作取捨。",
     "ViewAllWriting": "查看所有文章與研究",
@@ -152,24 +159,24 @@
     "CurrentFocus": "目前狀態",
     "BuildingAndLearning": "持續學習與實作",
     "Education": "金融科技理學碩士",
-    "School": "華威商學院（即將入學）",
+    "School": "華威商學院 · 2026–27 學年",
     "CareerInterests": "職涯方向",
     "FinTechProduct": "金融科技策略與產品",
     "TradingOps": "交易與市場營運",
     "DataAnalysis": "商業與資料分析",
     "MarketInfra": "市場與風險分析",
-    "FocusAreas": "專注領域",
-    "TradingInfra": "產品策略",
-    "DataAnalysisSkill": "市場分析",
-    "MarketMicrostructure": "商業分析",
-    "BusinessToSystem": "執行品質",
-    "AiNativeWorkflow": "AI 原生開發流程"
+    "FocusAreas": "實作方法",
+    "TradingInfra": "系統設計",
+    "DataAnalysisSkill": "資料分析",
+    "MarketMicrostructure": "流程設計",
+    "BusinessToSystem": "原型製作",
+    "AiNativeWorkflow": "AI 原生開發"
   },
   "Metadata": {
     "title": "Kyle Wu — FinTech Builder｜產品策略與市場分析",
     "socialTitle": "Kyle Wu｜金融科技產品策略與市場分析",
     "titleShort": "Kyle Wu",
-    "description": "Kyle Wu（吳秉儒）來自台灣，專注於金融科技產品策略、市場分析、數位金融與 AI 原生軟體開發，將於 2026 年就讀華威商學院金融科技碩士。",
+    "description": "Kyle Wu（吳秉儒）來自台灣，探索金融科技產品策略、市場分析與數位出版。華威商學院金融科技理學碩士，2026–27 學年。",
     "socialDescription": "來自台灣的 FinTech Builder，專注於產品策略、市場分析、數位金融與 AI 原生軟體開發。",
     "resumeTitle": "個人履歷",
     "resumeDescription": "Kyle Wu（吳秉儒）的履歷，涵蓋金融科技產品策略、市場分析、創業經驗、精選專案、工作經歷與教育背景。",

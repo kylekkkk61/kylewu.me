@@ -24,8 +24,10 @@ export function FadeIn({
     const el = ref.current
     if (!el) return
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setIsVisible(true)
+    if (
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches ||
+      typeof window.IntersectionObserver !== "function"
+    ) {
       return
     }
 
@@ -55,8 +57,8 @@ export function FadeIn({
     <div
       ref={ref}
       className={cn(
-        "opacity-0 motion-reduce:animate-none motion-reduce:opacity-100",
-        isVisible && "animate-fade-up opacity-100",
+        "motion-reduce:animate-none",
+        isVisible && "animate-fade-up",
         className,
       )}
       style={{

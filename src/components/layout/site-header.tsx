@@ -19,7 +19,7 @@ export function SiteHeader({
 }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = React.useState(false)
   const menuButtonRef = React.useRef<HTMLButtonElement>(null)
-  const mobileMenuRef = React.useRef<HTMLDivElement>(null)
+  const mobileMenuRef = React.useRef<HTMLDialogElement>(null)
   const t = useTranslations("Navigation")
   const locale = useLocale()
   const router = useRouter()
@@ -32,48 +32,27 @@ export function SiteHeader({
     setMounted(true)
   }, [])
 
-  // Prevent scrolling when mobile menu is open
-  React.useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden"
-    } else {
-      document.body.style.overflow = "unset"
-    }
-    return () => {
-      document.body.style.overflow = "unset"
-    }
-  }, [isMobileMenuOpen])
-
+  // Native modality keeps background controls inert and contains keyboard focus.
   React.useEffect(() => {
     if (!isMobileMenuOpen) return
+    const dialog = mobileMenuRef.current
+    if (!dialog) return
+    const previousOverflow = document.body.style.overflow
+    dialog.showModal()
+    document.body.style.overflow = "hidden"
+    dialog.querySelector<HTMLAnchorElement>("a")?.focus()
 
-    mobileMenuRef.current?.querySelector<HTMLAnchorElement>("a")?.focus()
-
-    const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsMobileMenuOpen(false)
-        menuButtonRef.current?.focus()
-        return
-      }
-
-      if (event.key !== "Tab") return
-      const links =
-        mobileMenuRef.current?.querySelectorAll<HTMLAnchorElement>("a[href]")
-      if (!links?.length) return
-
-      const firstLink = links[0]
-      const lastLink = links[links.length - 1]
-      if (event.shiftKey && document.activeElement === firstLink) {
-        event.preventDefault()
-        lastLink.focus()
-      } else if (!event.shiftKey && document.activeElement === lastLink) {
-        event.preventDefault()
-        firstLink.focus()
-      }
+    const desktop = window.matchMedia("(min-width: 48rem)")
+    const closeOnDesktop = () => {
+      if (desktop.matches) setIsMobileMenuOpen(false)
     }
-
-    document.addEventListener("keydown", handleKeyDown)
-    return () => document.removeEventListener("keydown", handleKeyDown)
+    desktop.addEventListener("change", closeOnDesktop)
+    closeOnDesktop()
+    return () => {
+      desktop.removeEventListener("change", closeOnDesktop)
+      dialog.close()
+      document.body.style.overflow = previousOverflow
+    }
   }, [isMobileMenuOpen])
 
   const navLinks = [
@@ -93,6 +72,34 @@ export function SiteHeader({
     const nextPath = languagePath ?? pathname + hash
     startLanguageTransition(() => {
       router.replace(nextPath, { locale: nextLocale, scroll: false })
+    })
+  }
+
+  const handleSectionClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    setIsMobileMenuOpen(false)
+    if (
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    )
+      return
+
+    const destination = new URL(event.currentTarget.href)
+    if (!destination.hash || destination.href !== window.location.href) return
+    const target = document.getElementById(destination.hash.slice(1))
+    if (!target) return
+
+    // Next.js skips scrolling when neither the route nor its hash changes.
+    event.preventDefault()
+    // Let the mobile dialog close and release its scroll lock first.
+    requestAnimationFrame(() => {
+      target.scrollIntoView({
+        behavior: "instant",
+        block: "start",
+      })
     })
   }
 
@@ -134,6 +141,7 @@ export function SiteHeader({
               key={link.href}
               href={link.href}
               aria-current={link.isActive ? "page" : undefined}
+              onClick={handleSectionClick}
               className={cn(
                 "hover:text-foreground transition-colors",
                 link.isActive && "text-foreground",
@@ -181,7 +189,7 @@ export function SiteHeader({
 
           <Link
             href="/#contact"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={handleSectionClick}
             className={cn(
               buttonVariants({ variant: "outline" }),
               "hidden sm:inline-flex",
@@ -205,40 +213,50 @@ export function SiteHeader({
       </div>
 
       {/* Mobile Menu Overlay */}
-      {isMobileMenuOpen && (
-        <div
-          ref={mobileMenuRef}
-          id="mobile-navigation"
-          role="dialog"
-          aria-modal="true"
-          aria-label={t("NavigationMenu")}
-          className="bg-background border-border/40 animate-fade-up absolute top-16 left-0 w-full border-b shadow-lg md:hidden"
-        >
-          <nav className="flex flex-col gap-6 p-6">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={link.isActive ? "page" : undefined}
-                className={cn(
-                  "text-foreground text-lg font-medium transition-colors dark:hover:text-white hover:text-foreground",
-                  link.isActive && "text-primary",
-                )}
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-            <Link
-              href="/#contact"
-              className="text-foreground text-lg font-medium transition-colors dark:hover:text-white hover:text-foreground"
-              onClick={() => setIsMobileMenuOpen(false)}
-            >
-              {t("Contact")}
-            </Link>
-          </nav>
+      <dialog
+        ref={mobileMenuRef}
+        id="mobile-navigation"
+        onClose={() => setIsMobileMenuOpen(false)}
+        aria-label={t("NavigationMenu")}
+        className="bg-background text-foreground border-border/40 fixed inset-x-0 top-16 m-0 max-h-[calc(100dvh-4rem)] w-full max-w-none overflow-y-auto border-0 border-b p-0 shadow-lg backdrop:bg-black/20 md:hidden"
+      >
+        <div className="flex items-center justify-between px-6 pt-4">
+          <span className="text-muted-foreground text-sm">
+            {t("NavigationMenu")}
+          </span>
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen(false)}
+            aria-label={t("CloseMenu")}
+            className="text-muted-foreground hover:text-foreground p-2 transition-colors"
+          >
+            <X aria-hidden="true" size={20} />
+          </button>
         </div>
-      )}
+        <nav className="flex flex-col gap-6 p-6">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              aria-current={link.isActive ? "page" : undefined}
+              className={cn(
+                "text-foreground text-lg font-medium transition-colors dark:hover:text-white hover:text-foreground",
+                link.isActive && "text-primary",
+              )}
+              onClick={handleSectionClick}
+            >
+              {link.label}
+            </Link>
+          ))}
+          <Link
+            href="/#contact"
+            className="text-foreground text-lg font-medium transition-colors dark:hover:text-white hover:text-foreground"
+            onClick={handleSectionClick}
+          >
+            {t("Contact")}
+          </Link>
+        </nav>
+      </dialog>
     </header>
   )
 }

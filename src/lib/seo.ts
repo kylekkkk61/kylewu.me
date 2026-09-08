@@ -3,7 +3,7 @@ export const siteConfig = {
   name: "Kyle Wu",
   title: "Kyle Wu — FinTech Builder | Product Strategy & Market Analysis",
   description:
-    "Kyle Wu is a Taiwan-based FinTech builder focused on product strategy, market analysis, digital finance, and AI-native software, joining Warwick in 2026.",
+    "Kyle Wu: FinTech builder exploring product strategy, market analysis, and digital publishing. Warwick MSc Financial Technology, 2026–27.",
   locales: ["en", "zh-TW"],
   defaultLocale: "en",
 }

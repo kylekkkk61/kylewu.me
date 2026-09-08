@@ -7,8 +7,8 @@ import { siteConfig } from "@/lib/seo"
  */
 function getPersonDescription(locale: string) {
   return locale === "zh-TW"
-    ? "Kyle Wu（吳秉儒）來自台灣，畢業於國立成功大學企業管理學系，是即將就讀華威商學院金融科技碩士的 FinTech Builder，專注於產品策略、市場與商業分析、數位金融、AI 原生軟體開發及獨立數位出版。"
-    : "Kyle Wu is a Taiwan-based FinTech builder with a background in business administration at National Cheng Kung University, joining Warwick Business School's MSc Financial Technology programme in 2026 and working across product strategy, market and business analysis, digital finance, AI-native software execution, and independent digital publishing."
+    ? "Kyle Wu（吳秉儒）來自台灣，畢業於國立成功大學企業管理學系，金融科技學習經歷為華威商學院金融科技碩士，2026–27 學年，專注於產品策略、市場與商業分析、數位金融、AI 原生軟體開發及獨立數位出版。"
+    : "Kyle Wu is a Taiwan-based FinTech builder with a background in business administration at National Cheng Kung University, with Warwick Business School's MSc Financial Technology programme, 2026–27, as his next academic chapter and working across product strategy, market and business analysis, digital finance, AI-native software execution, and independent digital publishing."
 }
 
 export function getPersonSchema(locale: string) {

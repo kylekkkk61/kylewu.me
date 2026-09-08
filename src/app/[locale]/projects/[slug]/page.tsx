@@ -167,47 +167,79 @@ export default async function ProjectPage({ params }: Props) {
                   <h1 className="text-4xl font-semibold tracking-tight md:text-5xl">
                     {project.title}
                   </h1>
-                  <p className="text-muted-foreground text-xl">
-                    {project.subtitle}
+                  <p className="text-muted-foreground text-sm">
+                    {project.status}
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-3 pt-4">
-                  {project.links.map((link, idx) => {
-                    const isPrimary =
-                      link.type === "landing-page" ||
-                      link.type === "dashboard" ||
-                      idx === 0
-                    return (
-                      <a
-                        key={link.label}
-                        href={link.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className={cn(
-                          buttonVariants({
-                            variant: isPrimary ? "default" : "outline",
-                          }),
-                          isPrimary &&
-                            "bg-primary text-primary-foreground hover:bg-primary/90",
-                        )}
-                      >
-                        {link.type === "github" && (
-                          <IconBrandGithub className="mr-2 h-4 w-4" />
-                        )}
-                        {link.type === "video" && (
-                          <Play className="mr-2 h-4 w-4" />
-                        )}
-                        {(link.type === "external" ||
-                          link.type === "case-study" ||
-                          link.type === "dashboard" ||
-                          link.type === "landing-page") && (
-                          <ExternalLink className="mr-2 h-4 w-4" />
-                        )}
-                        {link.label}
-                      </a>
-                    )
-                  })}
+                <dl className="border-border space-y-5 border-t pt-6">
+                  <div className="space-y-1">
+                    <dt className="text-primary text-sm font-medium">
+                      {t("Problem")}
+                    </dt>
+                    <dd className="text-muted-foreground leading-relaxed">
+                      {project.detail.opening.problem}
+                    </dd>
+                  </div>
+                  <div className="space-y-1">
+                    <dt className="text-primary text-sm font-medium">
+                      {t("MyRole")}
+                    </dt>
+                    <dd className="text-muted-foreground text-sm leading-relaxed">
+                      {project.detail.role}
+                    </dd>
+                  </div>
+                  <div className="space-y-1">
+                    <dt className="text-primary text-sm font-medium">
+                      {t("KeyDecision")}
+                    </dt>
+                    <dd className="text-muted-foreground leading-relaxed">
+                      {project.detail.opening.decision}
+                    </dd>
+                  </div>
+                </dl>
+
+                <div className="space-y-3">
+                  <h2 className="text-sm font-medium">
+                    {t("ExploreEvidence")}
+                  </h2>
+                  <div className="flex flex-wrap gap-3">
+                    {project.links.map((link, idx) => {
+                      const isPrimary =
+                        link.type === "landing-page" ||
+                        link.type === "dashboard" ||
+                        idx === 0
+                      return (
+                        <a
+                          key={link.label}
+                          href={link.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className={cn(
+                            buttonVariants({
+                              variant: isPrimary ? "default" : "outline",
+                            }),
+                            isPrimary &&
+                              "bg-primary text-primary-foreground hover:bg-primary/90",
+                          )}
+                        >
+                          {link.type === "github" && (
+                            <IconBrandGithub className="mr-2 h-4 w-4" />
+                          )}
+                          {link.type === "video" && (
+                            <Play className="mr-2 h-4 w-4" />
+                          )}
+                          {(link.type === "external" ||
+                            link.type === "case-study" ||
+                            link.type === "dashboard" ||
+                            link.type === "landing-page") && (
+                            <ExternalLink className="mr-2 h-4 w-4" />
+                          )}
+                          {link.label}
+                        </a>
+                      )
+                    })}
+                  </div>
                 </div>
               </div>
 
@@ -225,49 +257,6 @@ export default async function ProjectPage({ params }: Props) {
 
             {/* Content Sections */}
             <div className="mx-auto mt-16 max-w-3xl space-y-16">
-              {/* At a Glance Section */}
-              <section
-                aria-labelledby="at-a-glance"
-                className="bg-black/[0.02] dark:bg-white/[0.02] border border-black/[0.08] dark:border-white/[0.08] rounded-xl p-6 space-y-4"
-              >
-                <h2
-                  id="at-a-glance"
-                  className="text-lg font-medium tracking-tight text-foreground dark:text-white"
-                >
-                  {t("AtAGlance")}
-                </h2>
-                <dl className="grid grid-cols-1 gap-x-8 gap-y-5 text-sm sm:grid-cols-2">
-                  <div className="space-y-1">
-                    <dt className="text-muted-foreground font-medium">
-                      {t("ProjectType")}
-                    </dt>
-                    <dd className="text-foreground">{project.category}</dd>
-                  </div>
-                  <div className="space-y-1">
-                    <dt className="text-muted-foreground font-medium">
-                      {t("Artifact")}
-                    </dt>
-                    <dd className="text-foreground">{project.status}</dd>
-                  </div>
-                  <div className="space-y-1 sm:col-span-2">
-                    <dt className="text-muted-foreground font-medium">
-                      {t("MyRole")}
-                    </dt>
-                    <dd className="text-foreground leading-relaxed">
-                      {project.detail.role}
-                    </dd>
-                  </div>
-                  <div className="space-y-1 sm:col-span-2">
-                    <dt className="text-muted-foreground font-medium">
-                      {t("Focus")}
-                    </dt>
-                    <dd className="text-foreground">
-                      {project.capabilities.join(" / ")}
-                    </dd>
-                  </div>
-                </dl>
-              </section>
-
               {/* Context */}
               <section className="space-y-5">
                 <h2 className="text-2xl font-semibold tracking-tight">
