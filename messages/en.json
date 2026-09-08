@@ -49,6 +49,9 @@
     "Languages": "Languages"
   },
   "ProjectDetail": {
+    "Problem": "The problem",
+    "KeyDecision": "The key decision",
+    "ExploreEvidence": "Explore the work",
     "BackToWork": "Back to Selected Work",
     "LiveDemo": "Live Demo",
     "TechStack": "Tech Stack",

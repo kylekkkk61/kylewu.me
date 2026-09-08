@@ -49,6 +49,9 @@
     "Languages": "語言"
   },
   "ProjectDetail": {
+    "Problem": "要解決的問題",
+    "KeyDecision": "關鍵取捨",
+    "ExploreEvidence": "查看實際成果",
     "BackToWork": "返回專案列表",
     "LiveDemo": "線上 Demo",
     "TechStack": "使用技術",

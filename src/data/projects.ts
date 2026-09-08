@@ -40,6 +40,7 @@ export type ProjectArtifact = {
 }
 
 export type ProjectDetail = {
+  opening: { problem: string; decision: string }
   role: string
   context: ProjectNarrativeSection
   decisions: ProjectDecision[]
@@ -120,10 +121,16 @@ const projectsEn: Project[] = [
     featured: true,
     relatedWritingSlug: "confirmation-first-telegram-trading-workflow",
     order: 1,
-    updatedAt: "2026-07-29",
+    updatedAt: "2026-09-08",
     video: "https://cv.kylewu.me/kaiyn-demo.mp4",
     videoPoster: "https://cv.kylewu.me/kaiyn-demo-poster.webp",
     detail: {
+      opening: {
+        problem:
+          "Community trading signals leave users to check instruments, size positions, and place orders under time pressure.",
+        decision:
+          "Require an explicit order confirmation, accepting a slower flow to keep financial actions under human control.",
+      },
       role: "Founder of Kaiyn Capital, product owner, and sole developer responsible for product requirements, the Telegram user flow, backend engineering, deployment, and ongoing operations.",
       context: {
         title: "Context and Operating Problem",
@@ -236,8 +243,14 @@ const projectsEn: Project[] = [
     ],
     featured: true,
     order: 2,
-    updatedAt: "2026-07-29",
+    updatedAt: "2026-09-08",
     detail: {
+      opening: {
+        problem:
+          "A price discrepancy in a prediction market is not useful if latency, spreads, and failed fills erase it.",
+        decision:
+          "Study where apparent edge disappears during execution, rather than present the strongest simulation as a profitability claim.",
+      },
       role: "Independent researcher and developer responsible for framing the research question, building the private prototype and data workflow, running replay and model experiments, and converting sensitive work into reproducible public artifacts.",
       context: {
         title: "Research Context",
@@ -348,6 +361,12 @@ const projectsEn: Project[] = [
     order: 3,
     updatedAt: "2026-09-08",
     detail: {
+      opening: {
+        problem:
+          "A technical manuscript needs more than a checkout page: readers need a coherent book, usable files, and clear limits.",
+        decision:
+          "Use reader feedback and release checks to decide when to sell, while making the limits of Early Access explicit.",
+      },
       role: "Founder of Readude and author and editor of Modern Cryptography, responsible for brand positioning, the publishing workflow, release governance, the public website, and launch preparation.",
       context: {
         title: "Product and Publishing Context",
@@ -440,10 +459,16 @@ const projectsZh: Project[] = [
     featured: true,
     relatedWritingSlug: "confirmation-first-telegram-trading-workflow",
     order: 1,
-    updatedAt: "2026-07-29",
+    updatedAt: "2026-09-08",
     video: "https://cv.kylewu.me/kaiyn-demo.mp4",
     videoPoster: "https://cv.kylewu.me/kaiyn-demo-poster.webp",
     detail: {
+      opening: {
+        problem:
+          "社群交易訊號發布後，使用者仍得在時間壓力下核對標的、計算部位並下單。",
+        decision:
+          "要求使用者確認訂單才送出，接受流程稍慢，讓涉及資金的操作保留在人為確認之後。",
+      },
       role: "Kaiyn Capital 創辦人、產品負責人與獨立開發者，完整負責產品需求、Telegram 使用流程、後端開發、部署與後續營運。",
       context: {
         title: "背景與實際營運問題",
@@ -550,8 +575,14 @@ const projectsZh: Project[] = [
     ],
     featured: true,
     order: 2,
-    updatedAt: "2026-07-29",
+    updatedAt: "2026-09-08",
     detail: {
+      opening: {
+        problem:
+          "預測市場即使出現價差，也可能被延遲、買賣價差與未成交抵銷，無法形成實際優勢。",
+        decision:
+          "把研究重點放在優勢如何於執行過程中消失，不將最漂亮的模擬結果當成獲利證明。",
+      },
       role: "獨立研究者與獨立開發者，負責定義研究問題、建立私有原型與資料流程、執行歷史回放與模型實驗，並將敏感研究轉化為可公開重現的成果。",
       context: {
         title: "研究背景",
@@ -657,6 +688,12 @@ const projectsZh: Project[] = [
     order: 3,
     updatedAt: "2026-09-08",
     detail: {
+      opening: {
+        problem:
+          "技術手稿不是加上結帳頁就能成為產品；讀者需要連貫的內容、可用的檔案與清楚的限制說明。",
+        decision:
+          "依讀者回饋與發行檢查決定何時開賣，同時明確說明付費搶先閱讀的限制。",
+      },
       role: "Readude 創辦人，以及 Modern Cryptography 的作者與編輯，負責品牌定位、出版流程、發行治理、公開網站與上市準備。",
       context: {
         title: "產品與出版背景",
