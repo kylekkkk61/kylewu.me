@@ -141,6 +141,10 @@
     "ViewWriting": "View writing"
   },
   "Sections": {
+    "CampCategory": "Service design & event operations",
+    "CampTitle": "Turning student curiosity into a five-day business camp",
+    "CampDescription": "As lead organiser of NCKU’s Business Administration Camp, I balanced learning depth, participant experience, and budget constraints for 120 high-school students.",
+    "ReadCampCase": "Read the case study",
     "SelectedWork": "Selected Work",
     "SelectedWorkDesc": "A selection of systems, research, and publishing work, with the decisions, results, and limitations behind each project.",
     "LatestWriting": "Latest Writing",

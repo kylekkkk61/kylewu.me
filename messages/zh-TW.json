@@ -141,6 +141,10 @@
     "ViewWriting": "查看文章與研究"
   },
   "Sections": {
+    "CampCategory": "服務設計與活動營運",
+    "CampTitle": "把高中生的探索需求，轉成五天的企管營體驗",
+    "CampDescription": "作為成大企管營總召，我在學習深度、活動趣味與預算限制之間取捨，完成 120 位高中生參與的營隊。",
+    "ReadCampCase": "閱讀案例",
     "SelectedWork": "精選專案",
     "SelectedWorkDesc": "精選的系統實作、研究與出版作品，以及每個專案背後的決策、成果與限制。",
     "LatestWriting": "最新文章",
