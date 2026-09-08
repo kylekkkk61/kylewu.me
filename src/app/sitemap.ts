@@ -13,12 +13,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     return `${baseUrl}${prefix}${path}`
   }
 
-  const lastModified = new Date("2026-08-01")
+  const lastModified = new Date("2026-09-08")
+  // Listings reflect updates to the content they display, not deployment time.
+  const latestWritingUpdate = new Date(
+    Math.max(
+      new Date("2026-07-30").getTime(),
+      ...writingEntries.map((entry) => new Date(entry.updatedAt).getTime()),
+    ),
+  )
+  const latestHomeUpdate = new Date(
+    Math.max(
+      lastModified.getTime(),
+      latestWritingUpdate.getTime(),
+      ...projects.map((project) =>
+        project.updatedAt
+          ? new Date(project.updatedAt).getTime()
+          : lastModified.getTime(),
+      ),
+    ),
+  )
 
   // Home pages
   const homePages = routing.locales.map((locale) => ({
     url: getUrl(locale),
-    lastModified,
+    lastModified: latestHomeUpdate,
   }))
 
   // Project pages
@@ -32,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Resume pages
   const resumePages = routing.locales.map((locale) => ({
     url: getUrl(locale, "/resume"),
-    lastModified: new Date("2026-07-31"),
+    lastModified: new Date("2026-09-08"),
   }))
 
   const privacyPages = routing.locales.map((locale) => ({
@@ -47,7 +65,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const writingPages = routing.locales.map((locale) => ({
     url: getUrl(locale, "/writing"),
-    lastModified: new Date("2026-07-30"),
+    lastModified: latestWritingUpdate,
   }))
 
   const articlePages = writingEntries.map((entry) => ({
