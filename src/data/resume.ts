@@ -33,8 +33,8 @@ const resumeEn: ResumeData = {
   education: [
     {
       school: "Warwick Business School",
-      degree: "MSc Financial Technology, Incoming (25% Scholarship)",
-      period: "Expected Sep 2026 - Sep 2027",
+      degree: "MSc Financial Technology (25% Scholarship)",
+      period: "2026–27 academic year",
     },
     {
       school: "National Cheng Kung University (NCKU), Taiwan",
@@ -137,8 +137,8 @@ const resumeZh: ResumeData = {
   education: [
     {
       school: "華威商學院（Warwick Business School）",
-      degree: "金融科技理學碩士（即將入學，25% 獎學金）",
-      period: "預計 2026 年 9 月至 2027 年 9 月",
+      degree: "金融科技理學碩士（25% 獎學金）",
+      period: "2026–27 學年",
     },
     {
       school: "國立成功大學",

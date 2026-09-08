@@ -20,7 +20,7 @@
   },
   "Contact": {
     "LetsTalk": "Let's Talk",
-    "Description": "Open to conversations around fintech strategy, product and business analysis, digital finance, trading workflow automation, market-structure research, and AI-native product-building workflows.",
+    "Description": "Have a question about my work or a relevant role in FinTech, product strategy, or market analysis? Feel free to get in touch.",
     "EmailMe": "Email Me",
     "CopyEmail": "Copy email",
     "Copied": "Copied"
@@ -32,7 +32,7 @@
     "WorkLabel": "Public Work",
     "WorkPrimary": "FinTech and publishing projects",
     "EducationLabel": "Education",
-    "EducationPrimary": "Incoming MSc Financial Technology",
+    "EducationPrimary": "MSc Financial Technology · 2026–27",
     "EducationSecondary": "Warwick Business School"
   },
   "Resume": {
@@ -139,7 +139,7 @@
   },
   "Sections": {
     "SelectedWork": "Selected Work",
-    "SelectedWorkDesc": "Public projects that show how I translate market questions, product problems, publishing decisions, and workflow frictions into practical systems, research outputs, and decision-support tools.",
+    "SelectedWorkDesc": "A selection of systems, research, and publishing work, with the decisions, results, and limitations behind each project.",
     "LatestWriting": "Latest Writing",
     "LatestWritingDesc": "Notes on the product decisions, market systems, and implementation choices behind my work.",
     "ViewAllWriting": "View all writing",
@@ -152,24 +152,24 @@
     "CurrentFocus": "Current Focus",
     "BuildingAndLearning": "Building & Learning",
     "Education": "MSc Financial Technology",
-    "School": "Warwick Business School (Incoming)",
+    "School": "Warwick Business School · 2026–27",
     "CareerInterests": "Career Interests",
     "FinTechProduct": "FinTech Strategy & Product",
     "TradingOps": "Trading / Market Operations",
     "DataAnalysis": "Business / Data Analysis",
     "MarketInfra": "Market & Risk Analysis",
-    "FocusAreas": "Focus Areas",
-    "TradingInfra": "Product Strategy",
-    "DataAnalysisSkill": "Market Analysis",
-    "MarketMicrostructure": "Business Analysis",
-    "BusinessToSystem": "Execution Quality",
-    "AiNativeWorkflow": "AI-Native Workflow"
+    "FocusAreas": "Working Methods",
+    "TradingInfra": "System Design",
+    "DataAnalysisSkill": "Data Analysis",
+    "MarketMicrostructure": "Workflow Design",
+    "BusinessToSystem": "Prototyping",
+    "AiNativeWorkflow": "AI-Native Development"
   },
   "Metadata": {
     "title": "Kyle Wu — FinTech Builder | Product Strategy & Market Analysis",
     "socialTitle": "Kyle Wu | FinTech Product Strategy & Market Analysis",
     "titleShort": "Kyle Wu",
-    "description": "Kyle Wu is a Taiwan-based FinTech builder focused on product strategy, market analysis, digital finance, and AI-native software, joining Warwick in 2026.",
+    "description": "Kyle Wu: FinTech builder exploring product strategy, market analysis, and digital publishing. Warwick MSc Financial Technology, 2026–27.",
     "socialDescription": "Taiwan-based FinTech builder working across product strategy, market analysis, digital finance, and AI-native software.",
     "resumeTitle": "Resume",
     "resumeDescription": "Kyle Wu's resume covering FinTech product strategy, market analysis, venture building, selected projects, professional experience, and education.",
