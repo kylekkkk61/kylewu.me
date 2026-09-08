@@ -75,6 +75,34 @@ export function SiteHeader({
     })
   }
 
+  const handleSectionClick = (event: React.MouseEvent<HTMLAnchorElement>) => {
+    setIsMobileMenuOpen(false)
+    if (
+      event.defaultPrevented ||
+      event.button !== 0 ||
+      event.metaKey ||
+      event.ctrlKey ||
+      event.shiftKey ||
+      event.altKey
+    )
+      return
+
+    const destination = new URL(event.currentTarget.href)
+    if (!destination.hash || destination.href !== window.location.href) return
+    const target = document.getElementById(destination.hash.slice(1))
+    if (!target) return
+
+    // Next.js skips scrolling when neither the route nor its hash changes.
+    event.preventDefault()
+    // Let the mobile dialog close and release its scroll lock first.
+    requestAnimationFrame(() => {
+      target.scrollIntoView({
+        behavior: "instant",
+        block: "start",
+      })
+    })
+  }
+
   return (
     <header className="bg-background sticky top-0 z-50 w-full">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:px-8">
@@ -113,6 +141,7 @@ export function SiteHeader({
               key={link.href}
               href={link.href}
               aria-current={link.isActive ? "page" : undefined}
+              onClick={handleSectionClick}
               className={cn(
                 "hover:text-foreground transition-colors",
                 link.isActive && "text-foreground",
@@ -160,7 +189,7 @@ export function SiteHeader({
 
           <Link
             href="/#contact"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={handleSectionClick}
             className={cn(
               buttonVariants({ variant: "outline" }),
               "hidden sm:inline-flex",
@@ -214,7 +243,7 @@ export function SiteHeader({
                 "text-foreground text-lg font-medium transition-colors dark:hover:text-white hover:text-foreground",
                 link.isActive && "text-primary",
               )}
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={handleSectionClick}
             >
               {link.label}
             </Link>
@@ -222,7 +251,7 @@ export function SiteHeader({
           <Link
             href="/#contact"
             className="text-foreground text-lg font-medium transition-colors dark:hover:text-white hover:text-foreground"
-            onClick={() => setIsMobileMenuOpen(false)}
+            onClick={handleSectionClick}
           >
             {t("Contact")}
           </Link>

@@ -83,3 +83,44 @@ describe("mobile navigation lifecycle", () => {
     expect(desktop.removeEventListener).toHaveBeenCalled()
   })
 })
+
+describe("repeated section navigation", () => {
+  afterEach(() => window.history.replaceState(null, "", "/"))
+
+  it.each(["work", "how-i-work", "about", "contact"])(
+    "scrolls to %s again when the URL already has that hash",
+    (id) => {
+      window.history.replaceState(null, "", `/#${id}`)
+      vi.stubGlobal(
+        "requestAnimationFrame",
+        (callback: FrameRequestCallback) => {
+          callback(0)
+          return 1
+        },
+      )
+      const view = render(
+        <>
+          <SiteHeader profile={getProfile("en")} />
+          <section id={id}>Target</section>
+        </>,
+      )
+      const target = view.getByText("Target")
+      const scrollIntoView = vi.fn()
+      Object.defineProperty(target, "scrollIntoView", { value: scrollIntoView })
+      const link = view.container.querySelector(`a[href="/#${id}"]`)
+      if (!link) throw new Error(`Missing navigation link: ${id}`)
+      fireEvent.click(link)
+      fireEvent.click(link)
+      expect(scrollIntoView).toHaveBeenCalledTimes(2)
+      expect(scrollIntoView).toHaveBeenLastCalledWith({
+        behavior: "instant",
+        block: "start",
+      })
+      fireEvent.click(link, { ctrlKey: true })
+      expect(scrollIntoView).toHaveBeenCalledTimes(2)
+      window.history.replaceState(null, "", `/writing#${id}`)
+      fireEvent.click(link)
+      expect(scrollIntoView).toHaveBeenCalledTimes(2)
+    },
+  )
+})
