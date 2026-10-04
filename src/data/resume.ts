@@ -33,8 +33,8 @@ const resumeEn: ResumeData = {
   education: [
     {
       school: "Warwick Business School",
-      degree: "MSc Financial Technology (25% Scholarship)",
-      period: "2026–27 academic year",
+      degree: "MSc Financial Technology Student (25% Scholarship)",
+      period: "Sep 2026 - Sep 2027",
     },
     {
       school: "National Cheng Kung University (NCKU), Taiwan",
@@ -79,11 +79,12 @@ const resumeEn: ResumeData = {
     },
     {
       title: "Prinsur",
-      role: "Co-founder, InsurTech Product Strategy (Non-operating / Advisory)",
+      role: "Co-founder (Non-operating; Advisory)",
       period: "Sep 2025 - Present",
       bullets: [
         "Conducted market research and competitive analysis; supported product strategy, business-model design, GTM planning, pricing assumptions, and early validation discussions with Taiwanese insurance distribution partners.",
         "Produced pitch decks, product mockups, and funding materials; assessed regulatory and brokerage-licence constraints that informed a pivot towards a B2B adviser workflow.",
+        "Provide occasional advisory feedback to the co-founders on saidtrack, an AI meeting assistant delivering real-time, objective-led conversation guidance.",
       ],
     },
   ],
@@ -137,8 +138,8 @@ const resumeZh: ResumeData = {
   education: [
     {
       school: "華威商學院（Warwick Business School）",
-      degree: "金融科技理學碩士（25% 獎學金）",
-      period: "2026–27 學年",
+      degree: "金融科技理學碩士在學（25% 獎學金）",
+      period: "2026 年 9 月至 2027 年 9 月",
     },
     {
       school: "國立成功大學",
@@ -183,11 +184,12 @@ const resumeZh: ResumeData = {
     },
     {
       title: "Prinsur",
-      role: "共同創辦人｜InsurTech 產品策略（非營運／顧問角色）",
+      role: "共同創辦人（非營運／顧問角色）",
       period: "2025 年 9 月至今",
       bullets: [
         "進行市場研究與競爭分析，支援產品策略、商業模式設計、市場進入規劃、定價假設，以及與台灣保險通路合作夥伴的早期驗證討論。",
         "製作募資簡報、產品原型與資金申請資料；評估法規與保險經紀業執照限制，作為產品轉向 B2B 顧問工作流程的依據。",
+        "不定期向共同創辦人提供 saidtrack 的顧問回饋；saidtrack 是一款 AI 會議助理，提供即時、以目標為導向的對話引導。",
       ],
     },
   ],
