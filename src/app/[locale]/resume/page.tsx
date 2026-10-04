@@ -230,6 +230,7 @@ export default async function ResumePage({ params }: Props) {
               <ResumeSection title={t("Skills")}>
                 <dl className="space-y-5 text-sm">
                   {[
+                    [t("AiWorkflow"), resume.skills.aiWorkflow],
                     [t("Technical"), resume.skills.technical],
                     [t("Analytics"), resume.skills.analytics],
                     [t("BusinessProduct"), resume.skills.businessProduct],

@@ -22,6 +22,7 @@ export type ResumeData = {
   experience: ResumeEntry[]
   leadership: ResumeEntry[]
   skills: {
+    aiWorkflow: string
     technical: string
     analytics: string
     businessProduct: string
@@ -78,6 +79,14 @@ const resumeEn: ResumeData = {
       ],
     },
     {
+      title: "White-hat Security Research",
+      role: "AI-assisted Research Project",
+      period: "2026",
+      bullets: [
+        "Earned over EUR 20,000 in bug bounties within two months through white-hat security research supported by self-orchestrated AI workflows.",
+      ],
+    },
+    {
       title: "Prinsur",
       role: "Co-founder (Non-operating; Advisory)",
       period: "Sep 2025 - Present",
@@ -123,6 +132,8 @@ const resumeEn: ResumeData = {
     },
   ],
   skills: {
+    aiWorkflow:
+      "Codex; AI workflow orchestration for research, software development and white-hat security",
     technical:
       "Python, pandas, Excel, PostgreSQL, Docker Compose, GitHub Actions, pytest, mypy, Ruff, Alembic, TradingView / Pine Script",
     analytics:
@@ -183,6 +194,14 @@ const resumeZh: ResumeData = {
       ],
     },
     {
+      title: "白帽資安研究",
+      role: "AI 輔助研究專案",
+      period: "2026",
+      bullets: [
+        "透過自行編排的 AI 工作流程進行白帽資安研究，在兩個月內取得超過 €20,000 的漏洞賞金。",
+      ],
+    },
+    {
       title: "Prinsur",
       role: "共同創辦人（非營運／顧問角色）",
       period: "2025 年 9 月至今",
@@ -228,6 +247,7 @@ const resumeZh: ResumeData = {
     },
   ],
   skills: {
+    aiWorkflow: "Codex；研究、軟體開發與白帽資安的 AI 工作流程編排",
     technical:
       "Python、pandas、Excel、PostgreSQL、Docker Compose、GitHub Actions、pytest、mypy、Ruff、Alembic、TradingView／Pine Script",
     analytics: "市場微結構分析、執行品質分析、數位資產研究、Google Analytics",

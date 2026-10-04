@@ -1,9 +1,9 @@
 export const siteConfig = {
   url: "https://kylewu.me",
   name: "Kyle Wu",
-  title: "Kyle Wu — FinTech Builder | Product Strategy & Market Analysis",
+  title: "Kyle Wu — FinTech Builder | Product Strategy & AI Workflows",
   description:
-    "Kyle Wu: FinTech builder exploring product strategy, market analysis, and digital publishing. Warwick MSc Financial Technology, 2026–27.",
+    "Kyle Wu: FinTech builder combining product strategy, data analysis, and AI workflow orchestration with Codex. Warwick MSc Financial Technology, 2026–27.",
   locales: ["en", "zh-TW"],
   defaultLocale: "en",
 }
