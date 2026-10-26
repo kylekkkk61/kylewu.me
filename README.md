@@ -27,18 +27,18 @@ A bilingual portfolio showcasing fintech product strategy, market analysis, vent
 
 ## Tech Stack
 
-| Area                  | Choice                                       |
-| :-------------------- | :------------------------------------------- |
-| **Runtime / Core**    | `Node.js 24` + `Next.js 16.2.10 (App Router)` |
-| **Language**          | `TypeScript 7.0.2` (strict)                   |
-| **UI & Styling**      | `React 19.2.7` + `Tailwind CSS 4.3.2`         |
-| **Component Library** | `shadcn/ui`                                   |
-| **i18n**              | `next-intl` (`en` / `zh-TW`)                 |
-| **Package Manager**   | `pnpm 11.6.0` (Corepack pinned)              |
-| **Lint / Format**     | `Biome 2.5.3` (integrated Rust toolchain)    |
+| Area                  | Choice                                                    |
+| :-------------------- | :-------------------------------------------------------- |
+| **Runtime / Core**    | `Node.js 24` + `Next.js 16.2.10 (App Router)`             |
+| **Language**          | `TypeScript 7.0.2` (strict)                               |
+| **UI & Styling**      | `React 19.2.7` + `Tailwind CSS 4.3.2`                     |
+| **Component Library** | `shadcn/ui`                                               |
+| **i18n**              | `next-intl` (`en` / `zh-TW`)                              |
+| **Package Manager**   | `pnpm 11.6.0` (Corepack pinned)                           |
+| **Lint / Format**     | `Biome 2.5.3` (integrated Rust toolchain)                 |
 | **CI**                | GitHub Actions (parallel lint / typecheck / test / build) |
-| **Automation**        | Dependabot (weekly, npm + github-actions)    |
-| **Deployment**        | Vercel (Production / Preview)                |
+| **Automation**        | Dependabot (weekly, npm + github-actions)                 |
+| **Deployment**        | Vercel (Production / Preview)                             |
 
 ## Design & Architecture
 
@@ -69,7 +69,6 @@ pnpm dev
 ```
 
 Then open:
-
 - **English (Default)**: http://localhost:3000/
 - **Traditional Chinese**: http://localhost:3000/zh-TW
 
@@ -123,7 +122,6 @@ src/
 ## License
 
 This repository contains software and content under different terms:
-
 - **Source code and technical documentation**: [MIT License](LICENSE)
 - **Original Writing articles and diagrams**: [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 - **Resume, profile, case-study, and brand materials**: All rights reserved unless otherwise stated
