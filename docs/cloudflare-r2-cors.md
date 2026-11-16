@@ -7,6 +7,7 @@ This document explains the CORS cache poisoning issue encountered when serving t
 ## The Problem: CORS Cache Poisoning
 
 When hosting static assets (like PDFs) on S3/R2 with custom subdomains:
+
 1. **Direct Navigation**: If a user visits the asset URL directly (e.g., typing `https://cv.kylewu.me/kyle-wu-resume.pdf` in the browser address bar), the request does not send an `Origin` header. Cloudflare R2 returns a `200 OK` response **without** the `Access-Control-Allow-Origin` header, and the browser caches this response in its disk cache.
 2. **CORS Request Failure**: When the user navigates back to `kylewu.me` and the website tries to load the PDF via AJAX/fetch (which sends an `Origin: https://kylewu.me` header), the browser reuses the cached response from disk. Because the cached response lacks the `Access-Control-Allow-Origin` header, the browser blocks the load, causing a CORS error ("Failed to load PDF").
 
@@ -19,6 +20,7 @@ To ensure the `Access-Control-Allow-Origin` and `Vary: Origin` headers are **alw
 ### Worker Code
 
 Create a Cloudflare Worker with the following JavaScript. It features:
+
 - **Dynamic Origin Whitelist**: Automatically allows `http://localhost:*` (local dev), `*.vercel.app` (Vercel previews), and `https://kylewu.me` (production) while denying untrusted origins.
 - **Conditional Request Handling**: Performs manual Etag verification to return `304 Not Modified` when the file hasn't changed (comparing client browser's cached Etag with R2 object's Etag), saving bandwidth and CPU.
 
@@ -126,6 +128,7 @@ export default {
 ## How to Update the PDF (Developer Workflow)
 
 Because we configured the Cache-Control to **`public, max-age=0, must-revalidate`**:
+
 1. You only need to upload the new PDF (e.g., `kyle-wu-resume.pdf`) to your Cloudflare R2 bucket.
 2. The Worker will automatically detect the new `Etag` mismatch next time any user visits, serving them the new PDF immediately.
 3. **No further frontend code changes (like version query parameter bumps) are required** after the initial `?v=1` setup. The URL in `src/data/links.ts` can remain static forever.

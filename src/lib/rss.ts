@@ -41,7 +41,8 @@ export function createRssResponse(locale: WritingLocale) {
   const writingUrl = `${siteConfig.url}${copy.writingPath}`
   const lastBuildDate = toRssDate(
     entries.reduce(
-      (latest, entry) => (entry.updatedAt > latest ? entry.updatedAt : latest),
+      (latest, entry) =>
+        latest.localeCompare(entry.updatedAt) > 0 ? latest : entry.updatedAt,
       entries[0]?.updatedAt ?? "1970-01-01",
     ),
   )

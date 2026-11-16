@@ -69,6 +69,7 @@ pnpm dev
 ```
 
 Then open:
+
 - **English (Default)**: http://localhost:3000/
 - **Traditional Chinese**: http://localhost:3000/zh-TW
 
@@ -122,6 +123,7 @@ src/
 ## License
 
 This repository contains software and content under different terms:
+
 - **Source code and technical documentation**: [MIT License](LICENSE)
 - **Original Writing articles and diagrams**: [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/)
 - **Resume, profile, case-study, and brand materials**: All rights reserved unless otherwise stated
